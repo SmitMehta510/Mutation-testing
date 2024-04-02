@@ -27,7 +27,7 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public Course updateCourse(Long id, Course course) {
+    public Course updateCourse(CourseDto courseDto) {
         return null;
     }
 

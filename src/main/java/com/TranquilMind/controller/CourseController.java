@@ -1,7 +1,9 @@
 package com.TranquilMind.controller;
 
 import com.TranquilMind.dto.CourseDto;
+import com.TranquilMind.model.Task;
 import com.TranquilMind.service.CourseService;
+import com.TranquilMind.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,9 +17,27 @@ public class CourseController {
     @Autowired
     private CourseService courseService;
 
-    @PostMapping("/admin/add")
+    @Autowired
+    private TaskService taskService;
+
+    @PostMapping("/admin/add-course")
     public ResponseEntity<?> addCourse(@RequestBody CourseDto courseDto){
         return new ResponseEntity<>(courseService.addCourse(courseDto), HttpStatus.CREATED);
+    }
+
+    @PutMapping("/admin/update-course")
+    public ResponseEntity<?> updateCourse(CourseDto courseDto){
+        return new ResponseEntity<>(courseService.updateCourse(courseDto),HttpStatus.OK);
+    }
+
+    @PostMapping("/admin/add-task")
+    public ResponseEntity<?> addTask(@RequestBody Task task){
+        return new ResponseEntity<>(taskService.addTask(task),HttpStatus.OK);
+    }
+
+    @PutMapping("/admin/update-task")
+    public ResponseEntity<?> editTask(@RequestBody Task task){
+        return new ResponseEntity<>(taskService.editTask(task),HttpStatus.OK);
     }
 
     @GetMapping("/get-courses")
@@ -30,18 +50,4 @@ public class CourseController {
         return new ResponseEntity<>(courseService.getCourseById(id),HttpStatus.OK);
     }
 
-//    @GetMapping("/admin/test")
-//    public String testadmin(){
-//        return "admin";
-//    }
-//
-//    @GetMapping("/patient/test")
-//    public String testPatient(){
-//        return "patient";
-//    }
-//
-//    @GetMapping("/test")
-//    public String test(){
-//        return "test";
-//    }
 }

@@ -26,5 +26,6 @@ public class Task {
 
     @ManyToOne
     @JoinColumn(name = "course_id")
+    @Column(nullable = false)
     Course course;
 }
