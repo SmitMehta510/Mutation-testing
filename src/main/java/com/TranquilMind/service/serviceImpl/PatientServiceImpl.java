@@ -30,7 +30,7 @@ public class PatientServiceImpl implements PatientService {
     @Override
     public List<PatientDto> getAllPatients() {
         List<PatientDto> list = new ArrayList<>();
-        patientRepository.findAll().forEach(patient -> list.add(new Patient().toDto(patient)));
+        patientRepository.findAll().forEach(patient -> list.add(patient.toDto()));
         return list;
     }
 
@@ -59,15 +59,16 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public PatientDto getPatientById(Long id) throws ResourceNotFoundException {
-        return new Patient().toDto(patientRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Patient not exist with id :" + id)));
+    public Patient getPatientByUserId(Long id) throws ResourceNotFoundException {
+        return patientRepository.findByUserId(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Patient not exist with id :" + id));
     }
 
     @Override
-    public Patient getPatientByUserId(Long id) {
-        return patientRepository.findByUserId(id)
+    public PatientDto getPatientDtoByUserId(Long id) {
+        Patient patient = patientRepository.findByUserId(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Patient not exist with id :" + id));
+        return patient.toDto();
     }
 
     @Override

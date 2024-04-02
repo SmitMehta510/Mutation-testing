@@ -41,19 +41,18 @@ public class Patient{
     List<EnrolledCourse> enrolledCourses;
 
     @OneToMany(mappedBy = "patient")
+    @JsonManagedReference
     List<Quiz> quizScores;
 
 
-//    public DoctorDto toDto(Doctor doctor){
-//        return new DoctorDto(doctor.getUser().getUserId(),doctor.getUser().getEmail(),
-//                doctor.getFirstName(), doctor.getMiddleName(), doctor.getLastName(), doctor.getAge(),doctor.getGender(),
-//                doctor.getMobileNo(), doctor.getLicenceNo(), doctor.getDescription(), doctor.getConsultationFee(),
-//                doctor.getExperience(), doctor.getIsSenior(),doctor.getIsDisabled());
+//    public PatientDto toDto(Patient patient){
+//        User user = patient.getUser();
+//        return new PatientDto(user.getEmail(),user.getUserId(), patient.getFirstName(),
+//               patient.getMiddleName(), patient.getLastName(), patient.getAge(), patient.getMobileNo(),
+//               patient.getGender());
 //    }
 
-    public PatientDto toDto(Patient patient){
-       return new PatientDto(patient.getUser().getEmail(),patient.getUser().getUserId(), patient.getFirstName(),
-               patient.getMiddleName(), patient.getLastName(), patient.getAge(), patient.getMobileNo(),
-               patient.getGender());
+    public PatientDto toDto(){
+        return new PatientDto(user.getEmail(),user.getUserId(), firstName,middleName,lastName,age,mobileNo,gender);
     }
 }

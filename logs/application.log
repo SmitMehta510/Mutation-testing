@@ -1,175 +1,483 @@
-2024-04-02T15:02:59.179+05:30  INFO 9654 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Starting TranquilMindApplication using Java 17.0.10 with PID 9654 (/home/smit/Spring-projects/TranquilMind/target/classes started by smit in /home/smit/Spring-projects/TranquilMind)
-2024-04-02T15:02:59.185+05:30  INFO 9654 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : No active profile set, falling back to 1 default profile: "default"
-2024-04-02T15:02:59.232+05:30  INFO 9654 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-04-02T15:02:59.232+05:30  INFO 9654 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-04-02T15:02:59.818+05:30  INFO 9654 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-04-02T15:02:59.897+05:30  INFO 9654 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 72 ms. Found 12 JPA repository interfaces.
-2024-04-02T15:03:00.378+05:30  INFO 9654 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
-2024-04-02T15:03:00.386+05:30  INFO 9654 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-04-02T15:03:00.387+05:30  INFO 9654 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-04-02T15:03:00.422+05:30  INFO 9654 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2024-04-02T15:03:00.423+05:30  INFO 9654 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1190 ms
-2024-04-02T15:03:00.533+05:30  INFO 9654 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-04-02T15:03:00.577+05:30  INFO 9654 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
-2024-04-02T15:03:00.610+05:30  INFO 9654 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-04-02T15:03:00.797+05:30  INFO 9654 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-04-02T15:03:00.819+05:30  INFO 9654 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-04-02T15:03:01.069+05:30  INFO 9654 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@69af070b
-2024-04-02T15:03:01.071+05:30  INFO 9654 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-04-02T15:03:02.233+05:30  INFO 9654 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-04-02T15:03:02.684+05:30  INFO 9654 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-04-02T15:03:03.091+05:30  INFO 9654 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-04-02T15:03:03.573+05:30  WARN 9654 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T15:03:03.799+05:30  INFO 9654 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@22c21da3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@144f3934, org.springframework.security.web.context.SecurityContextHolderFilter@53e5982c, org.springframework.security.web.header.HeaderWriterFilter@c536657, org.springframework.security.web.authentication.logout.LogoutFilter@448b6b87, com.TranquilMind.config.JwtAuthenticationFilter@6ca42f81, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7cd75c29, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7705055b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2a70c49d, org.springframework.security.web.session.SessionManagementFilter@18a77031, org.springframework.security.web.access.ExceptionTranslationFilter@155be5c0, org.springframework.security.web.access.intercept.AuthorizationFilter@22f38e5e]
-2024-04-02T15:03:03.998+05:30  INFO 9654 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2024-04-02T15:03:04.034+05:30  INFO 9654 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/api'
-2024-04-02T15:03:04.045+05:30  INFO 9654 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Started TranquilMindApplication in 5.273 seconds (process running for 5.861)
-2024-04-02T15:04:37.274+05:30  INFO 9654 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-04-02T15:04:37.278+05:30  INFO 9654 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-04-02T15:04:37.285+05:30  INFO 9654 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-04-02T15:04:40.462+05:30  INFO 9945 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Starting TranquilMindApplication using Java 17.0.10 with PID 9945 (/home/smit/Spring-projects/TranquilMind/target/classes started by smit in /home/smit/Spring-projects/TranquilMind)
-2024-04-02T15:04:40.465+05:30  INFO 9945 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : No active profile set, falling back to 1 default profile: "default"
-2024-04-02T15:04:40.523+05:30  INFO 9945 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-04-02T15:04:40.524+05:30  INFO 9945 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-04-02T15:04:41.136+05:30  INFO 9945 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-04-02T15:04:41.225+05:30  INFO 9945 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 81 ms. Found 12 JPA repository interfaces.
-2024-04-02T15:04:41.724+05:30  INFO 9945 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
-2024-04-02T15:04:41.734+05:30  INFO 9945 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-04-02T15:04:41.734+05:30  INFO 9945 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-04-02T15:04:41.773+05:30  INFO 9945 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2024-04-02T15:04:41.774+05:30  INFO 9945 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1249 ms
-2024-04-02T15:04:41.888+05:30  INFO 9945 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-04-02T15:04:41.931+05:30  INFO 9945 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
-2024-04-02T15:04:41.967+05:30  INFO 9945 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-04-02T15:04:42.136+05:30  INFO 9945 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-04-02T15:04:42.158+05:30  INFO 9945 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-04-02T15:04:42.422+05:30  INFO 9945 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1a8984d0
-2024-04-02T15:04:42.423+05:30  INFO 9945 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-04-02T15:04:43.443+05:30  INFO 9945 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-04-02T15:04:43.660+05:30  INFO 9945 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-04-02T15:04:44.025+05:30  INFO 9945 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-04-02T15:04:44.504+05:30  WARN 9945 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T15:04:44.721+05:30  INFO 9945 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@37facb66, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2dd288fa, org.springframework.security.web.context.SecurityContextHolderFilter@2338317d, org.springframework.security.web.header.HeaderWriterFilter@5e576ad8, org.springframework.security.web.authentication.logout.LogoutFilter@7a288ff4, com.TranquilMind.config.JwtAuthenticationFilter@3ca7942d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5d401a52, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@57f016c2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4efeaa2d, org.springframework.security.web.session.SessionManagementFilter@37349ad4, org.springframework.security.web.access.ExceptionTranslationFilter@213ce9a2, org.springframework.security.web.access.intercept.AuthorizationFilter@394b5095]
-2024-04-02T15:04:44.951+05:30  INFO 9945 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2024-04-02T15:04:44.985+05:30  INFO 9945 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/api'
-2024-04-02T15:04:44.995+05:30  INFO 9945 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Started TranquilMindApplication in 4.93 seconds (process running for 5.579)
-2024-04-02T15:05:31.508+05:30  INFO 9945 --- [http-nio-8082-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-04-02T15:05:31.508+05:30  INFO 9945 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-04-02T15:05:31.510+05:30  INFO 9945 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2024-04-02T15:05:31.755+05:30  INFO 9945 --- [http-nio-8082-exec-2] c.T.config.JwtAuthenticationFilter       : authenticated user with email :example@example.com
-2024-04-02T15:05:31.827+05:30  WARN 9945 --- [http-nio-8082-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `com.TranquilMind.model.QuizType` (although at least one Creator exists): no int/Int-argument constructor/factory method to deserialize from Number value (1)]
-2024-04-02T15:07:03.141+05:30  INFO 9945 --- [http-nio-8082-exec-5] c.T.config.JwtAuthenticationFilter       : authenticated user with email :example@example.com
-2024-04-02T15:07:03.145+05:30  WARN 9945 --- [http-nio-8082-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `com.TranquilMind.model.QuizType` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('GAD7')]
-2024-04-02T15:07:19.142+05:30  INFO 9945 --- [http-nio-8082-exec-6] c.T.config.JwtAuthenticationFilter       : authenticated user with email :example@example.com
-2024-04-02T15:07:19.145+05:30  WARN 9945 --- [http-nio-8082-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `com.TranquilMind.model.QuizType` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('GAD8')]
-2024-04-02T15:08:39.305+05:30  INFO 9945 --- [http-nio-8082-exec-9] c.T.config.JwtAuthenticationFilter       : authenticated user with email :example@example.com
-2024-04-02T15:08:51.911+05:30  INFO 9945 --- [http-nio-8082-exec-10] c.T.config.JwtAuthenticationFilter       : authenticated user with email :example@example.com
-2024-04-02T15:08:58.698+05:30  INFO 9945 --- [http-nio-8082-exec-1] c.T.config.JwtAuthenticationFilter       : authenticated user with email :example@example.com
-2024-04-02T15:09:49.246+05:30  INFO 9945 --- [http-nio-8082-exec-2] c.T.config.JwtAuthenticationFilter       : authenticated user with email :example@example.com
-2024-04-02T15:09:49.267+05:30  WARN 9945 --- [http-nio-8082-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'com.TranquilMind.model.QuizType'; Failed to convert from type [java.lang.String] to type [java.lang.Long] for value [GAD7]]
-2024-04-02T15:11:25.299+05:30  INFO 9945 --- [http-nio-8082-exec-5] c.T.config.JwtAuthenticationFilter       : authenticated user with email :example@example.com
-2024-04-02T15:11:36.860+05:30  INFO 9945 --- [http-nio-8082-exec-6] c.T.config.JwtAuthenticationFilter       : authenticated user with email :example@example.com
-2024-04-02T15:11:36.870+05:30  WARN 9945 --- [http-nio-8082-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingPathVariableException: Required URI template variable 'quizType' for method parameter type QuizType is present but converted to null]
-2024-04-02T15:11:47.812+05:30  INFO 9945 --- [http-nio-8082-exec-7] c.T.config.JwtAuthenticationFilter       : authenticated user with email :example@example.com
-2024-04-02T15:11:52.556+05:30  INFO 9945 --- [http-nio-8082-exec-8] c.T.config.JwtAuthenticationFilter       : authenticated user with email :example@example.com
-2024-04-02T15:11:54.101+05:30  INFO 9945 --- [http-nio-8082-exec-9] c.T.config.JwtAuthenticationFilter       : authenticated user with email :example@example.com
-2024-04-02T15:19:48.428+05:30  INFO 9945 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 4 class path changes (0 additions, 4 deletions, 0 modifications)
-2024-04-02T15:19:48.443+05:30  INFO 9945 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-04-02T15:19:48.446+05:30  INFO 9945 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-04-02T15:19:48.453+05:30  INFO 9945 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-04-02T15:19:48.555+05:30  INFO 9945 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Starting TranquilMindApplication using Java 17.0.10 with PID 9945 (/home/smit/Spring-projects/TranquilMind/target/classes started by smit in /home/smit/Spring-projects/TranquilMind)
-2024-04-02T15:19:48.556+05:30  INFO 9945 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : No active profile set, falling back to 1 default profile: "default"
-2024-04-02T15:19:48.807+05:30  INFO 9945 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-04-02T15:19:48.838+05:30  INFO 9945 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30 ms. Found 12 JPA repository interfaces.
-2024-04-02T15:19:48.984+05:30  INFO 9945 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
-2024-04-02T15:19:48.985+05:30  INFO 9945 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-04-02T15:19:48.985+05:30  INFO 9945 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-04-02T15:19:48.993+05:30  INFO 9945 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2024-04-02T15:19:48.994+05:30  INFO 9945 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 435 ms
-2024-04-02T15:19:49.053+05:30  INFO 9945 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-04-02T15:19:49.055+05:30  INFO 9945 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-04-02T15:19:49.073+05:30  INFO 9945 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-04-02T15:19:49.075+05:30  INFO 9945 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2024-04-02T15:19:49.103+05:30  INFO 9945 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5daed963
-2024-04-02T15:19:49.103+05:30  INFO 9945 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2024-04-02T15:19:49.371+05:30  INFO 9945 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-04-02T15:19:49.530+05:30  INFO 9945 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-04-02T15:19:49.895+05:30  WARN 9945 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T15:19:49.968+05:30  INFO 9945 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@986e91e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7410d2bb, org.springframework.security.web.context.SecurityContextHolderFilter@3eacbcf4, org.springframework.security.web.header.HeaderWriterFilter@2faf9a33, org.springframework.security.web.authentication.logout.LogoutFilter@30f2ca0f, com.TranquilMind.config.JwtAuthenticationFilter@db37094, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@35796ab3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@66d4002d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@12ff94cc, org.springframework.security.web.session.SessionManagementFilter@3508d3e0, org.springframework.security.web.access.ExceptionTranslationFilter@3866671d, org.springframework.security.web.access.intercept.AuthorizationFilter@2f02ec43]
-2024-04-02T15:19:50.048+05:30  INFO 9945 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2024-04-02T15:19:50.062+05:30  INFO 9945 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/api'
-2024-04-02T15:19:50.068+05:30  INFO 9945 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Started TranquilMindApplication in 1.55 seconds (process running for 910.651)
-2024-04-02T15:19:50.070+05:30  INFO 9945 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2024-04-02T15:19:51.468+05:30  INFO 9945 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 4 class path changes (4 additions, 0 deletions, 0 modifications)
-2024-04-02T15:19:51.481+05:30  INFO 9945 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-04-02T15:19:51.482+05:30  INFO 9945 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
-2024-04-02T15:19:51.485+05:30  INFO 9945 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
-2024-04-02T15:19:51.566+05:30  INFO 9945 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Starting TranquilMindApplication using Java 17.0.10 with PID 9945 (/home/smit/Spring-projects/TranquilMind/target/classes started by smit in /home/smit/Spring-projects/TranquilMind)
-2024-04-02T15:19:51.566+05:30  INFO 9945 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : No active profile set, falling back to 1 default profile: "default"
-2024-04-02T15:19:51.710+05:30  INFO 9945 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-04-02T15:19:51.733+05:30  INFO 9945 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 12 JPA repository interfaces.
-2024-04-02T15:19:51.833+05:30  INFO 9945 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
-2024-04-02T15:19:51.834+05:30  INFO 9945 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-04-02T15:19:51.834+05:30  INFO 9945 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-04-02T15:19:51.842+05:30  INFO 9945 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2024-04-02T15:19:51.842+05:30  INFO 9945 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 274 ms
-2024-04-02T15:19:51.884+05:30  INFO 9945 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-04-02T15:19:51.886+05:30  INFO 9945 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-04-02T15:19:51.889+05:30  INFO 9945 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-04-02T15:19:51.890+05:30  INFO 9945 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
-2024-04-02T15:19:51.902+05:30  INFO 9945 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6f059d50
-2024-04-02T15:19:51.902+05:30  INFO 9945 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
-2024-04-02T15:19:52.104+05:30  INFO 9945 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-04-02T15:19:52.231+05:30  INFO 9945 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-04-02T15:19:52.548+05:30  WARN 9945 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T15:19:52.606+05:30  INFO 9945 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@649a1d20, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@38f48ba2, org.springframework.security.web.context.SecurityContextHolderFilter@f8e7d48, org.springframework.security.web.header.HeaderWriterFilter@af858a9, org.springframework.security.web.authentication.logout.LogoutFilter@673760b9, com.TranquilMind.config.JwtAuthenticationFilter@7b1cdafb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4cc40ac1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4313ee0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7c9dad2c, org.springframework.security.web.session.SessionManagementFilter@45ab455a, org.springframework.security.web.access.ExceptionTranslationFilter@6db5c787, org.springframework.security.web.access.intercept.AuthorizationFilter@602152b]
-2024-04-02T15:19:52.668+05:30  INFO 9945 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2024-04-02T15:19:52.680+05:30  INFO 9945 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/api'
-2024-04-02T15:19:52.686+05:30  INFO 9945 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Started TranquilMindApplication in 1.143 seconds (process running for 913.269)
-2024-04-02T15:19:52.687+05:30  INFO 9945 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2024-04-02T15:20:19.537+05:30  INFO 9945 --- [http-nio-8082-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-04-02T15:20:19.537+05:30  INFO 9945 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-04-02T15:20:19.539+05:30  INFO 9945 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2024-04-02T15:20:19.595+05:30  INFO 9945 --- [http-nio-8082-exec-2] c.T.config.JwtAuthenticationFilter       : authenticated user with email :example@example.com
-2024-04-02T15:20:25.399+05:30  INFO 9945 --- [http-nio-8082-exec-3] c.T.config.JwtAuthenticationFilter       : authenticated user with email :example@example.com
-2024-04-02T15:20:30.233+05:30  INFO 9945 --- [http-nio-8082-exec-4] c.T.config.JwtAuthenticationFilter       : authenticated user with email :example@example.com
-2024-04-02T15:20:43.660+05:30  INFO 9945 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-04-02T15:20:43.661+05:30  INFO 9945 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
-2024-04-02T15:20:43.665+05:30  INFO 9945 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
-2024-04-02T15:22:23.959+05:30  INFO 11593 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Starting TranquilMindApplication using Java 17.0.10 with PID 11593 (/home/smit/Spring-projects/TranquilMind/target/classes started by smit in /home/smit/Spring-projects/TranquilMind)
-2024-04-02T15:22:23.961+05:30  INFO 11593 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : No active profile set, falling back to 1 default profile: "default"
-2024-04-02T15:22:24.010+05:30  INFO 11593 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-04-02T15:22:24.011+05:30  INFO 11593 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-04-02T15:22:24.648+05:30  INFO 11593 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-04-02T15:22:24.735+05:30  INFO 11593 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 80 ms. Found 12 JPA repository interfaces.
-2024-04-02T15:22:25.241+05:30  INFO 11593 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
-2024-04-02T15:22:25.250+05:30  INFO 11593 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-04-02T15:22:25.251+05:30  INFO 11593 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-04-02T15:22:25.291+05:30  INFO 11593 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2024-04-02T15:22:25.291+05:30  INFO 11593 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1280 ms
-2024-04-02T15:22:25.430+05:30  INFO 11593 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-04-02T15:22:25.486+05:30  INFO 11593 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
-2024-04-02T15:22:25.536+05:30  INFO 11593 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-04-02T15:22:25.744+05:30  INFO 11593 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-04-02T15:22:25.771+05:30  INFO 11593 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-04-02T15:22:26.082+05:30  INFO 11593 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@42ccb9
-2024-04-02T15:22:26.084+05:30  INFO 11593 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-04-02T15:22:27.263+05:30  INFO 11593 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-04-02T15:22:27.452+05:30  INFO 11593 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-04-02T15:22:27.813+05:30  INFO 11593 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-04-02T15:22:28.309+05:30  WARN 11593 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-02T15:22:28.529+05:30  INFO 11593 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@ac9dc6c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@265289df, org.springframework.security.web.context.SecurityContextHolderFilter@8fcd52f, org.springframework.security.web.header.HeaderWriterFilter@5796a2ba, org.springframework.security.web.authentication.logout.LogoutFilter@77c6fb3b, com.TranquilMind.config.JwtAuthenticationFilter@6d77c063, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7b0ed912, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@157a0401, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6e7b43f5, org.springframework.security.web.session.SessionManagementFilter@24e63613, org.springframework.security.web.access.ExceptionTranslationFilter@4c41b3c4, org.springframework.security.web.access.intercept.AuthorizationFilter@125b475f]
-2024-04-02T15:22:28.716+05:30  INFO 11593 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2024-04-02T15:22:28.750+05:30  INFO 11593 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/api'
-2024-04-02T15:22:28.760+05:30  INFO 11593 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Started TranquilMindApplication in 5.233 seconds (process running for 5.958)
-2024-04-02T15:23:04.289+05:30  INFO 11593 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-04-02T15:23:04.289+05:30  INFO 11593 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-04-02T15:23:04.291+05:30  INFO 11593 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-04-02T15:23:04.548+05:30  INFO 11593 --- [http-nio-8082-exec-1] c.T.config.JwtAuthenticationFilter       : authenticated user with email :example@example.com
-2024-04-02T15:23:31.202+05:30  INFO 11593 --- [http-nio-8082-exec-3] c.T.config.JwtAuthenticationFilter       : authenticated user with email :example@example.com
-2024-04-02T15:23:39.116+05:30  INFO 11593 --- [http-nio-8082-exec-4] c.T.config.JwtAuthenticationFilter       : authenticated user with email :example@example.com
-2024-04-02T15:23:39.119+05:30  WARN 11593 --- [http-nio-8082-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
-2024-04-02T15:23:47.976+05:30  INFO 11593 --- [http-nio-8082-exec-5] c.T.config.JwtAuthenticationFilter       : authenticated user with email :example@example.com
-2024-04-02T15:24:05.774+05:30  INFO 11593 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-04-02T15:24:05.777+05:30  INFO 11593 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-04-02T15:24:05.784+05:30  INFO 11593 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-02T15:48:17.289+05:30  INFO 13544 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Starting TranquilMindApplication using Java 17.0.10 with PID 13544 (/home/smit/Spring-projects/TranquilMind/target/classes started by smit in /home/smit/Spring-projects/TranquilMind)
+2024-04-02T15:48:17.303+05:30  INFO 13544 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-04-02T15:48:17.355+05:30  INFO 13544 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-02T15:48:17.356+05:30  INFO 13544 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-02T15:48:18.011+05:30  INFO 13544 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-02T15:48:18.097+05:30  INFO 13544 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 79 ms. Found 12 JPA repository interfaces.
+2024-04-02T15:48:18.616+05:30  INFO 13544 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-04-02T15:48:18.624+05:30  INFO 13544 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-02T15:48:18.625+05:30  INFO 13544 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-02T15:48:18.663+05:30  INFO 13544 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2024-04-02T15:48:18.664+05:30  INFO 13544 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1307 ms
+2024-04-02T15:48:18.787+05:30  INFO 13544 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-02T15:48:18.830+05:30  INFO 13544 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-04-02T15:48:18.860+05:30  INFO 13544 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-02T15:48:19.046+05:30  INFO 13544 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-02T15:48:19.068+05:30  INFO 13544 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-02T15:48:19.327+05:30  INFO 13544 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@67041d78
+2024-04-02T15:48:19.329+05:30  INFO 13544 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-02T15:48:20.421+05:30  INFO 13544 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-02T15:48:20.724+05:30  INFO 13544 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T15:48:21.088+05:30  INFO 13544 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-04-02T15:48:21.617+05:30  WARN 13544 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-02T15:48:21.885+05:30  INFO 13544 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4267a85f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7de99939, org.springframework.security.web.context.SecurityContextHolderFilter@309b84bc, org.springframework.security.web.header.HeaderWriterFilter@4b92a19, org.springframework.security.web.authentication.logout.LogoutFilter@7fa796fd, com.TranquilMind.config.JwtAuthenticationFilter@46c564, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@783a418, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@183274, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@74e97912, org.springframework.security.web.session.SessionManagementFilter@5386ba9c, org.springframework.security.web.access.ExceptionTranslationFilter@210060fa, org.springframework.security.web.access.intercept.AuthorizationFilter@7ebee6f0]
+2024-04-02T15:48:22.078+05:30  INFO 13544 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-04-02T15:48:22.118+05:30  INFO 13544 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/api'
+2024-04-02T15:48:22.128+05:30  INFO 13544 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Started TranquilMindApplication in 5.263 seconds (process running for 5.849)
+2024-04-02T15:48:51.451+05:30  INFO 13544 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T15:48:51.454+05:30  INFO 13544 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-02T15:48:51.462+05:30  INFO 13544 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-02T15:48:56.246+05:30  INFO 13747 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Starting TranquilMindApplication using Java 17.0.10 with PID 13747 (/home/smit/Spring-projects/TranquilMind/target/classes started by smit in /home/smit/Spring-projects/TranquilMind)
+2024-04-02T15:48:56.248+05:30  INFO 13747 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-04-02T15:48:56.302+05:30  INFO 13747 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-02T15:48:56.303+05:30  INFO 13747 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-02T15:48:56.950+05:30  INFO 13747 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-02T15:48:57.028+05:30  INFO 13747 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 12 JPA repository interfaces.
+2024-04-02T15:48:57.537+05:30  INFO 13747 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-04-02T15:48:57.546+05:30  INFO 13747 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-02T15:48:57.546+05:30  INFO 13747 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-02T15:48:57.587+05:30  INFO 13747 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2024-04-02T15:48:57.587+05:30  INFO 13747 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1284 ms
+2024-04-02T15:48:57.711+05:30  INFO 13747 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-02T15:48:57.755+05:30  INFO 13747 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-04-02T15:48:57.786+05:30  INFO 13747 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-02T15:48:57.966+05:30  INFO 13747 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-02T15:48:57.988+05:30  INFO 13747 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-02T15:48:58.250+05:30  INFO 13747 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7c6d62c5
+2024-04-02T15:48:58.252+05:30  INFO 13747 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-02T15:48:59.353+05:30  INFO 13747 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-02T15:48:59.608+05:30  INFO 13747 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T15:48:59.943+05:30  INFO 13747 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-04-02T15:49:00.465+05:30  WARN 13747 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-02T15:49:00.690+05:30  INFO 13747 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@cb6976c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@33793452, org.springframework.security.web.context.SecurityContextHolderFilter@21945e68, org.springframework.security.web.header.HeaderWriterFilter@73189cd, org.springframework.security.web.authentication.logout.LogoutFilter@22f38e5e, com.TranquilMind.config.JwtAuthenticationFilter@acbe07d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@79948417, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7e65fd1c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@10285413, org.springframework.security.web.session.SessionManagementFilter@3cd8fb11, org.springframework.security.web.access.ExceptionTranslationFilter@42e26630, org.springframework.security.web.access.intercept.AuthorizationFilter@39d3542a]
+2024-04-02T15:49:00.885+05:30  INFO 13747 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-04-02T15:49:00.923+05:30  INFO 13747 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/api'
+2024-04-02T15:49:00.933+05:30  INFO 13747 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Started TranquilMindApplication in 5.127 seconds (process running for 5.737)
+2024-04-02T15:51:24.496+05:30  INFO 13747 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2024-04-02T15:51:24.510+05:30  INFO 13747 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T15:51:24.513+05:30  INFO 13747 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-02T15:51:24.519+05:30  INFO 13747 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-02T15:51:24.610+05:30  INFO 13747 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Starting TranquilMindApplication using Java 17.0.10 with PID 13747 (/home/smit/Spring-projects/TranquilMind/target/classes started by smit in /home/smit/Spring-projects/TranquilMind)
+2024-04-02T15:51:24.611+05:30  INFO 13747 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-04-02T15:51:24.806+05:30  INFO 13747 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-02T15:51:24.835+05:30  INFO 13747 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28 ms. Found 12 JPA repository interfaces.
+2024-04-02T15:51:24.940+05:30  INFO 13747 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-04-02T15:51:24.941+05:30  INFO 13747 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-02T15:51:24.941+05:30  INFO 13747 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-02T15:51:24.949+05:30  INFO 13747 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2024-04-02T15:51:24.949+05:30  INFO 13747 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 336 ms
+2024-04-02T15:51:24.986+05:30  INFO 13747 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-02T15:51:24.988+05:30  INFO 13747 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-02T15:51:24.990+05:30  INFO 13747 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-02T15:51:24.991+05:30  INFO 13747 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-04-02T15:51:25.004+05:30  INFO 13747 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3b499a1c
+2024-04-02T15:51:25.005+05:30  INFO 13747 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-04-02T15:51:25.256+05:30  INFO 13747 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-02T15:51:25.385+05:30  INFO 13747 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T15:51:25.695+05:30  WARN 13747 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-02T15:51:25.760+05:30  INFO 13747 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@774c345a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5d059b09, org.springframework.security.web.context.SecurityContextHolderFilter@60b2ca11, org.springframework.security.web.header.HeaderWriterFilter@1a3c8fb2, org.springframework.security.web.authentication.logout.LogoutFilter@a7412e8, com.TranquilMind.config.JwtAuthenticationFilter@6987e899, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6d11d48, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@786e533f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@52e691f7, org.springframework.security.web.session.SessionManagementFilter@8d18b7e, org.springframework.security.web.access.ExceptionTranslationFilter@4835d611, org.springframework.security.web.access.intercept.AuthorizationFilter@ebc29af]
+2024-04-02T15:51:25.830+05:30  INFO 13747 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-04-02T15:51:25.843+05:30  INFO 13747 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/api'
+2024-04-02T15:51:25.848+05:30  INFO 13747 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Started TranquilMindApplication in 1.271 seconds (process running for 150.652)
+2024-04-02T15:51:25.850+05:30  INFO 13747 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-04-02T15:52:09.554+05:30  INFO 13747 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2024-04-02T15:52:09.561+05:30  INFO 13747 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T15:52:09.562+05:30  INFO 13747 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-04-02T15:52:09.566+05:30  INFO 13747 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2024-04-02T15:52:09.661+05:30  INFO 13747 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Starting TranquilMindApplication using Java 17.0.10 with PID 13747 (/home/smit/Spring-projects/TranquilMind/target/classes started by smit in /home/smit/Spring-projects/TranquilMind)
+2024-04-02T15:52:09.661+05:30  INFO 13747 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-04-02T15:52:09.864+05:30  INFO 13747 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-02T15:52:09.890+05:30  INFO 13747 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25 ms. Found 13 JPA repository interfaces.
+2024-04-02T15:52:10.016+05:30  INFO 13747 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-04-02T15:52:10.016+05:30  INFO 13747 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-02T15:52:10.016+05:30  INFO 13747 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-02T15:52:10.024+05:30  INFO 13747 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2024-04-02T15:52:10.024+05:30  INFO 13747 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 361 ms
+2024-04-02T15:52:10.063+05:30  INFO 13747 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-02T15:52:10.067+05:30  INFO 13747 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-02T15:52:10.073+05:30  INFO 13747 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-02T15:52:10.075+05:30  INFO 13747 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2024-04-02T15:52:10.102+05:30  INFO 13747 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2e35c07c
+2024-04-02T15:52:10.103+05:30  INFO 13747 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2024-04-02T15:52:10.356+05:30  INFO 13747 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-02T15:52:10.517+05:30  INFO 13747 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T15:52:10.870+05:30  WARN 13747 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-02T15:52:10.941+05:30  INFO 13747 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3a86cac5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@322e5b33, org.springframework.security.web.context.SecurityContextHolderFilter@1ee84672, org.springframework.security.web.header.HeaderWriterFilter@49f65530, org.springframework.security.web.authentication.logout.LogoutFilter@9903610, com.TranquilMind.config.JwtAuthenticationFilter@28dd41b1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@49f03b8c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3254b857, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@513ed66b, org.springframework.security.web.session.SessionManagementFilter@a7dbb30, org.springframework.security.web.access.ExceptionTranslationFilter@6a47a112, org.springframework.security.web.access.intercept.AuthorizationFilter@56f5ce8c]
+2024-04-02T15:52:11.027+05:30  INFO 13747 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-04-02T15:52:11.049+05:30  INFO 13747 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/api'
+2024-04-02T15:52:11.055+05:30  INFO 13747 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Started TranquilMindApplication in 1.419 seconds (process running for 195.859)
+2024-04-02T15:52:11.057+05:30  INFO 13747 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-04-02T15:52:12.444+05:30  INFO 13747 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 2 class path changes (2 additions, 0 deletions, 0 modifications)
+2024-04-02T15:52:12.457+05:30  INFO 13747 --- [Thread-11] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T15:52:12.459+05:30  INFO 13747 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2024-04-02T15:52:12.468+05:30  INFO 13747 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2024-04-02T15:52:12.552+05:30  INFO 13747 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Starting TranquilMindApplication using Java 17.0.10 with PID 13747 (/home/smit/Spring-projects/TranquilMind/target/classes started by smit in /home/smit/Spring-projects/TranquilMind)
+2024-04-02T15:52:12.552+05:30  INFO 13747 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-04-02T15:52:12.697+05:30  INFO 13747 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-02T15:52:12.724+05:30  INFO 13747 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 13 JPA repository interfaces.
+2024-04-02T15:52:12.841+05:30  INFO 13747 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-04-02T15:52:12.841+05:30  INFO 13747 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-02T15:52:12.842+05:30  INFO 13747 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-02T15:52:12.850+05:30  INFO 13747 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2024-04-02T15:52:12.850+05:30  INFO 13747 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 296 ms
+2024-04-02T15:52:12.889+05:30  INFO 13747 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-02T15:52:12.891+05:30  INFO 13747 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-02T15:52:12.894+05:30  INFO 13747 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-02T15:52:12.895+05:30  INFO 13747 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2024-04-02T15:52:12.908+05:30  INFO 13747 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7293fce3
+2024-04-02T15:52:12.908+05:30  INFO 13747 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2024-04-02T15:52:13.115+05:30  INFO 13747 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-02T15:52:13.244+05:30  INFO 13747 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T15:52:13.538+05:30  WARN 13747 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-02T15:52:13.601+05:30  INFO 13747 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@20f0c766, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@10711d83, org.springframework.security.web.context.SecurityContextHolderFilter@5f248721, org.springframework.security.web.header.HeaderWriterFilter@176a20e, org.springframework.security.web.authentication.logout.LogoutFilter@7ec9df04, com.TranquilMind.config.JwtAuthenticationFilter@33732f5d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@541d2cef, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@60cf92b0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2438bc35, org.springframework.security.web.session.SessionManagementFilter@5336c660, org.springframework.security.web.access.ExceptionTranslationFilter@11a34228, org.springframework.security.web.access.intercept.AuthorizationFilter@5fc8aea5]
+2024-04-02T15:52:13.683+05:30  INFO 13747 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-04-02T15:52:13.695+05:30  INFO 13747 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/api'
+2024-04-02T15:52:13.700+05:30  INFO 13747 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Started TranquilMindApplication in 1.169 seconds (process running for 198.503)
+2024-04-02T15:52:13.702+05:30  INFO 13747 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-04-02T15:53:40.816+05:30  INFO 13747 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 2 class path changes (0 additions, 2 deletions, 0 modifications)
+2024-04-02T15:53:40.823+05:30  INFO 13747 --- [Thread-15] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T15:53:40.824+05:30  INFO 13747 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2024-04-02T15:53:40.831+05:30  INFO 13747 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2024-04-02T15:53:40.912+05:30  INFO 13747 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Starting TranquilMindApplication using Java 17.0.10 with PID 13747 (/home/smit/Spring-projects/TranquilMind/target/classes started by smit in /home/smit/Spring-projects/TranquilMind)
+2024-04-02T15:53:40.912+05:30  INFO 13747 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-04-02T15:53:41.142+05:30  INFO 13747 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-02T15:53:41.188+05:30  INFO 13747 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 45 ms. Found 13 JPA repository interfaces.
+2024-04-02T15:53:41.375+05:30  INFO 13747 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-04-02T15:53:41.376+05:30  INFO 13747 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-02T15:53:41.376+05:30  INFO 13747 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-02T15:53:41.385+05:30  INFO 13747 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2024-04-02T15:53:41.385+05:30  INFO 13747 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 471 ms
+2024-04-02T15:53:41.452+05:30  INFO 13747 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-02T15:53:41.455+05:30  INFO 13747 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-02T15:53:41.459+05:30  INFO 13747 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-02T15:53:41.460+05:30  INFO 13747 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2024-04-02T15:53:41.481+05:30  INFO 13747 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2fa8a330
+2024-04-02T15:53:41.481+05:30  INFO 13747 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2024-04-02T15:53:41.787+05:30  INFO 13747 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-02T15:53:41.943+05:30  INFO 13747 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T15:53:42.300+05:30  WARN 13747 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-02T15:53:42.374+05:30  INFO 13747 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6df200dd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4dd60aef, org.springframework.security.web.context.SecurityContextHolderFilter@146ef21d, org.springframework.security.web.header.HeaderWriterFilter@1efaa19f, org.springframework.security.web.authentication.logout.LogoutFilter@6758eb9f, com.TranquilMind.config.JwtAuthenticationFilter@6e3fdb7a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5ecbeb5d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@15764f42, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6892c74a, org.springframework.security.web.session.SessionManagementFilter@25a6909c, org.springframework.security.web.access.ExceptionTranslationFilter@3b0e3c39, org.springframework.security.web.access.intercept.AuthorizationFilter@41632aee]
+2024-04-02T15:53:42.465+05:30  INFO 13747 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-04-02T15:53:42.479+05:30  INFO 13747 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/api'
+2024-04-02T15:53:42.485+05:30  INFO 13747 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Started TranquilMindApplication in 1.595 seconds (process running for 287.288)
+2024-04-02T15:53:42.486+05:30  INFO 13747 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-04-02T15:53:43.872+05:30  INFO 13747 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 3 class path changes (3 additions, 0 deletions, 0 modifications)
+2024-04-02T15:53:43.877+05:30  INFO 13747 --- [Thread-19] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T15:53:43.878+05:30  INFO 13747 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2024-04-02T15:53:43.881+05:30  INFO 13747 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2024-04-02T15:53:43.952+05:30  INFO 13747 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Starting TranquilMindApplication using Java 17.0.10 with PID 13747 (/home/smit/Spring-projects/TranquilMind/target/classes started by smit in /home/smit/Spring-projects/TranquilMind)
+2024-04-02T15:53:43.952+05:30  INFO 13747 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-04-02T15:53:44.083+05:30  INFO 13747 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-02T15:53:44.109+05:30  INFO 13747 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25 ms. Found 13 JPA repository interfaces.
+2024-04-02T15:53:44.216+05:30  INFO 13747 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-04-02T15:53:44.217+05:30  INFO 13747 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-02T15:53:44.217+05:30  INFO 13747 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-02T15:53:44.223+05:30  INFO 13747 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2024-04-02T15:53:44.223+05:30  INFO 13747 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 270 ms
+2024-04-02T15:53:44.260+05:30  INFO 13747 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-02T15:53:44.262+05:30  INFO 13747 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-02T15:53:44.265+05:30  INFO 13747 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-02T15:53:44.265+05:30  INFO 13747 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2024-04-02T15:53:44.277+05:30  INFO 13747 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@59a3d916
+2024-04-02T15:53:44.277+05:30  INFO 13747 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2024-04-02T15:53:44.522+05:30  INFO 13747 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-02T15:53:44.652+05:30  INFO 13747 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T15:53:44.984+05:30  WARN 13747 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-02T15:53:45.045+05:30  INFO 13747 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1e4fbace, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5f4085bb, org.springframework.security.web.context.SecurityContextHolderFilter@7f0fabe6, org.springframework.security.web.header.HeaderWriterFilter@5e81c6d5, org.springframework.security.web.authentication.logout.LogoutFilter@25dc824e, com.TranquilMind.config.JwtAuthenticationFilter@4003241e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@62cd1fa6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@322aca44, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4476ca56, org.springframework.security.web.session.SessionManagementFilter@20f6a8f3, org.springframework.security.web.access.ExceptionTranslationFilter@57b94cc5, org.springframework.security.web.access.intercept.AuthorizationFilter@4bfa0e2e]
+2024-04-02T15:53:45.120+05:30  INFO 13747 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-04-02T15:53:45.131+05:30  INFO 13747 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/api'
+2024-04-02T15:53:45.136+05:30  INFO 13747 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Started TranquilMindApplication in 1.205 seconds (process running for 289.939)
+2024-04-02T15:53:45.137+05:30  INFO 13747 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-04-02T15:53:46.708+05:30  INFO 13747 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T15:53:46.708+05:30  INFO 13747 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2024-04-02T15:53:46.711+05:30  INFO 13747 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2024-04-02T16:04:45.972+05:30  INFO 14771 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Starting TranquilMindApplication using Java 17.0.10 with PID 14771 (/home/smit/Spring-projects/TranquilMind/target/classes started by smit in /home/smit/Spring-projects/TranquilMind)
+2024-04-02T16:04:45.974+05:30  INFO 14771 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-04-02T16:04:46.034+05:30  INFO 14771 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-02T16:04:46.034+05:30  INFO 14771 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-02T16:04:46.712+05:30  INFO 14771 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-02T16:04:46.797+05:30  INFO 14771 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 77 ms. Found 13 JPA repository interfaces.
+2024-04-02T16:04:47.333+05:30  INFO 14771 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-04-02T16:04:47.341+05:30  INFO 14771 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-02T16:04:47.342+05:30  INFO 14771 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-02T16:04:47.377+05:30  INFO 14771 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2024-04-02T16:04:47.377+05:30  INFO 14771 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1342 ms
+2024-04-02T16:04:47.495+05:30  INFO 14771 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-02T16:04:47.548+05:30  INFO 14771 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-04-02T16:04:47.588+05:30  INFO 14771 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-02T16:04:47.787+05:30  INFO 14771 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-02T16:04:47.811+05:30  INFO 14771 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-02T16:04:48.129+05:30  INFO 14771 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@55f9e83
+2024-04-02T16:04:48.130+05:30  INFO 14771 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-02T16:04:49.259+05:30  INFO 14771 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-02T16:04:49.430+05:30  INFO 14771 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T16:04:49.801+05:30  INFO 14771 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-04-02T16:04:50.357+05:30  WARN 14771 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-02T16:04:50.607+05:30  INFO 14771 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@746359da, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@b393259, org.springframework.security.web.context.SecurityContextHolderFilter@183274, org.springframework.security.web.header.HeaderWriterFilter@61d86d8f, org.springframework.security.web.authentication.logout.LogoutFilter@21ede1a8, com.TranquilMind.config.JwtAuthenticationFilter@4f41fe86, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@469ccb8d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5ca51422, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3a285256, org.springframework.security.web.session.SessionManagementFilter@309b84bc, org.springframework.security.web.access.ExceptionTranslationFilter@791aa215, org.springframework.security.web.access.intercept.AuthorizationFilter@7de99939]
+2024-04-02T16:04:50.811+05:30  INFO 14771 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-04-02T16:04:50.850+05:30  INFO 14771 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/api'
+2024-04-02T16:04:50.862+05:30  INFO 14771 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Started TranquilMindApplication in 5.299 seconds (process running for 5.964)
+2024-04-02T16:04:58.329+05:30  INFO 14771 --- [http-nio-8082-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-02T16:04:58.329+05:30  INFO 14771 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-04-02T16:04:58.330+05:30  INFO 14771 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-04-02T16:04:58.549+05:30  INFO 14771 --- [http-nio-8082-exec-2] c.T.config.JwtAuthenticationFilter       : authenticated user with email :example@example.com
+2024-04-02T16:05:24.624+05:30  INFO 14771 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T16:05:24.630+05:30  INFO 14771 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-02T16:05:24.639+05:30  INFO 14771 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-02T16:05:28.442+05:30  INFO 14986 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Starting TranquilMindApplication using Java 17.0.10 with PID 14986 (/home/smit/Spring-projects/TranquilMind/target/classes started by smit in /home/smit/Spring-projects/TranquilMind)
+2024-04-02T16:05:28.444+05:30  INFO 14986 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-04-02T16:05:28.493+05:30  INFO 14986 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-02T16:05:28.494+05:30  INFO 14986 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-02T16:05:29.124+05:30  INFO 14986 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-02T16:05:29.216+05:30  INFO 14986 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 85 ms. Found 13 JPA repository interfaces.
+2024-04-02T16:05:29.741+05:30  INFO 14986 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-04-02T16:05:29.751+05:30  INFO 14986 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-02T16:05:29.751+05:30  INFO 14986 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-02T16:05:29.792+05:30  INFO 14986 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2024-04-02T16:05:29.792+05:30  INFO 14986 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1298 ms
+2024-04-02T16:05:29.914+05:30  INFO 14986 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-02T16:05:29.957+05:30  INFO 14986 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-04-02T16:05:29.986+05:30  INFO 14986 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-02T16:05:30.171+05:30  INFO 14986 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-02T16:05:30.194+05:30  INFO 14986 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-02T16:05:30.485+05:30  INFO 14986 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@55f9e83
+2024-04-02T16:05:30.487+05:30  INFO 14986 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-02T16:05:31.545+05:30  INFO 14986 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-02T16:05:31.715+05:30  INFO 14986 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T16:05:32.077+05:30  INFO 14986 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-04-02T16:05:32.615+05:30  WARN 14986 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-02T16:05:32.867+05:30  INFO 14986 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@746359da, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@b393259, org.springframework.security.web.context.SecurityContextHolderFilter@183274, org.springframework.security.web.header.HeaderWriterFilter@61d86d8f, org.springframework.security.web.authentication.logout.LogoutFilter@21ede1a8, com.TranquilMind.config.JwtAuthenticationFilter@4f41fe86, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@469ccb8d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5ca51422, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3a285256, org.springframework.security.web.session.SessionManagementFilter@309b84bc, org.springframework.security.web.access.ExceptionTranslationFilter@791aa215, org.springframework.security.web.access.intercept.AuthorizationFilter@7de99939]
+2024-04-02T16:05:33.076+05:30  INFO 14986 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-04-02T16:05:33.114+05:30  INFO 14986 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/api'
+2024-04-02T16:05:33.126+05:30  INFO 14986 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Started TranquilMindApplication in 5.068 seconds (process running for 5.682)
+2024-04-02T16:05:55.333+05:30  INFO 14986 --- [http-nio-8082-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-02T16:05:55.333+05:30  INFO 14986 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-04-02T16:05:55.335+05:30  INFO 14986 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-04-02T16:05:55.590+05:30  INFO 14986 --- [http-nio-8082-exec-2] c.T.config.JwtAuthenticationFilter       : authenticated user with email :example@example.com
+2024-04-02T16:08:51.825+05:30  INFO 14986 --- [http-nio-8082-exec-5] com.TranquilMind.config.JwtUtilities     : Expired JWT token.
+2024-04-02T16:09:10.765+05:30  INFO 14986 --- [http-nio-8082-exec-6] c.T.config.JwtAuthenticationFilter       : authenticated user with email :example@example.com
+2024-04-02T16:09:47.261+05:30  INFO 14986 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T16:09:47.265+05:30  INFO 14986 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-02T16:09:47.274+05:30  INFO 14986 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-02T16:09:51.034+05:30  INFO 15564 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Starting TranquilMindApplication using Java 17.0.10 with PID 15564 (/home/smit/Spring-projects/TranquilMind/target/classes started by smit in /home/smit/Spring-projects/TranquilMind)
+2024-04-02T16:09:51.036+05:30  INFO 15564 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-04-02T16:09:51.094+05:30  INFO 15564 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-02T16:09:51.095+05:30  INFO 15564 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-02T16:09:51.755+05:30  INFO 15564 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-02T16:09:51.848+05:30  INFO 15564 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 85 ms. Found 13 JPA repository interfaces.
+2024-04-02T16:09:52.403+05:30  INFO 15564 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-04-02T16:09:52.412+05:30  INFO 15564 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-02T16:09:52.413+05:30  INFO 15564 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-02T16:09:52.451+05:30  INFO 15564 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2024-04-02T16:09:52.451+05:30  INFO 15564 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1355 ms
+2024-04-02T16:09:52.579+05:30  INFO 15564 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-02T16:09:52.640+05:30  INFO 15564 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-04-02T16:09:52.676+05:30  INFO 15564 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-02T16:09:52.886+05:30  INFO 15564 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-02T16:09:52.911+05:30  INFO 15564 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-02T16:09:53.229+05:30  INFO 15564 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@67dd8880
+2024-04-02T16:09:53.231+05:30  INFO 15564 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-02T16:09:54.435+05:30  INFO 15564 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-02T16:09:54.615+05:30  INFO 15564 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T16:09:54.976+05:30  INFO 15564 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-04-02T16:09:55.512+05:30  WARN 15564 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-02T16:09:55.748+05:30  INFO 15564 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4ee5be66, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@31cf5ab, org.springframework.security.web.context.SecurityContextHolderFilter@3a4b056a, org.springframework.security.web.header.HeaderWriterFilter@35896868, org.springframework.security.web.authentication.logout.LogoutFilter@54bf2e35, com.TranquilMind.config.JwtAuthenticationFilter@2e91f1bc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21ede1a8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@62be8b16, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@365f5704, org.springframework.security.web.session.SessionManagementFilter@1c7fcab1, org.springframework.security.web.access.ExceptionTranslationFilter@5b1b33e3, org.springframework.security.web.access.intercept.AuthorizationFilter@1568408]
+2024-04-02T16:09:55.941+05:30  INFO 15564 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-04-02T16:09:55.978+05:30  INFO 15564 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/api'
+2024-04-02T16:09:55.989+05:30  INFO 15564 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Started TranquilMindApplication in 5.373 seconds (process running for 5.998)
+2024-04-02T16:10:00.153+05:30  INFO 15564 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-02T16:10:00.153+05:30  INFO 15564 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-04-02T16:10:00.155+05:30  INFO 15564 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-04-02T16:10:00.393+05:30  INFO 15564 --- [http-nio-8082-exec-1] c.T.config.JwtAuthenticationFilter       : authenticated user with email :example@example.com
+2024-04-02T16:12:45.534+05:30  INFO 15564 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 5 class path changes (0 additions, 3 deletions, 2 modifications)
+2024-04-02T16:12:45.565+05:30  INFO 15564 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T16:12:45.578+05:30  INFO 15564 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-02T16:12:45.606+05:30  INFO 15564 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-02T16:12:45.781+05:30  INFO 15564 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Starting TranquilMindApplication using Java 17.0.10 with PID 15564 (/home/smit/Spring-projects/TranquilMind/target/classes started by smit in /home/smit/Spring-projects/TranquilMind)
+2024-04-02T16:12:45.782+05:30  INFO 15564 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-04-02T16:12:46.152+05:30  INFO 15564 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-02T16:12:46.192+05:30  INFO 15564 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 40 ms. Found 13 JPA repository interfaces.
+2024-04-02T16:12:46.333+05:30  INFO 15564 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-04-02T16:12:46.334+05:30  INFO 15564 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-02T16:12:46.334+05:30  INFO 15564 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-02T16:12:46.343+05:30  INFO 15564 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2024-04-02T16:12:46.343+05:30  INFO 15564 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 554 ms
+2024-04-02T16:12:46.392+05:30  INFO 15564 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-02T16:12:46.394+05:30  INFO 15564 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-02T16:12:46.397+05:30  INFO 15564 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-02T16:12:46.398+05:30  INFO 15564 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-04-02T16:12:46.414+05:30  INFO 15564 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@26a5c707
+2024-04-02T16:12:46.414+05:30  INFO 15564 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-04-02T16:12:46.649+05:30  INFO 15564 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-02T16:12:46.816+05:30  INFO 15564 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T16:12:47.005+05:30  WARN 15564 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'appointmentController': Unsatisfied dependency expressed through field 'appointmentService': No qualifying bean of type 'com.TranquilMind.service.AppointmentService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2024-04-02T16:12:47.006+05:30  INFO 15564 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T16:12:47.006+05:30  INFO 15564 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-04-02T16:12:47.009+05:30  INFO 15564 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2024-04-02T16:12:47.009+05:30  INFO 15564 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-04-02T16:12:47.017+05:30  INFO 15564 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-04-02T16:12:47.038+05:30 ERROR 15564 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field appointmentService in com.TranquilMind.controller.AppointmentController required a bean of type 'com.TranquilMind.service.AppointmentService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.TranquilMind.service.AppointmentService' in your configuration.
+
+2024-04-02T16:24:39.539+05:30  INFO 16370 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Starting TranquilMindApplication using Java 17.0.10 with PID 16370 (/home/smit/Spring-projects/TranquilMind/target/classes started by smit in /home/smit/Spring-projects/TranquilMind)
+2024-04-02T16:24:39.541+05:30  INFO 16370 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-04-02T16:24:39.591+05:30  INFO 16370 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-02T16:24:39.592+05:30  INFO 16370 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-02T16:24:40.212+05:30  INFO 16370 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-02T16:24:40.295+05:30  INFO 16370 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76 ms. Found 13 JPA repository interfaces.
+2024-04-02T16:24:40.793+05:30  INFO 16370 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-04-02T16:24:40.802+05:30  INFO 16370 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-02T16:24:40.802+05:30  INFO 16370 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-02T16:24:40.840+05:30  INFO 16370 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2024-04-02T16:24:40.841+05:30  INFO 16370 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1249 ms
+2024-04-02T16:24:40.962+05:30  INFO 16370 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-02T16:24:41.016+05:30  INFO 16370 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-04-02T16:24:41.051+05:30  INFO 16370 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-02T16:24:41.252+05:30  INFO 16370 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-02T16:24:41.277+05:30  INFO 16370 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-02T16:24:41.549+05:30  INFO 16370 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6eedf2f2
+2024-04-02T16:24:41.551+05:30  INFO 16370 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-02T16:24:42.574+05:30  INFO 16370 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-02T16:24:42.736+05:30  INFO 16370 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T16:24:43.090+05:30  INFO 16370 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-04-02T16:24:43.640+05:30  WARN 16370 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-02T16:24:43.893+05:30  INFO 16370 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@231c251b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5b3e885c, org.springframework.security.web.context.SecurityContextHolderFilter@5b6a98c3, org.springframework.security.web.header.HeaderWriterFilter@23764f16, org.springframework.security.web.authentication.logout.LogoutFilter@3cd8fb11, com.TranquilMind.config.JwtAuthenticationFilter@5381d3dc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@10072b96, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6d9eceac, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32fb07bf, org.springframework.security.web.session.SessionManagementFilter@2725f1bc, org.springframework.security.web.access.ExceptionTranslationFilter@653da268, org.springframework.security.web.access.intercept.AuthorizationFilter@3ed583c]
+2024-04-02T16:24:44.123+05:30  INFO 16370 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-04-02T16:24:44.161+05:30  INFO 16370 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/api'
+2024-04-02T16:24:44.172+05:30  INFO 16370 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Started TranquilMindApplication in 5.045 seconds (process running for 5.699)
+2024-04-02T16:27:20.801+05:30  INFO 16370 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2024-04-02T16:27:20.816+05:30  INFO 16370 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T16:27:20.820+05:30  INFO 16370 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-02T16:27:20.827+05:30  INFO 16370 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-04-02T16:27:20.923+05:30  INFO 16370 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Starting TranquilMindApplication using Java 17.0.10 with PID 16370 (/home/smit/Spring-projects/TranquilMind/target/classes started by smit in /home/smit/Spring-projects/TranquilMind)
+2024-04-02T16:27:20.924+05:30  INFO 16370 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-04-02T16:27:21.174+05:30  INFO 16370 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-02T16:27:21.203+05:30  INFO 16370 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28 ms. Found 13 JPA repository interfaces.
+2024-04-02T16:27:21.319+05:30  INFO 16370 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-04-02T16:27:21.320+05:30  INFO 16370 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-02T16:27:21.320+05:30  INFO 16370 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-02T16:27:21.329+05:30  INFO 16370 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2024-04-02T16:27:21.329+05:30  INFO 16370 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 403 ms
+2024-04-02T16:27:21.374+05:30  INFO 16370 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-02T16:27:21.377+05:30  INFO 16370 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-02T16:27:21.382+05:30  INFO 16370 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-02T16:27:21.383+05:30  INFO 16370 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-04-02T16:27:21.405+05:30  INFO 16370 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@41285dad
+2024-04-02T16:27:21.405+05:30  INFO 16370 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-04-02T16:27:21.678+05:30  INFO 16370 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-02T16:27:21.817+05:30  INFO 16370 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T16:27:22.172+05:30  WARN 16370 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-02T16:27:22.245+05:30  INFO 16370 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4d94d602, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@663e9dde, org.springframework.security.web.context.SecurityContextHolderFilter@26df358c, org.springframework.security.web.header.HeaderWriterFilter@7628b1c2, org.springframework.security.web.authentication.logout.LogoutFilter@68899d4a, com.TranquilMind.config.JwtAuthenticationFilter@2baab745, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3b37ac1a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@822bc1f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2cf6cb7c, org.springframework.security.web.session.SessionManagementFilter@4bfe88c4, org.springframework.security.web.access.ExceptionTranslationFilter@1b70c0a5, org.springframework.security.web.access.intercept.AuthorizationFilter@69d365bf]
+2024-04-02T16:27:22.324+05:30  INFO 16370 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-04-02T16:27:22.339+05:30  INFO 16370 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/api'
+2024-04-02T16:27:22.345+05:30  INFO 16370 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Started TranquilMindApplication in 1.458 seconds (process running for 163.872)
+2024-04-02T16:27:22.347+05:30  INFO 16370 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-04-02T16:32:48.556+05:30  INFO 16370 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 4 class path changes (0 additions, 4 deletions, 0 modifications)
+2024-04-02T16:32:48.562+05:30  INFO 16370 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T16:32:48.563+05:30  INFO 16370 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-04-02T16:32:48.566+05:30  INFO 16370 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2024-04-02T16:32:48.651+05:30  INFO 16370 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Starting TranquilMindApplication using Java 17.0.10 with PID 16370 (/home/smit/Spring-projects/TranquilMind/target/classes started by smit in /home/smit/Spring-projects/TranquilMind)
+2024-04-02T16:32:48.652+05:30  INFO 16370 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-04-02T16:32:48.847+05:30  INFO 16370 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-02T16:32:48.876+05:30  INFO 16370 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28 ms. Found 13 JPA repository interfaces.
+2024-04-02T16:32:49.037+05:30  INFO 16370 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-04-02T16:32:49.038+05:30  INFO 16370 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-02T16:32:49.039+05:30  INFO 16370 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-02T16:32:49.050+05:30  INFO 16370 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2024-04-02T16:32:49.050+05:30  INFO 16370 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 397 ms
+2024-04-02T16:32:49.137+05:30  INFO 16370 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-02T16:32:49.140+05:30  INFO 16370 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-02T16:32:49.146+05:30  INFO 16370 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-02T16:32:49.147+05:30  INFO 16370 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2024-04-02T16:32:49.165+05:30  INFO 16370 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5d8d746f
+2024-04-02T16:32:49.166+05:30  INFO 16370 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2024-04-02T16:32:49.445+05:30  INFO 16370 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-02T16:32:49.599+05:30  INFO 16370 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T16:32:49.989+05:30  WARN 16370 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-02T16:32:50.081+05:30  INFO 16370 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@74676d82, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4f063a56, org.springframework.security.web.context.SecurityContextHolderFilter@1d4fb4ef, org.springframework.security.web.header.HeaderWriterFilter@e753cf5, org.springframework.security.web.authentication.logout.LogoutFilter@e90710, com.TranquilMind.config.JwtAuthenticationFilter@5650868a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5a2fa2f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2297ecfa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@619ff7e, org.springframework.security.web.session.SessionManagementFilter@1ac941d6, org.springframework.security.web.access.ExceptionTranslationFilter@25f7b051, org.springframework.security.web.access.intercept.AuthorizationFilter@3cfe2c8a]
+2024-04-02T16:32:50.213+05:30  INFO 16370 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-04-02T16:32:50.235+05:30  INFO 16370 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/api'
+2024-04-02T16:32:50.242+05:30  INFO 16370 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Started TranquilMindApplication in 1.625 seconds (process running for 491.769)
+2024-04-02T16:32:50.244+05:30  INFO 16370 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-04-02T16:32:51.634+05:30  INFO 16370 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 4 class path changes (4 additions, 0 deletions, 0 modifications)
+2024-04-02T16:32:51.642+05:30  INFO 16370 --- [Thread-11] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T16:32:51.643+05:30  INFO 16370 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2024-04-02T16:32:51.647+05:30  INFO 16370 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2024-04-02T16:32:51.722+05:30  INFO 16370 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Starting TranquilMindApplication using Java 17.0.10 with PID 16370 (/home/smit/Spring-projects/TranquilMind/target/classes started by smit in /home/smit/Spring-projects/TranquilMind)
+2024-04-02T16:32:51.723+05:30  INFO 16370 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-04-02T16:32:51.861+05:30  INFO 16370 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-02T16:32:51.884+05:30  INFO 16370 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23 ms. Found 13 JPA repository interfaces.
+2024-04-02T16:32:51.988+05:30  INFO 16370 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-04-02T16:32:51.989+05:30  INFO 16370 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-02T16:32:51.989+05:30  INFO 16370 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-02T16:32:51.997+05:30  INFO 16370 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2024-04-02T16:32:51.997+05:30  INFO 16370 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 272 ms
+2024-04-02T16:32:52.034+05:30  INFO 16370 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-02T16:32:52.035+05:30  INFO 16370 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-02T16:32:52.038+05:30  INFO 16370 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-02T16:32:52.039+05:30  INFO 16370 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2024-04-02T16:32:52.051+05:30  INFO 16370 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@f9753ef
+2024-04-02T16:32:52.051+05:30  INFO 16370 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2024-04-02T16:32:52.263+05:30  INFO 16370 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-02T16:32:52.383+05:30  INFO 16370 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T16:32:52.684+05:30  WARN 16370 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-02T16:32:52.745+05:30  INFO 16370 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@441ddd71, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@221936ba, org.springframework.security.web.context.SecurityContextHolderFilter@4acb18ac, org.springframework.security.web.header.HeaderWriterFilter@34b74cd7, org.springframework.security.web.authentication.logout.LogoutFilter@24a84949, com.TranquilMind.config.JwtAuthenticationFilter@24a08fdc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5d07f5f0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5358cb73, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@70ab8ae8, org.springframework.security.web.session.SessionManagementFilter@460461b2, org.springframework.security.web.access.ExceptionTranslationFilter@4227f2a, org.springframework.security.web.access.intercept.AuthorizationFilter@5374d8a5]
+2024-04-02T16:32:52.806+05:30  INFO 16370 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-04-02T16:32:52.817+05:30  INFO 16370 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/api'
+2024-04-02T16:32:52.822+05:30  INFO 16370 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Started TranquilMindApplication in 1.123 seconds (process running for 494.349)
+2024-04-02T16:32:52.823+05:30  INFO 16370 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-04-02T16:34:02.306+05:30  INFO 16370 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T16:34:02.307+05:30  INFO 16370 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2024-04-02T16:34:02.310+05:30  INFO 16370 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2024-04-02T16:35:42.481+05:30  INFO 17053 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Starting TranquilMindApplication using Java 17.0.10 with PID 17053 (/home/smit/Spring-projects/TranquilMind/target/classes started by smit in /home/smit/Spring-projects/TranquilMind)
+2024-04-02T16:35:42.483+05:30  INFO 17053 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-04-02T16:35:42.531+05:30  INFO 17053 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-02T16:35:42.531+05:30  INFO 17053 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-02T16:35:43.178+05:30  INFO 17053 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-02T16:35:43.273+05:30  INFO 17053 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 87 ms. Found 13 JPA repository interfaces.
+2024-04-02T16:35:43.823+05:30  INFO 17053 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-04-02T16:35:43.832+05:30  INFO 17053 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-02T16:35:43.833+05:30  INFO 17053 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-04-02T16:35:43.869+05:30  INFO 17053 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2024-04-02T16:35:43.869+05:30  INFO 17053 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1337 ms
+2024-04-02T16:35:43.984+05:30  INFO 17053 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-02T16:35:44.036+05:30  INFO 17053 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-04-02T16:35:44.076+05:30  INFO 17053 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-02T16:35:44.277+05:30  INFO 17053 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-02T16:35:44.301+05:30  INFO 17053 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-02T16:35:44.588+05:30  INFO 17053 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6eedf2f2
+2024-04-02T16:35:44.590+05:30  INFO 17053 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-02T16:35:45.695+05:30  INFO 17053 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-02T16:35:45.860+05:30  INFO 17053 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T16:35:46.219+05:30  INFO 17053 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-04-02T16:35:46.739+05:30  WARN 17053 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-02T16:35:46.965+05:30  INFO 17053 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6e542a78, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2c22ee54, org.springframework.security.web.context.SecurityContextHolderFilter@6d9eceac, org.springframework.security.web.header.HeaderWriterFilter@43869588, org.springframework.security.web.authentication.logout.LogoutFilter@21945e68, com.TranquilMind.config.JwtAuthenticationFilter@5381d3dc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@60254b2a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@49578723, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@371ffe4, org.springframework.security.web.session.SessionManagementFilter@5b6a98c3, org.springframework.security.web.access.ExceptionTranslationFilter@69d9bd84, org.springframework.security.web.access.intercept.AuthorizationFilter@5b3e885c]
+2024-04-02T16:35:47.152+05:30  INFO 17053 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-04-02T16:35:47.186+05:30  INFO 17053 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/api'
+2024-04-02T16:35:47.196+05:30  INFO 17053 --- [restartedMain] c.TranquilMind.TranquilMindApplication   : Started TranquilMindApplication in 5.118 seconds (process running for 5.741)
+2024-04-02T16:36:13.170+05:30  INFO 17053 --- [http-nio-8082-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-02T16:36:13.170+05:30  INFO 17053 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-04-02T16:36:13.171+05:30  INFO 17053 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-04-02T16:36:21.272+05:30  INFO 17053 --- [http-nio-8082-exec-3] c.T.config.JwtAuthenticationFilter       : authenticated user with email :example@example.com
+2024-04-02T16:38:26.415+05:30  INFO 17053 --- [http-nio-8082-exec-6] c.T.config.JwtAuthenticationFilter       : authenticated user with email :example@example.com
+2024-04-02T16:39:06.594+05:30  INFO 17053 --- [http-nio-8082-exec-7] c.T.config.JwtAuthenticationFilter       : authenticated user with email :example@example.com
+2024-04-02T16:39:24.912+05:30  INFO 17053 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-02T16:39:24.917+05:30  INFO 17053 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-04-02T16:39:24.931+05:30  INFO 17053 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

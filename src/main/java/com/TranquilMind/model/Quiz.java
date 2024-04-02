@@ -1,5 +1,6 @@
 package com.TranquilMind.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -16,14 +17,19 @@ public class Quiz {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long appointmentId;
+    Long quizId;
 
     @ManyToOne
+    @JoinColumn(name = "patient_id")
+    @JsonBackReference
     Patient patient;
 
     @OneToOne
+    @JoinColumn(name = "quiz_type_id")
     QuizType quizType;
 
-    Integer score;
+    Integer totalScore;
+
+    String jsonQuizScores;
 
 }

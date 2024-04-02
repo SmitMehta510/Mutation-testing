@@ -17,9 +17,9 @@ public interface PatientService {
 
     Patient updatePatient(Long id, Patient patient);
 
-    PatientDto getPatientById(Long id);
-
     Patient getPatientByUserId(Long id);
+
+    PatientDto getPatientDtoByUserId(Long id);
 
     ResponseEntity<?> createPatient(PatientRegisterDto patientRegisterDto);
 

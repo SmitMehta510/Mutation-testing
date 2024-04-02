@@ -24,7 +24,7 @@ public class PatientController {
 
     @GetMapping("/patientbyid/{id}")
     public PatientDto patientById(@PathVariable Long id){
-        return patientService.getPatientById(id);
+        return patientService.getPatientDtoByUserId(id);
     }
 
     @PutMapping("/updatepatient/{id}")
@@ -37,12 +37,5 @@ public class PatientController {
         System.out.println("Id received is " + id );
         return new ResponseEntity<>(patientService.deletePatient(Long.parseLong(id)),HttpStatus.GONE);
     }
-
-
-
-//    @PostMapping("/employees")
-//    public ResponseEntity<?> createEmployee(@RequestBody Employee employee) {
-//        return new ResponseEntity(employeeService.createEmployee(employee), HttpStatus.CREATED);
-//    }
 
 }
