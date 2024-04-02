@@ -25,7 +25,6 @@ public class Task {
     String link;
 
     @ManyToOne
-    @JoinColumn(name = "course_id")
-    @Column(nullable = false)
+    @JoinColumn(name = "course_id",nullable = false)
     Course course;
 }

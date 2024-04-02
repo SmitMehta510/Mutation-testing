@@ -13,6 +13,4 @@ public interface CourseService {
 
     Course addCourse(CourseDto courseDto);
 
-
-
 }

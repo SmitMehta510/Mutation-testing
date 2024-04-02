@@ -21,6 +21,7 @@ public class Quiz {
     @ManyToOne
     Patient patient;
 
+    @OneToOne
     QuizType quizType;
 
     Integer score;

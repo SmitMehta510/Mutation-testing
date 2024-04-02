@@ -1,9 +1,6 @@
 package com.TranquilMind.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -19,6 +16,8 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long questionId;
 
+    @ManyToOne
+    @JoinColumn(name = "quiz_type_id")
     QuizType quizType;
 
     String description;
