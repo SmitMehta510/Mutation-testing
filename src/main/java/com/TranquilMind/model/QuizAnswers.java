@@ -1,9 +1,7 @@
 package com.TranquilMind.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -13,11 +11,17 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class QuizType{
+public class QuizAnswers {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long quizTypeId;
+    Long answerId;
 
-    String quizName;
+    @ManyToOne
+    @JoinColumn(name = "question_id")
+    @JsonBackReference
+    Question question;
+
+    String answerOption;
+
 }

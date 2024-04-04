@@ -1,8 +1,11 @@
 package com.TranquilMind.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -21,5 +24,9 @@ public class Question {
     QuizType quizType;
 
     String description;
+
+    @OneToMany(mappedBy = "question")
+    @JsonManagedReference
+    List<QuizAnswers> options;
 
 }

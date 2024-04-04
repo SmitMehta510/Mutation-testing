@@ -19,4 +19,6 @@ public interface PostService {
 
     Post editPost(Post post, Long userId);
 
+    List<Post> getPatientQuestions();
+
 }

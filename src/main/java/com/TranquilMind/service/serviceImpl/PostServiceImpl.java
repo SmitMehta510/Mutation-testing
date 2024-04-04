@@ -3,6 +3,7 @@ package com.TranquilMind.service.serviceImpl;
 import com.TranquilMind.dto.PostDto;
 import com.TranquilMind.exception.ResourceNotFoundException;
 import com.TranquilMind.model.Post;
+import com.TranquilMind.model.PostType;
 import com.TranquilMind.repository.PostRepository;
 import com.TranquilMind.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,5 +86,10 @@ public class PostServiceImpl implements PostService {
         }
 
 
+    }
+
+    @Override
+    public List<Post> getPatientQuestions() {
+        return postRepository.findByPostType(PostType.QUESTION);
     }
 }

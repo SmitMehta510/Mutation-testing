@@ -42,8 +42,7 @@ public class Appointment {
     String remarks;
 
     public static AppointmentListDto toListDto(Appointment appointment){
-        return  new AppointmentListDto(appointment.patient.getFirstName(),appointment.patient.getMiddleName(),
-                appointment.patient.getLastName(),appointment.patient.getAge(),appointment.patient.getGender(),
+        return  new AppointmentListDto(appointment.patient.toDto(),appointment.doctor.toDto(),
                 appointment.date,appointment.startTime,appointment.endTime,appointment.description,appointment.remarks);
     }
 

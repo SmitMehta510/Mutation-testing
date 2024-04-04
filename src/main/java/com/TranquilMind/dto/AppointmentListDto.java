@@ -1,6 +1,5 @@
 package com.TranquilMind.dto;
 
-import com.TranquilMind.model.Gender;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,12 +13,10 @@ import java.time.LocalTime;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class AppointmentListDto {
 
+    PatientDto patient;
 
-    String firstName;
-    String middleName;
-    String lastName;
-    Integer age;
-    Gender gender;
+    DoctorDto doctor;
+
     LocalDate date;
 
     LocalTime startTime;

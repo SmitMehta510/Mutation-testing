@@ -68,11 +68,9 @@ public class Doctor implements Serializable {
         this.isDisabled = isDisabled;
     }
 
-    public static DoctorDto toDto(Doctor doctor){
-        return new DoctorDto(doctor.getUser().getUserId(),doctor.getUser().getEmail(),
-                doctor.getFirstName(), doctor.getMiddleName(), doctor.getLastName(), doctor.getAge(),doctor.getGender(),
-                doctor.getMobileNo(), doctor.getLicenceNo(), doctor.getDescription(), doctor.getConsultationFee(),
-                doctor.getExperience(), doctor.getIsSenior(),doctor.getIsDisabled());
+    public DoctorDto toDto(){
+        return new DoctorDto(user.getUserId(), user.getEmail(), firstName,middleName,lastName,age,gender,
+                mobileNo,licenceNo,description,consultationFee,experience,isSenior,isDisabled);
     }
 
 

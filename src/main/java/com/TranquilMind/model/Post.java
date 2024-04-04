@@ -25,7 +25,7 @@ public class Post {
     String description;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "posted_by_id")
     User postedBy;
 
     //TODO check for image save
@@ -42,17 +42,16 @@ public class Post {
 
     Boolean isApproved;
 
-//    String answer;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "user_id")
-//    User answeredBy;
+    String answer;
+
+    @ManyToOne
+    @JoinColumn(name = "answer_by_id")
+    User answeredBy;
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     List<Comment> comments;
 
     public static PostDto toDto(Post post){
-
         return new PostDto(post.title,post.description,post.postedBy,post.postType,post.uploadedAt,
                 post.flagged,post.comments,post.isDisabled,post.isApproved);
     }
