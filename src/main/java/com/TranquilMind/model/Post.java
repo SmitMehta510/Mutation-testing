@@ -4,6 +4,7 @@ import com.TranquilMind.dto.PostDto;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.springframework.security.core.parameters.P;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -28,11 +29,7 @@ public class Post {
     @JoinColumn(name = "posted_by_id")
     User postedBy;
 
-    //TODO check for image save
-//    Byte[] image;
-
-    @Enumerated(EnumType.STRING)
-    PostType postType;
+    String image;
 
     Timestamp uploadedAt;
 
@@ -42,17 +39,6 @@ public class Post {
 
     Boolean isApproved;
 
-    String answer;
-
-    @ManyToOne
-    @JoinColumn(name = "answer_by_id")
-    User answeredBy;
-
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     List<Comment> comments;
-
-    public static PostDto toDto(Post post){
-        return new PostDto(post.title,post.description,post.postedBy,post.postType,post.uploadedAt,
-                post.flagged,post.comments,post.isDisabled,post.isApproved);
-    }
 }

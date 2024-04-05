@@ -22,10 +22,6 @@ public class Comment {
 
     Timestamp uploadedAt;
 
-    Integer flagged;
-
-    Boolean isDisabled;
-
     @ManyToOne
     @JoinColumn(name = "post_id", nullable = false)
     Post post;

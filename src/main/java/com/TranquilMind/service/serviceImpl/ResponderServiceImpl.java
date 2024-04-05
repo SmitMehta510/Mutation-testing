@@ -27,12 +27,15 @@ public class ResponderServiceImpl implements ResponderService {
 
     @Override
     public List<Post> getPatientQuestions() {
-        return postService.getPatientQuestions();
+//        return postService.getPatientQuestions();
+        return null;
     }
 
     @Override
     public List<Post> getAnsweredPostsByResponder(Long id) {
-        List<Post> posts = postService.getPatientQuestions();
-        return posts.stream().filter(post -> Objects.equals(post.getAnsweredBy().getUserId(), id)).toList();
+//        List<Post> posts = postService.getPatientQuestions();
+//        return posts.stream().filter(post -> Objects.equals(post.getAnsweredBy().getUserId(), id)).toList();
+        return null;
     }
+
 }

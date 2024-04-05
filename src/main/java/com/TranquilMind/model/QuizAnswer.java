@@ -11,16 +11,16 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class QuizAnswers {
+public class QuizAnswer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long answerId;
+    Long quizAnswerId;
 
     @ManyToOne
-    @JoinColumn(name = "question_id")
+    @JoinColumn(name = "quiz_question_id")
     @JsonBackReference
-    Question question;
+    QuizQuestion quizQuestion;
 
     String answerOption;
 

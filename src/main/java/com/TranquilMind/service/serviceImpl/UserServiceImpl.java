@@ -5,6 +5,7 @@ import com.TranquilMind.config.SpringSecurityConfig;
 import com.TranquilMind.dto.AuthDto;
 import com.TranquilMind.dto.RegisterDto;
 import com.TranquilMind.dto.UserAuthDto;
+import com.TranquilMind.exception.ResourceNotFoundException;
 import com.TranquilMind.model.Role;
 import com.TranquilMind.model.RoleName;
 import com.TranquilMind.model.User;
@@ -192,12 +193,12 @@ public class UserServiceImpl implements UserService {
 //        return userRepository.save(User);
 //    }
 //
-//    @Override
-//    public User getUserById(Long id) throws ResourceNotFoundException{
-//        User user = userRepository.findById(id)
-//                .orElseThrow(() -> new ResourceNotFoundException("User not exist with id :" + id));
-//        return user;
-//    }
+    @Override
+    public User getUserById(Long id) throws ResourceNotFoundException {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User not exist with id :" + id));
+        return user;
+    }
 
 
 }

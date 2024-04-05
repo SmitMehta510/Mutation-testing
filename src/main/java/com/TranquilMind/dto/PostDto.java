@@ -1,9 +1,7 @@
 package com.TranquilMind.dto;
 
 import com.TranquilMind.model.Comment;
-import com.TranquilMind.model.PostType;
 import com.TranquilMind.model.User;
-import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,9 +17,10 @@ public class PostDto {
 
     String title;
     String description;
-    User postedBy;
-    PostType postType;
+    Long postedBy;
+    String name;
     Timestamp uploadedAt;
+    String image;
     Integer flagged;
     List<Comment> comments;
     Boolean isDisabled;

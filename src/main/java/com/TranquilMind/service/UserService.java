@@ -5,7 +5,8 @@ import com.TranquilMind.dto.AuthDto;
 import com.TranquilMind.dto.RegisterDto;
 import com.TranquilMind.dto.UserAuthDto;
 import com.TranquilMind.model.Role;
-import com.TranquilMind.model.RoleName;;
+import com.TranquilMind.model.RoleName;
+import com.TranquilMind.model.User;;
 
 public interface UserService {
 
@@ -22,7 +23,7 @@ public interface UserService {
 //
 //    User updateUserById(Long id, User user);
 //
-//    User getUserById(Long id);
+    User getUserById(Long id);
 //
 //    AuthResponse createUser(User user) throws Exception;
 }
