@@ -37,7 +37,7 @@ public class PatientServiceImpl implements PatientService {
     @Override
     public boolean deletePatient(Long id) {
         boolean isDeleted = true;
-        Patient patient = patientRepository.findById(id)
+        Patient patient = patientRepository.findByUserId(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Patient not exist with id :" + id));
 
         patientRepository.delete(patient);
@@ -47,15 +47,15 @@ public class PatientServiceImpl implements PatientService {
 
     //TODO change update method for patient and doctor
     @Override
-    public Patient updatePatient(Long id, Patient patientDetails) {
-        Patient patient = patientRepository.findById(id)
+    public Patient updatePatient(Long id, PatientRegisterDto patientDetails) {
+        Patient patient = patientRepository.findByUserId(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Patient not exist with id :" + id));
 
         patient.setFirstName(patientDetails.getFirstName());
         patient.setLastName(patientDetails.getLastName());
         patient.setAge(patientDetails.getAge());
 
-        return null;
+        return patientRepository.save(patient);
     }
 
     @Override

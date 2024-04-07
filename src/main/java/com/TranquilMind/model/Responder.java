@@ -1,5 +1,6 @@
 package com.TranquilMind.model;
 
+import com.TranquilMind.dto.ResponderDto;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -26,4 +27,7 @@ public class Responder {
     String middleName;
     String lastName;
 
+    public ResponderDto toDto(){
+        return new ResponderDto(user.getEmail(), firstName, middleName, lastName);
+    }
 }

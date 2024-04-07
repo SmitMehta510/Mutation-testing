@@ -28,8 +28,8 @@ public class PatientController {
     }
 
     @PutMapping("/updatepatient/{id}")
-    public ResponseEntity<?> updatePatient(@PathVariable Long id, @RequestBody Patient newPatientDetails){
-        return new ResponseEntity<>(patientService.updatePatient(id, newPatientDetails), HttpStatus.ACCEPTED);
+    public ResponseEntity<?> updatePatient(@PathVariable Long id, @RequestBody PatientRegisterDto newPatientDetails){
+        return new ResponseEntity<>(patientService.updatePatient(id, newPatientDetails), HttpStatus.OK);
     }
 
     @DeleteMapping("/deletepatient/{id}")

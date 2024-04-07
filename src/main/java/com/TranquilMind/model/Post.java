@@ -1,6 +1,7 @@
 package com.TranquilMind.model;
 
 import com.TranquilMind.dto.PostDto;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -39,6 +40,7 @@ public class Post {
 
     Boolean isApproved;
 
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "post")
+    @JsonManagedReference
     List<Comment> comments;
 }

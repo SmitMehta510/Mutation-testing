@@ -93,6 +93,30 @@ public class PostServiceImpl implements PostService {
         }
     }
 
+    @Override
+    public Boolean unflagPost(Long id) {
+
+        Post post  = getPostById(id);
+
+        if (post != null) {
+            post.setIsApproved(true);
+            post.setFlagged(0);
+
+            postRepository.save(post);
+            return true;
+        }else
+            return false;
+    }
+
+    @Override
+    public List<PostDto> getFlaggedPosts() {
+        return postRepository.findAll()
+                .stream()
+                .filter(p -> p.getFlagged()>0)
+                .map(this::toDto)
+                .collect(Collectors.toList());
+    }
+
     public PostDto toDto(Post post){
         User user = post.getPostedBy();
         String name= "";

@@ -15,7 +15,7 @@ public interface PatientService {
 
     boolean deletePatient(Long id);
 
-    Patient updatePatient(Long id, Patient patient);
+    Patient updatePatient(Long id, PatientRegisterDto patientRegisterDto);
 
     Patient getPatientByUserId(Long id);
 

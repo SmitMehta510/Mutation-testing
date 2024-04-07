@@ -1,5 +1,6 @@
 package com.TranquilMind.model;
 
+import com.TranquilMind.dto.ModeratorDto;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -23,4 +24,8 @@ public class Moderator {
     String firstName;
     String middleName;
     String lastName;
+
+    public ModeratorDto toDto(){
+        return new ModeratorDto(user.getEmail(), firstName, middleName, lastName);
+    }
 }

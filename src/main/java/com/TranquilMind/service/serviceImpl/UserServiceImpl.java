@@ -114,7 +114,7 @@ public class UserServiceImpl implements UserService {
             user.setRoles(Collections.singletonList(role));
             registerDto.setUser(userRepository.save(user));
             String token = jwtUtilities.generateToken(authDto.getEmail(), Collections.singletonList(role.getRoleName()));
-            registerDto.setResponse(new ResponseEntity<>(new UserAuthDto(token, "Bearer ",user.getUserId()), HttpStatus.OK));
+            registerDto.setResponse(new ResponseEntity<>(new UserAuthDto(token, "Bearer ",user.getUserId(),user.getRoles().get(0).toString()), HttpStatus.OK));
         }
         return registerDto;
     }
@@ -131,7 +131,7 @@ public class UserServiceImpl implements UserService {
         List<String> rolesNames = new ArrayList<>();
         user.getRoles().forEach(r -> rolesNames.add(r.getRoleName()));
         String token = jwtUtilities.generateToken(user.getUsername(), rolesNames);
-        return new UserAuthDto(token, "Bearer ",user.getUserId());
+        return new UserAuthDto(token, "Bearer ",user.getUserId(),user.getRoles().get(0).getRoleName());
     }
 
 //    @Autowired

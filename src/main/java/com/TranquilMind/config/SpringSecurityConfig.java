@@ -59,6 +59,8 @@ public class SpringSecurityConfig implements WebMvcConfigurer {
                         .requestMatchers("/course/**").hasAnyAuthority("ADMIN","PATIENT")
                         .requestMatchers("/quiz-question/**").hasAnyAuthority("ADMIN","PATIENT","DOCTOR")
                         .requestMatchers("/quiz/**").hasAnyAuthority("ADMIN","PATIENT","DOCTOR")
+                        .requestMatchers("/post/**").permitAll()
+                        .requestMatchers("/question/**").permitAll()
 //                        .requestMatchers("/superadmin/**").hasAuthority("SUPERADMIN")
                 );
         http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);

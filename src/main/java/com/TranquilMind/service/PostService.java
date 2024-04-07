@@ -19,5 +19,8 @@ public interface PostService {
 
     Post editPost(Post post, Long userId);
 
+    Boolean unflagPost(Long id);
+
+    List<PostDto> getFlaggedPosts();
 
 }
