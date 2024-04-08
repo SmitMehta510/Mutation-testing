@@ -13,18 +13,25 @@ public class ModeratorController {
     @Autowired
     private ModeratorService moderatorService;
 
-    @GetMapping("/unapproved-questions")
-    public ResponseEntity<?> getUnapprovedQuestions() {
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
-
     @GetMapping("/flagged-posts")
     public ResponseEntity<?> getFlaggedPosts() {
         return new ResponseEntity<>(moderatorService.getFlaggedPosts(),HttpStatus.OK);
     }
 
-    @PutMapping("/unflag/{id}")
-    public ResponseEntity<?> unflagPost(@PathVariable Long id) {
-        return new ResponseEntity<>(moderatorService.unflagPost(id),HttpStatus.OK);
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updatePost(@PathVariable Long id,@RequestBody Boolean unflag) {
+        return new ResponseEntity<>(moderatorService.updatePost(id,unflag),HttpStatus.OK);
     }
+
+    @GetMapping("/unapproved-answers")
+    public ResponseEntity<?> getUnapprovedAnswers() {
+        return new ResponseEntity<>(moderatorService.getAnsweredQuestions(),HttpStatus.OK);
+    }
+
+    @PutMapping("/approve-answer/{questionId}")
+    public ResponseEntity<?> approveAnswer(@PathVariable Long questionId) {
+        return new ResponseEntity<>(moderatorService.approveAnswer(questionId),HttpStatus.OK);
+    }
+
+
 }

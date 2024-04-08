@@ -15,4 +15,6 @@ public interface QuestionService {
     List<Question> getAnsweredQuestionsByResponder(User user);
 
     Boolean addAnswer(QuestionDto questionDto, User answeredBy, Long questionId);
+
+    Boolean approveAnswer(Long questionId);
 }

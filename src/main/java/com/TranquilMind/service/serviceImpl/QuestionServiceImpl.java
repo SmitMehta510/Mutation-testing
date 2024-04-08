@@ -36,9 +36,9 @@ public class QuestionServiceImpl implements QuestionService {
         return questionRepository.findByAnsweredBy(user);
     }
 
-    public Question findById(Long questionid) {
-        return questionRepository.findById(questionid).orElseThrow(
-                () -> new ResourceNotFoundException("Question not found with id "+ questionid));
+    public Question findById(Long questionId) {
+        return questionRepository.findById(questionId).orElseThrow(
+                () -> new ResourceNotFoundException("Question not found with id "+ questionId));
     }
 
     @Override
@@ -58,5 +58,18 @@ public class QuestionServiceImpl implements QuestionService {
             return false;
         }
 
+    }
+
+    @Override
+    public Boolean approveAnswer(Long questionId) {
+
+        Question question = findById(questionId);
+        if (question != null) {
+            question.setIsApprovedByModerator(true);
+            questionRepository.save(question);
+            return true;
+        }else{
+            return false;
+        }
     }
 }

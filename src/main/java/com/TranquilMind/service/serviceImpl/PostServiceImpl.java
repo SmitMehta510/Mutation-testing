@@ -94,13 +94,18 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public Boolean unflagPost(Long id) {
+    public Boolean updatePost(Long id,Boolean unflag) {
 
         Post post  = getPostById(id);
 
         if (post != null) {
-            post.setIsApproved(true);
-            post.setFlagged(0);
+            if (unflag) {
+                post.setIsApproved(true);
+                post.setFlagged(0);
+            }else {
+                post.setIsApproved(false);
+                post.setIsDisabled(true);
+            }
 
             postRepository.save(post);
             return true;

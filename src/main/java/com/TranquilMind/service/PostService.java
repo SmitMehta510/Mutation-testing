@@ -19,7 +19,7 @@ public interface PostService {
 
     Post editPost(Post post, Long userId);
 
-    Boolean unflagPost(Long id);
+    Boolean updatePost(Long id, Boolean unflag);
 
     List<PostDto> getFlaggedPosts();
 
