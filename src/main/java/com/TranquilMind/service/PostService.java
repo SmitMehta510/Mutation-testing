@@ -11,13 +11,13 @@ public interface PostService {
 
     Post getPostById(Long id);
 
-    Post addPost(PostDto postDto);
+    PostDto addPost(PostDto postDto);
 
     boolean deletePost(Long postId, Long UserId);
 
     boolean disablePost(Long id);
 
-    Post editPost(Post post, Long userId);
+    PostDto editPost(PostDto postDto, Long userId, Long postId);
 
     Boolean updatePost(Long id, Boolean unflag);
 

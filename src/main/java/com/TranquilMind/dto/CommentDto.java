@@ -6,21 +6,16 @@ import lombok.Data;
 import lombok.experimental.FieldDefaults;
 
 import java.sql.Timestamp;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class PostDto {
-
-    String title;
+public class CommentDto {
     String description;
-    Long postedBy;
-    String name;
+
     Timestamp uploadedAt;
-    String image;
-    Integer flagged;
-    List<CommentDto> comments;
-    Boolean isDisabled;
-    Boolean isApproved;
+
+    Long postId;
+
+    Long commentById;
 }

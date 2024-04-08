@@ -2,13 +2,13 @@ package com.TranquilMind.service.serviceImpl;
 
 import com.TranquilMind.dto.PostDto;
 import com.TranquilMind.exception.ResourceNotFoundException;
+import com.TranquilMind.model.Doctor;
+import com.TranquilMind.model.Patient;
 import com.TranquilMind.model.Post;
 import com.TranquilMind.model.User;
+import com.TranquilMind.repository.CommentRepository;
 import com.TranquilMind.repository.PostRepository;
-import com.TranquilMind.service.DoctorService;
-import com.TranquilMind.service.PatientService;
-import com.TranquilMind.service.PostService;
-import com.TranquilMind.service.UserService;
+import com.TranquilMind.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +30,9 @@ public class PostServiceImpl implements PostService {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private CommentService commentService;
+
     @Override
     public List<PostDto> getAllPostsByTime() {
         return postRepository.findAllByOrderByUploadedAtDesc()
@@ -40,11 +43,12 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public Post getPostById(Long id) {
-        return postRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Post not found with id :" + id));
+        return postRepository.findById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Post not found with id :" + id));
     }
 
     @Override
-    public Post addPost(PostDto postDto) {
+    public PostDto addPost(PostDto postDto) {
         Post post = new Post();
 
         User user = userService.getUserById(postDto.getPostedBy());
@@ -58,17 +62,20 @@ public class PostServiceImpl implements PostService {
         post.setIsApproved(false);
         post.setIsDisabled(false);
         post.setUploadedAt(postDto.getUploadedAt());
-        return postRepository.save(post);
+        return toDto(postRepository.save(post));
     }
 
     @Override
     public boolean deletePost(Long postId, Long userId) {
 
         Post post = getPostById(postId);
-
-        if (post.getPostedBy().getUserId().equals(userId)) {
-            postRepository.delete(post);
-            return true;
+        if (post != null) {
+            if (post.getPostedBy().getUserId().equals(userId)) {
+                postRepository.delete(post);
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }
@@ -80,36 +87,36 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public Post editPost(Post post, Long userId) {
+    public PostDto editPost(PostDto postDto, Long userId, Long postId) {
 
-        Post savedPost = getPostById(post.getPostId());
+        Post savedPost = getPostById(postId);
 
         if (savedPost.getPostedBy().getUserId().equals(userId)) {
-            savedPost.setDescription(post.getDescription());
-            savedPost.setTitle(post.getTitle());
-            return postRepository.save(savedPost);
+            savedPost.setDescription(postDto.getDescription());
+            savedPost.setTitle(postDto.getTitle());
+            return toDto(postRepository.save(savedPost));
         } else {
             return null;
         }
     }
 
     @Override
-    public Boolean updatePost(Long id,Boolean unflag) {
+    public Boolean updatePost(Long id, Boolean unflag) {
 
-        Post post  = getPostById(id);
+        Post post = getPostById(id);
 
         if (post != null) {
             if (unflag) {
                 post.setIsApproved(true);
                 post.setFlagged(0);
-            }else {
+            } else {
                 post.setIsApproved(false);
                 post.setIsDisabled(true);
             }
 
             postRepository.save(post);
             return true;
-        }else
+        } else
             return false;
     }
 
@@ -117,24 +124,35 @@ public class PostServiceImpl implements PostService {
     public List<PostDto> getFlaggedPosts() {
         return postRepository.findAll()
                 .stream()
-                .filter(p -> p.getFlagged()>0)
+                .filter(p -> p.getFlagged() > 0)
                 .map(this::toDto)
                 .collect(Collectors.toList());
     }
 
-    public PostDto toDto(Post post){
+    public PostDto toDto(Post post) {
         User user = post.getPostedBy();
-        String name= "";
-        if(user.getRoles().get(0).getRoleName().equals("PATIENT")){
-            name = patientService.getPatientByUserId(user.getUserId()).getFirstName()
-                    .concat(patientService.getPatientByUserId(user.getUserId()).getMiddleName())
-                    .concat(patientService.getPatientByUserId(user.getUserId()).getLastName());
-        }else if(user.getRoles().get(0).getRoleName().equals("DOCTOR")){
-            name = doctorService.getDoctorByUserId(user.getUserId()).getFirstName()
-                    .concat(doctorService.getDoctorByUserId(user.getUserId()).getMiddleName())
-                    .concat(doctorService.getDoctorByUserId(user.getUserId()).getLastName());
+        String name = getUserFullName(user);
+
+        return new PostDto(post.getTitle(), post.getDescription(), user.getUserId(), name,
+                post.getUploadedAt(), post.getImage(), post.getFlagged(), commentService.getCommentByPost(post),
+                post.getIsDisabled(), post.getIsApproved());
+    }
+
+    private String getUserFullName(User user) {
+        String fullName = "";
+        String roleName = user.getRoles().get(0).getRoleName();
+
+        if (roleName.equals("PATIENT")) {
+            Patient patient = patientService.getPatientByUserId(user.getUserId());
+            fullName = concatFullName(patient.getFirstName(), patient.getMiddleName(), patient.getLastName());
+        } else if (roleName.equals("DOCTOR")) {
+            Doctor doctor = doctorService.getDoctorByUserId(user.getUserId());
+            fullName = concatFullName(doctor.getFirstName(), doctor.getMiddleName(), doctor.getLastName());
         }
-        return new PostDto(post.getTitle(), post.getDescription(),post.getPostedBy().getUserId(),name,post.getUploadedAt(),
-                post.getImage(), post.getFlagged(), post.getComments(),post.getIsDisabled(),post.getIsApproved());
+        return fullName;
+    }
+
+    private String concatFullName(String firstName, String middleName, String lastName) {
+        return firstName + " " + middleName + " " + lastName;
     }
 }

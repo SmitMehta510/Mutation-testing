@@ -1,5 +1,6 @@
 package com.TranquilMind.model;
 
+import com.TranquilMind.dto.CommentDto;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
@@ -29,6 +30,10 @@ public class Comment {
     Post post;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", unique = true, nullable = false)
-    User postedBy;
+    @JoinColumn(name = "user_id", nullable = false)
+    User commentBy;
+
+    public CommentDto toDto(){
+        return new CommentDto(description,uploadedAt, post.getPostId(), commentBy.getUserId());
+    }
 }

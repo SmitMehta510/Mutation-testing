@@ -22,10 +22,6 @@ public class Question {
 
     String answer;
 
-    @ManyToOne
-    @JoinColumn(name = "questioned_by_id", nullable = false)
-    User questionBy;
-
     Timestamp uploadedAt;
 
     Timestamp answeredAt;
@@ -33,6 +29,10 @@ public class Question {
     Boolean answered;
 
     Boolean isApprovedByModerator;
+
+    @ManyToOne
+    @JoinColumn(name = "questioned_by_id", nullable = false)
+    User questionBy;
 
     @ManyToOne
     @JoinColumn(name = "answered_by_id")
