@@ -71,11 +71,13 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
-    public List<Appointment> getAppointmentsForDoctorByDate(Long id, LocalDate date) {
+    public List<AppointmentListDto> getAppointmentsForDoctorByDate(Long id, LocalDate date) {
 
         List<Appointment> appointmentList = appointmentRepository.fetchByDate(date);
 
-        return appointmentList.stream().filter(appointment -> Objects.equals(appointment.getDoctor().getUser().getUserId(), id)).toList();
+        return appointmentList.stream()
+                .filter(appointment -> Objects.equals(appointment.getDoctor().getUser().getUserId(), id)).toList()
+                .stream().map(Appointment::toListDto).toList();
     }
 
     @Override
@@ -90,7 +92,7 @@ public class AppointmentServiceImpl implements AppointmentService {
         return null;
     }
 
-    public Appointment getAppointmentById(Long id){
+    public Appointment getAppointmentById(Long id) {
         return appointmentRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Appointment not exist with id :" + id));
     }

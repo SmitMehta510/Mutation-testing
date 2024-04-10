@@ -16,7 +16,7 @@ public interface AppointmentService {
 
     Appointment newAppointment(AppointmentDto appointmentDto);
 
-    List<Appointment> getAppointmentsForDoctorByDate(Long id, LocalDate date);
+    List<AppointmentListDto> getAppointmentsForDoctorByDate(Long id, LocalDate date);
 
     boolean cancelAppointment(Long id);
 

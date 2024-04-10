@@ -25,26 +25,20 @@ public class DoctorController {
 
     Logger logger = AppLogger.getLogger();
 
-    @GetMapping("/")
-    public String hello() {
-        return "Hello Doctor";
-    }
-
     @PostMapping("/register")
     public ResponseEntity<?> registerDoctor(@RequestBody DoctorRegisterDto doctorRegisterDto) {
         return doctorService.createDoctor(doctorRegisterDto);
     }
 
     @GetMapping("/doctorbyid/{id}")
-    public ResponseEntity<?> doctorById(@PathVariable Long id) {
+    public ResponseEntity<?> doctorByUserId(@PathVariable Long id) {
         Doctor doctor = null;
         try {
-            doctor = doctorService.getDoctorById(id);
+            doctor = doctorService.getDoctorByUserId(id);
         } catch (ResourceNotFoundException e) {
             logger.error(e.toString(),e.getMessage(),e);
             return ResponseEntity.notFound().build();
         }
-//        log.info("");
         return ResponseEntity.status(HttpStatus.OK).body(doctor);
     }
 

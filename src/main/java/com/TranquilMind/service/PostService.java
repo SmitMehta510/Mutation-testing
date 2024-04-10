@@ -15,7 +15,7 @@ public interface PostService {
 
     boolean deletePost(Long postId, Long UserId);
 
-    boolean disablePost(Long id);
+    boolean disablePost(Long id, Long userId);
 
     PostDto editPost(PostDto postDto, Long userId, Long postId);
 

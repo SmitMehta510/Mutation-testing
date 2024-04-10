@@ -33,5 +33,7 @@ public class ModeratorController {
         return new ResponseEntity<>(moderatorService.approveAnswer(questionId),HttpStatus.OK);
     }
 
+//    @PostMapping("/di")
+
 
 }

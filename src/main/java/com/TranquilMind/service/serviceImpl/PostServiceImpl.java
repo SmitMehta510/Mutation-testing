@@ -82,7 +82,14 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public boolean disablePost(Long id) {
+    public boolean disablePost(Long id,Long userId) {
+//        Post post = getPostById(id);
+//
+//        if (post != null) {
+//            if(post)
+//        }
+//
+//        return ;
         return false;
     }
 

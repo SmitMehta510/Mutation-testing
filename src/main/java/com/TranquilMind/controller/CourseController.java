@@ -1,6 +1,7 @@
 package com.TranquilMind.controller;
 
 import com.TranquilMind.dto.CourseDto;
+import com.TranquilMind.model.Course;
 import com.TranquilMind.model.Task;
 import com.TranquilMind.service.CourseService;
 import com.TranquilMind.service.TaskService;
@@ -47,7 +48,14 @@ public class CourseController {
 
     @GetMapping("/get-course/{id}")
     public ResponseEntity<?> getCourseById(@PathVariable Long id){
-        return new ResponseEntity<>(courseService.getCourseById(id),HttpStatus.OK);
+        Course course = courseService.getCourseById(id);
+
+        if(course != null){
+            return new ResponseEntity<>(course,HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
     }
 
 }

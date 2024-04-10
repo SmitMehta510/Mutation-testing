@@ -26,5 +26,5 @@ public class CourseDto {
 
     Integer totalTask;
 
-    List<Task> tasks;
+    List<TaskDto> tasks;
 }

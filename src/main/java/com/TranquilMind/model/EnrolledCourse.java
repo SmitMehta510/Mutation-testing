@@ -1,5 +1,6 @@
 package com.TranquilMind.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -18,10 +19,12 @@ public class EnrolledCourse {
 
     @ManyToOne
     @JoinColumn(name = "patient_id")
+    @JsonBackReference
     Patient patient;
 
     @ManyToOne
     @JoinColumn(name = "course_id")
+    @JsonBackReference
     Course course;
 
     Integer completed;

@@ -1,5 +1,7 @@
 package com.TranquilMind.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -28,9 +30,12 @@ public class Course {
 
     Integer totalTask;
 
-    @OneToMany(mappedBy = "course")
+    @OneToMany(mappedBy = "course",cascade = CascadeType.ALL)
+    @JsonManagedReference
     List<Task> tasks;
 
     @OneToMany(mappedBy = "course")
+    @JsonManagedReference
+    @JsonIgnore
     List<EnrolledCourse> enrollments;
 }
