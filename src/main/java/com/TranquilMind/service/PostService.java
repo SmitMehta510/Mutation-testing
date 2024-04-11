@@ -15,11 +15,11 @@ public interface PostService {
 
     boolean deletePost(Long postId, Long UserId);
 
-    boolean disablePost(Long id, Long userId);
+    boolean disablePost(Long id, Boolean disable);
 
     PostDto editPost(PostDto postDto, Long userId, Long postId);
 
-    Boolean updatePost(Long id, Boolean unflag);
+    Boolean flagPost(Long id, Boolean flag);
 
     List<PostDto> getFlaggedPosts();
 

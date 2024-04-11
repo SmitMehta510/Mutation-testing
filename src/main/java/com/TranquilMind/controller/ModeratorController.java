@@ -18,9 +18,14 @@ public class ModeratorController {
         return new ResponseEntity<>(moderatorService.getFlaggedPosts(),HttpStatus.OK);
     }
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity<?> updatePost(@PathVariable Long id,@RequestBody Boolean unflag) {
-        return new ResponseEntity<>(moderatorService.updatePost(id,unflag),HttpStatus.OK);
+    @PutMapping("/unflag/{id}")
+    public ResponseEntity<?> unflagPost(@PathVariable Long id,@RequestBody Boolean unflag) {
+        return new ResponseEntity<>(moderatorService.unflagPost(id,unflag),HttpStatus.OK);
+    }
+
+    @PutMapping("/disable/{id}")
+    public ResponseEntity<?> disablePost(@PathVariable Long id,@RequestBody Boolean disable) {
+        return new ResponseEntity<>(moderatorService.disablePost(id,disable),HttpStatus.OK);
     }
 
     @GetMapping("/unapproved-answers")
@@ -32,8 +37,4 @@ public class ModeratorController {
     public ResponseEntity<?> approveAnswer(@PathVariable Long questionId) {
         return new ResponseEntity<>(moderatorService.approveAnswer(questionId),HttpStatus.OK);
     }
-
-//    @PostMapping("/di")
-
-
 }

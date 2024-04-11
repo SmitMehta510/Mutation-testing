@@ -48,10 +48,10 @@ public class CourseController {
 
     @GetMapping("/get-course/{id}")
     public ResponseEntity<?> getCourseById(@PathVariable Long id){
-        Course course = courseService.getCourseById(id);
+        CourseDto courseDto = courseService.getCourseById(id);
 
-        if(course != null){
-            return new ResponseEntity<>(course,HttpStatus.OK);
+        if(courseDto != null){
+            return new ResponseEntity<>(courseDto,HttpStatus.OK);
         }else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

@@ -1,5 +1,6 @@
 package com.TranquilMind.controller;
 
+import com.TranquilMind.dto.QuizQuestionDto;
 import com.TranquilMind.model.QuizQuestion;
 import com.TranquilMind.service.QuizQuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,13 +28,11 @@ public class QuizQuestionController {
         }else{
             return new ResponseEntity<>(questions, HttpStatus.OK);
         }
-
-//        return new ResponseEntity<>(quizQuestionService.getAllQuizQuestions(quizName), HttpStatus.OK);
     }
 
     @PostMapping("/new")
-    public ResponseEntity<?> newQuestion(@RequestBody QuizQuestion question) {
-        return new ResponseEntity<>(quizQuestionService.addNewQuizQuestion(question), HttpStatus.OK);
+    public ResponseEntity<?> newQuestion(@RequestBody QuizQuestionDto quizQuestionDto) {
+        return new ResponseEntity<>(quizQuestionService.addNewQuizQuestion(quizQuestionDto), HttpStatus.OK);
     }
 
 }

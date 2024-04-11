@@ -26,6 +26,8 @@ public class Course {
 
     Double price;
 
+    String courseImage;
+
     CourseCategory category;
 
     Integer totalTask;

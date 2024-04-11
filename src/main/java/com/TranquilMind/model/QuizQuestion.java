@@ -25,7 +25,7 @@ public class QuizQuestion {
 
     String description;
 
-    @OneToMany(mappedBy = "quizQuestion")
+    @OneToMany(mappedBy = "quizQuestion",cascade = CascadeType.ALL)
     @JsonManagedReference
     List<QuizAnswer> options;
 

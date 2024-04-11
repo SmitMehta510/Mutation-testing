@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.Map;
+
 @Entity
 @Getter
 @Setter
@@ -28,4 +30,5 @@ public class EnrolledCourse {
     Course course;
 
     Integer completed;
+
 }

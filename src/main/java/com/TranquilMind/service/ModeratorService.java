@@ -13,11 +13,15 @@ public interface ModeratorService {
 
     List<ModeratorDto> getAllModerators();
 
-    Boolean updatePost(Long id,Boolean unflag);
+    Boolean unflagPost(Long id,Boolean unflag);
+
+    Boolean disablePost(Long postId, Boolean disableFlag);
 
     List<PostDto> getFlaggedPosts();
 
     List<Question> getAnsweredQuestions();
 
     Boolean approveAnswer(Long questionId);
+
+
 }

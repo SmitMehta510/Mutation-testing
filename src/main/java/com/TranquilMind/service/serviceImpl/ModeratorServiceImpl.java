@@ -36,8 +36,13 @@ public class ModeratorServiceImpl implements ModeratorService {
     }
 
     @Override
-    public Boolean updatePost(Long id,Boolean unflag) {
-        return postService.updatePost(id,unflag);
+    public Boolean unflagPost(Long id,Boolean unflag) {
+        return postService.flagPost(id,unflag);
+    }
+
+    @Override
+    public Boolean disablePost(Long postId, Boolean disableFlag) {
+        return postService.disablePost(postId,disableFlag);
     }
 
     @Override

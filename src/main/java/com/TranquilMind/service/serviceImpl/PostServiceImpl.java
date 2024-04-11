@@ -54,7 +54,7 @@ public class PostServiceImpl implements PostService {
         User user = userService.getUserById(postDto.getPostedBy());
 
         post.setPostedBy(user);
-        post.setImage(post.getImage());
+        post.setImage(postDto.getImage());
         post.setDescription(postDto.getDescription());
         post.setUploadedAt(postDto.getUploadedAt());
         post.setTitle(postDto.getTitle());
@@ -82,14 +82,14 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public boolean disablePost(Long id,Long userId) {
-//        Post post = getPostById(id);
-//
-//        if (post != null) {
-//            if(post)
-//        }
-//
-//        return ;
+    public boolean disablePost(Long id,Boolean disable) {
+        Post post = getPostById(id);
+
+        if (post != null) {
+            post.setIsDisabled(disable);
+            postRepository.save(post);
+            return true;
+        }
         return false;
     }
 
@@ -108,17 +108,16 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public Boolean updatePost(Long id, Boolean unflag) {
+    public Boolean flagPost(Long id, Boolean flag) {
 
         Post post = getPostById(id);
 
         if (post != null) {
-            if (unflag) {
-                post.setIsApproved(true);
-                post.setFlagged(0);
+            if (flag) {
+                post.setFlagged(post.getFlagged()+1);
             } else {
-                post.setIsApproved(false);
-                post.setIsDisabled(true);
+                post.setFlagged(0);
+                post.setIsApproved(true);
             }
 
             postRepository.save(post);
