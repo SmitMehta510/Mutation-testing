@@ -2,6 +2,7 @@ package com.TranquilMind.service.serviceImpl;
 
 import com.TranquilMind.dto.ModeratorDto;
 import com.TranquilMind.dto.PostDto;
+import com.TranquilMind.exception.ResourceNotFoundException;
 import com.TranquilMind.model.Doctor;
 import com.TranquilMind.model.Moderator;
 import com.TranquilMind.model.Question;
@@ -58,5 +59,11 @@ public class ModeratorServiceImpl implements ModeratorService {
     @Override
     public Boolean approveAnswer(Long questionId) {
         return questionService.approveAnswer(questionId);
+    }
+
+    @Override
+    public ModeratorDto getModeratorByUserId(Long id) {
+        return moderatorRepository.findByUserId(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Moderator not exist with id :" + id)).toDto();
     }
 }

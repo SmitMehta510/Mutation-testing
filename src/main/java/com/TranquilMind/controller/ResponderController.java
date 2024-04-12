@@ -35,4 +35,9 @@ public class ResponderController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
+    @GetMapping("/getbyid/{userId}")
+    public ResponseEntity<?> getByUserId(@PathVariable Long userId) {
+        return new ResponseEntity<>(responderService.getResponderByUserId(userId),HttpStatus.OK);
+    }
 }

@@ -37,4 +37,9 @@ public class ModeratorController {
     public ResponseEntity<?> approveAnswer(@PathVariable Long questionId) {
         return new ResponseEntity<>(moderatorService.approveAnswer(questionId),HttpStatus.OK);
     }
+
+    @GetMapping("/getbyid/{userId}")
+    public ResponseEntity<?> getByUserId(@PathVariable Long userId) {
+        return new ResponseEntity<>(moderatorService.getModeratorByUserId(userId),HttpStatus.OK);
+    }
 }

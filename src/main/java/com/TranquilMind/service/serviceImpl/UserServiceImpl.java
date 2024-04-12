@@ -114,10 +114,11 @@ public class UserServiceImpl implements UserService {
             user.setRoles(Collections.singletonList(role));
             registerDto.setUser(userRepository.save(user));
             String token = jwtUtilities.generateToken(authDto.getEmail(), Collections.singletonList(role.getRoleName()));
-            registerDto.setResponse(new ResponseEntity<>(new UserAuthDto(token, "Bearer ",user.getUserId(),user.getRoles().get(0).toString()), HttpStatus.OK));
+            registerDto.setResponse(new ResponseEntity<>(new UserAuthDto(token, "Bearer ", user.getUserId(), user.getRoles().get(0).toString()), HttpStatus.OK));
         }
         return registerDto;
     }
+
     @Override
     public UserAuthDto authenticate(AuthDto authDto) {
         Authentication authentication = authenticationManager.authenticate(
@@ -131,16 +132,11 @@ public class UserServiceImpl implements UserService {
         List<String> rolesNames = new ArrayList<>();
         user.getRoles().forEach(r -> rolesNames.add(r.getRoleName()));
         String token = jwtUtilities.generateToken(user.getUsername(), rolesNames);
-        return new UserAuthDto(token, "Bearer ",user.getUserId(),user.getRoles().get(0).getRoleName());
+        return new UserAuthDto(token, "Bearer ", user.getUserId(), user.getRoles().get(0).getRoleName());
     }
 
-//    @Autowired
-//    private UserRepository userRepository;
-//
-//    @Autowired
-//    private PasswordEncoder passwordEncoder;
-//
-//    @Override
+
+    //    @Override
 //    public List<User> getAllUsers() {
 //        return userRepository.findAll();
 //    }
@@ -195,9 +191,8 @@ public class UserServiceImpl implements UserService {
 //
     @Override
     public User getUserById(Long id) throws ResourceNotFoundException {
-        User user = userRepository.findById(id)
+        return userRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("User not exist with id :" + id));
-        return user;
     }
 
 

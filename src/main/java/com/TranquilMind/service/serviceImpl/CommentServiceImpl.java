@@ -2,13 +2,9 @@ package com.TranquilMind.service.serviceImpl;
 
 import com.TranquilMind.dto.CommentDto;
 import com.TranquilMind.exception.ResourceNotFoundException;
-import com.TranquilMind.model.Comment;
-import com.TranquilMind.model.Post;
-import com.TranquilMind.model.User;
+import com.TranquilMind.model.*;
 import com.TranquilMind.repository.CommentRepository;
-import com.TranquilMind.service.CommentService;
-import com.TranquilMind.service.PostService;
-import com.TranquilMind.service.UserService;
+import com.TranquilMind.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,11 +23,17 @@ public class CommentServiceImpl implements CommentService {
     @Autowired
     private PostService postService;
 
+    @Autowired
+    private PatientService patientService;
+
+    @Autowired
+    private DoctorService doctorService;
+
     @Override
     public List<CommentDto> getCommentByPost(Post post) {
         return commentRepository.findAllByPost(post)
                 .stream()
-                .map(Comment::toDto)
+                .map(this::toDto)
                 .collect(Collectors.toList());
     }
 
@@ -51,7 +53,7 @@ public class CommentServiceImpl implements CommentService {
         comment.setPost(post);
         comment.setDescription(commentDto.getDescription());
         comment.setUploadedAt(commentDto.getUploadedAt());
-        return commentRepository.save(comment).toDto();
+        return toDto(commentRepository.save(comment));
     }
 
     @Override
@@ -75,5 +77,30 @@ public class CommentServiceImpl implements CommentService {
     public Comment getCommentById(Long id) {
         return commentRepository.findById(id).orElseThrow(
                 () -> new ResourceNotFoundException("Comment not found with id " + id));
+    }
+
+
+    public CommentDto toDto(Comment comment){
+        return new CommentDto(comment.getDescription(),comment.getUploadedAt(), comment.getPost().getPostId(),
+                comment.getCommentBy().getUserId(),getUserFullName(comment.getCommentBy()));
+    }
+
+
+    public String getUserFullName(User user) {
+        String fullName = "";
+        String roleName = user.getRoles().get(0).getRoleName();
+
+        if (roleName.equals("PATIENT")) {
+            Patient patient = patientService.getPatientByUserId(user.getUserId());
+            fullName = concatFullName(patient.getFirstName(), patient.getMiddleName(), patient.getLastName());
+        } else if (roleName.equals("DOCTOR")) {
+            Doctor doctor = doctorService.getDoctorByUserId(user.getUserId());
+            fullName = concatFullName(doctor.getFirstName(), doctor.getMiddleName(), doctor.getLastName());
+        }
+        return fullName;
+    }
+
+    private String concatFullName(String firstName, String middleName, String lastName) {
+        return firstName + " " + middleName + " " + lastName;
     }
 }

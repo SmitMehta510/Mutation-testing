@@ -6,7 +6,6 @@ import com.TranquilMind.model.Doctor;
 import com.TranquilMind.model.Patient;
 import com.TranquilMind.model.Post;
 import com.TranquilMind.model.User;
-import com.TranquilMind.repository.CommentRepository;
 import com.TranquilMind.repository.PostRepository;
 import com.TranquilMind.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -139,7 +138,7 @@ public class PostServiceImpl implements PostService {
         User user = post.getPostedBy();
         String name = getUserFullName(user);
 
-        return new PostDto(post.getTitle(), post.getDescription(), user.getUserId(), name,
+        return new PostDto(post.getPostId(), post.getTitle(), post.getDescription(), user.getUserId(), name,
                 post.getUploadedAt(), post.getImage(), post.getFlagged(), commentService.getCommentByPost(post),
                 post.getIsDisabled(), post.getIsApproved());
     }

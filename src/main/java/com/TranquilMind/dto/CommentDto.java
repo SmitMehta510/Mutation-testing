@@ -18,4 +18,6 @@ public class CommentDto {
     Long postId;
 
     Long commentById;
+
+    String name;
 }

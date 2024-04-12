@@ -13,6 +13,7 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class PostDto {
 
+    Long Id;
     String title;
     String description;
     Long postedBy;

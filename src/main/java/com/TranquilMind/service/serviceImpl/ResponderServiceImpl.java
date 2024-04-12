@@ -1,7 +1,9 @@
 package com.TranquilMind.service.serviceImpl;
 
+import com.TranquilMind.dto.ModeratorDto;
 import com.TranquilMind.dto.QuestionDto;
 import com.TranquilMind.dto.ResponderDto;
+import com.TranquilMind.exception.ResourceNotFoundException;
 import com.TranquilMind.model.*;
 import com.TranquilMind.repository.QuestionRepository;
 import com.TranquilMind.repository.ResponderRepository;
@@ -54,6 +56,12 @@ public class ResponderServiceImpl implements ResponderService {
         User user = userService.getUserById(answeredById);
 
         return questionService.addAnswer(questionDto,user,questionId);
+    }
+
+    @Override
+    public ResponderDto getResponderByUserId(Long id) {
+        return responderRepository.findByUserId(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Responder not exist with id :" + id)).toDto();
     }
 
 }

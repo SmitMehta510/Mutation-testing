@@ -68,4 +68,9 @@ public class PostController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
+    @PutMapping("/flag/{postId}")
+    public ResponseEntity<?> flagPost(@PathVariable Long postId, @RequestBody Boolean flag){
+        return new ResponseEntity<>(postService.flagPost(postId, flag), HttpStatus.OK);
+    }
 }

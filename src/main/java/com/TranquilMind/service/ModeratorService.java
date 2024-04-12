@@ -23,5 +23,6 @@ public interface ModeratorService {
 
     Boolean approveAnswer(Long questionId);
 
+    ModeratorDto getModeratorByUserId(Long id);
 
 }
