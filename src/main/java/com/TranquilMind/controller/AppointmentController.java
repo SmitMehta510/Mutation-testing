@@ -48,7 +48,7 @@ public class AppointmentController {
 
     @GetMapping("/doctors")
     public ResponseEntity<?> getDoctorsList(){
-        return new ResponseEntity<>(doctorService.getAllDoctors(),HttpStatus.OK);
+        return new ResponseEntity<>(doctorService.getAllActiveDoctors(),HttpStatus.OK);
     }
 
     @PostMapping("/new-appointment")

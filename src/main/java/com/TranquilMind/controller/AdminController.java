@@ -7,12 +7,8 @@ import com.TranquilMind.service.ResponderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -52,7 +48,12 @@ public class AdminController {
 
     @GetMapping("/disabled-doctors")
     public ResponseEntity<?> getDisabledDoctors(){
-        return new ResponseEntity<>(doctorService.getDisabledDoctors(),HttpStatus.OK);
+        return new ResponseEntity<>(doctorService.getAllDisabledDoctors(),HttpStatus.OK);
+    }
+
+    @PutMapping("/approve-doctor/{doctorId}")
+    public ResponseEntity<?> approveDoctor(@PathVariable Long doctorId, @RequestBody Boolean approve){
+        return new ResponseEntity<>(doctorService.approveDoctor(doctorId, approve), HttpStatus.OK);
     }
 
 }

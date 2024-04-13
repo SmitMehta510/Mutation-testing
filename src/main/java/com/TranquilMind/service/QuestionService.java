@@ -10,11 +10,17 @@ public interface QuestionService {
 
     List<Question> getUnansweredQuestions();
 
-    List<Question> getAnsweredQuestions();
+    List<Question> getApprovedQuestions();
+
+    List<Question> getUnapprovedAnswers();
 
     List<Question> getAnsweredQuestionsByResponder(User user);
 
-    Boolean addAnswer(QuestionDto questionDto, User answeredBy, Long questionId);
+    Boolean addAnswer(QuestionDto questionDto, Long questionId);
 
     Boolean approveAnswer(Long questionId);
+
+    List<Integer> questionData();
+
+    QuestionDto addQuestion(QuestionDto questionDto);
 }

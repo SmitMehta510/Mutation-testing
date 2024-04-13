@@ -15,13 +15,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    //RessourceEndPoint:http://localhost:8087/api/user/register
-//    @PostMapping("/register")
-//    public ResponseEntity<?> register(@RequestBody RegisterDto registerDto) {
-//        return userService.register(registerDto);
-//    }
-
-    //RessourceEndPoint:http://localhost:8087/api/user/authenticate
     @PostMapping("/authenticate")
     public ResponseEntity<?> authenticate(@RequestBody AuthDto authDto) {
         return new ResponseEntity<>(userService.authenticate(authDto), HttpStatus.OK);

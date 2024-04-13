@@ -27,9 +27,9 @@ public class ResponderController {
 
     @PutMapping("/add-answer/{questionId}")
     public ResponseEntity<?> addAnswer(@PathVariable Long questionId,
-        @RequestBody QuestionDto questionDto, @RequestParam(name = "answeredBy") Long answeredById) {
+        @RequestBody QuestionDto questionDto) {
 
-        if(responderService.addAnswer(questionDto, questionId, answeredById)){
+        if(responderService.addAnswer(questionDto, questionId)){
             return new ResponseEntity<>(HttpStatus.OK);
         }else {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

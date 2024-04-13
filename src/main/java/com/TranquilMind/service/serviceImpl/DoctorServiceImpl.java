@@ -33,22 +33,13 @@ public class DoctorServiceImpl implements DoctorService {
     @Autowired
     private UserService userService;
 
-//    @Override
-//    public List<Doctor> getAllDoctors() {
-//        return doctorRepository.findAll();
-//    }
-
-//    @Override
-//    public List<DoctorDto> getAllDoctorsDto() {
-//        return null;s
-//    }
-
-//    @Override
-//    public List<DoctorDto> getAllDoctors() {
-//        List<DoctorDto> res = new ArrayList<>();
-//        doctorRepository.findAll().forEach(doctor -> res.add(new Doctor().toDto(doctor)));
-//        return  res;
-//    }
+    @Override
+    public List<DoctorDto> getAllActiveDoctors() {
+        return doctorRepository.getDoctors(false)
+                .stream()
+                .map(Doctor::toDto)
+                .collect(Collectors.toList());
+    }
 
     @Override
     public List<DoctorDto> getAllDoctors() {
@@ -106,15 +97,6 @@ public class DoctorServiceImpl implements DoctorService {
                     doctorRegisterDto.getGender(), doctorRegisterDto.getMobileNo(), doctorRegisterDto.getLicenceNo(),
                     doctorRegisterDto.getDescription(), doctorRegisterDto.getConsultationFee(),
                     doctorRegisterDto.getExperience(), doctorRegisterDto.getIsSenior(), true);
-//            doctor.setUser(registerDto.getUser());
-//            doctor.setFirstName(doctorRegisterDto.getFirstName());
-//            doctor.setMiddleName(doctorRegisterDto.getMiddleName());
-//            doctor.setLastName(doctorRegisterDto.getLastName());
-//            doctor.setAge(doctorRegisterDto.getAge());
-//            doctor.setGender(doctorRegisterDto.getGender());
-//            doctor.setMobileNo(doctorRegisterDto.getMobileNo());
-//            doctor.setDescription(doctorRegisterDto.getDescription());
-//            doc
             doctorRepository.save(doctor);
         }
 //        } else {
@@ -137,7 +119,24 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public List<Doctor> getDisabledDoctors() {
-        return doctorRepository.findAll().stream().filter(Doctor::getIsDisabled).toList();
+    public Boolean approveDoctor(Long id, Boolean approve) {
+        Doctor doctor = getDoctorById(id);
+
+        if (doctor!= null){
+            doctor.setIsDisabled(!approve);
+            doctorRepository.save(doctor);
+            return true;
+        }else {
+            return false;
+        }
+
+    }
+
+    @Override
+    public List<DoctorDto> getAllDisabledDoctors() {
+        return doctorRepository.getDoctors(true)
+                .stream()
+                .map(Doctor::toDto)
+                .collect(Collectors.toList());
     }
 }

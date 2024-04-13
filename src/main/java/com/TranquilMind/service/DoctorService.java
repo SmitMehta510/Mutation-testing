@@ -12,7 +12,7 @@ import java.util.List;
 
 public interface DoctorService {
 
-//    List<Doctor> getAllDoctors();
+    List<DoctorDto> getAllActiveDoctors();
 
     List<DoctorDto> getAllDoctors();
 
@@ -26,8 +26,10 @@ public interface DoctorService {
 
     ResponseEntity<?> createDoctor(DoctorRegisterDto doctorRegisterDto);
 
-    List<Doctor> getDisabledDoctors();
+    List<DoctorDto> getAllDisabledDoctors();
 
     List<Appointment> getAppointments(Long id);
+
+    Boolean approveDoctor(Long id, Boolean approve);
 
 }

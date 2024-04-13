@@ -1,22 +1,18 @@
 package com.TranquilMind.service.serviceImpl;
 
-import com.TranquilMind.dto.ModeratorDto;
+
 import com.TranquilMind.dto.QuestionDto;
 import com.TranquilMind.dto.ResponderDto;
 import com.TranquilMind.exception.ResourceNotFoundException;
 import com.TranquilMind.model.*;
-import com.TranquilMind.repository.QuestionRepository;
 import com.TranquilMind.repository.ResponderRepository;
-import com.TranquilMind.service.PostService;
 import com.TranquilMind.service.QuestionService;
 import com.TranquilMind.service.ResponderService;
 import com.TranquilMind.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.method.P;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -51,11 +47,8 @@ public class ResponderServiceImpl implements ResponderService {
     }
 
     @Override
-    public Boolean addAnswer(QuestionDto questionDto, Long answeredById, Long questionId) {
-
-        User user = userService.getUserById(answeredById);
-
-        return questionService.addAnswer(questionDto,user,questionId);
+    public Boolean addAnswer(QuestionDto questionDto, Long questionId) {
+        return questionService.addAnswer(questionDto,questionId);
     }
 
     @Override

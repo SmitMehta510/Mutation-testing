@@ -23,4 +23,6 @@ public interface PostService {
 
     List<PostDto> getFlaggedPosts();
 
+    List<Integer> postData();
+
 }

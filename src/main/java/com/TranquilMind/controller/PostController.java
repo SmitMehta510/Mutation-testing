@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/post")
 public class PostController {
 
@@ -70,7 +71,12 @@ public class PostController {
     }
 
     @PutMapping("/flag/{postId}")
-    public ResponseEntity<?> flagPost(@PathVariable Long postId, @RequestBody Boolean flag){
+    public ResponseEntity<?> flagPost(@PathVariable Long postId, @RequestBody boolean flag){
         return new ResponseEntity<>(postService.flagPost(postId, flag), HttpStatus.OK);
+    }
+
+    @GetMapping("/post-data")
+    public ResponseEntity<?> getPostData() {
+        return new ResponseEntity<>(postService.postData(), HttpStatus.OK);
     }
 }

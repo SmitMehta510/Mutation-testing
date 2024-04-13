@@ -3,7 +3,6 @@ package com.TranquilMind.service.serviceImpl;
 import com.TranquilMind.dto.ModeratorDto;
 import com.TranquilMind.dto.PostDto;
 import com.TranquilMind.exception.ResourceNotFoundException;
-import com.TranquilMind.model.Doctor;
 import com.TranquilMind.model.Moderator;
 import com.TranquilMind.model.Question;
 import com.TranquilMind.repository.ModeratorRepository;
@@ -53,7 +52,7 @@ public class ModeratorServiceImpl implements ModeratorService {
 
     @Override
     public List<Question> getAnsweredQuestions() {
-        return questionService.getAnsweredQuestions();
+        return questionService.getUnapprovedAnswers();
     }
 
     @Override

@@ -15,8 +15,16 @@ public interface QuestionRepository extends JpaRepository<Question,Long> {
     List<Question> findUnansweredQuestions();
 
     @Query("select q from Question q where q.answered = true and q.isApprovedByModerator = false ")
-    List<Question> findAnsweredQuestions();
+    List<Question> findUnapprovedAnswers();
+
+    @Query("select q from Question q where q.answered = true  and  q.isApprovedByModerator = true ")
+    List<Question> approvedQuestions();
 
     List<Question> findByAnsweredBy(User user);
 
+    @Query("select count(*) from Question ")
+    Integer totalquestione();
+
+    @Query("select count(*) from Question q where q.answered = false")
+    Integer unansweredQuestionCount();
 }

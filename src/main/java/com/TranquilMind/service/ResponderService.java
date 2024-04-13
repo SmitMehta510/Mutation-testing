@@ -15,7 +15,7 @@ public interface ResponderService {
 
     List<Question> getAnsweredQuestionsByResponder(Long id);
 
-    Boolean addAnswer(QuestionDto questionDto, Long answeredById, Long questionId);
+    Boolean addAnswer(QuestionDto questionDto, Long questionId);
 
     ResponderDto getResponderByUserId(Long id);
 }

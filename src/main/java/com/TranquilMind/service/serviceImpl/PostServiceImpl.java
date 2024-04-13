@@ -11,6 +11,7 @@ import com.TranquilMind.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,7 +35,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<PostDto> getAllPostsByTime() {
-        return postRepository.findAllByOrderByUploadedAtDesc()
+        return postRepository.getPosts()
                 .stream()
                 .map(this::toDto)
                 .collect(Collectors.toList());
@@ -132,6 +133,14 @@ public class PostServiceImpl implements PostService {
                 .filter(p -> p.getFlagged() > 0)
                 .map(this::toDto)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Integer> postData() {
+        List<Integer> list = new ArrayList<>();
+        list.add(postRepository.totalPostCount());
+        list.add(postRepository.flaggedPostCount());
+        return list;
     }
 
     public PostDto toDto(Post post) {

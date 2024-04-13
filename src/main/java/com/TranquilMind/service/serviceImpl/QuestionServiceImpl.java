@@ -6,9 +6,11 @@ import com.TranquilMind.model.Question;
 import com.TranquilMind.model.User;
 import com.TranquilMind.repository.QuestionRepository;
 import com.TranquilMind.service.QuestionService;
+import com.TranquilMind.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -16,6 +18,9 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Autowired
     private QuestionRepository questionRepository;
+
+    @Autowired
+    private UserService userService;
 
     public List<Question> findAll() {
         return questionRepository.findAll();
@@ -27,8 +32,13 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public List<Question> getAnsweredQuestions() {
-        return questionRepository.findAnsweredQuestions();
+    public List<Question> getApprovedQuestions() {
+        return questionRepository.approvedQuestions();
+    }
+
+    @Override
+    public List<Question> getUnapprovedAnswers() {
+        return questionRepository.findUnapprovedAnswers();
     }
 
     @Override
@@ -42,13 +52,15 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public Boolean addAnswer(QuestionDto questionDto, User answeredBy, Long questionId) {
+    public Boolean addAnswer(QuestionDto questionDto, Long questionId) {
 
         Question question = findById(questionId);
 
-        if (question!= null) {
+        User user = userService.getUserById(questionDto.getAnsweredBy());
+
+        if (question!= null && user != null) {
             question.setAnswer(questionDto.getAnswer());
-            question.setAnsweredBy(answeredBy);
+            question.setAnsweredBy(user);
             question.setAnsweredAt(questionDto.getAnsweredAt());
             question.setIsApprovedByModerator(false);
             question.setAnswered(true);
@@ -71,5 +83,29 @@ public class QuestionServiceImpl implements QuestionService {
         }else{
             return false;
         }
+    }
+
+    public List<Integer> questionData(){
+        List<Integer> questionData = new ArrayList<>();
+        questionData.add(questionRepository.totalquestione());
+        questionData.add(questionRepository.unansweredQuestionCount());
+        return questionData;
+    }
+
+    @Override
+    public QuestionDto addQuestion(QuestionDto questionDto) {
+
+        Question question = new Question();
+
+        User user = userService.getUserById(questionDto.getAnsweredBy());
+
+        question.setQuestion(questionDto.getQuestion());
+        question.setQuestionBy(user);
+        question.setUploadedAt(questionDto.getUploadedAt());
+        question.setAnswered(false);
+        question.setIsApprovedByModerator(false);
+        questionRepository.save(question);
+
+        return null;
     }
 }
