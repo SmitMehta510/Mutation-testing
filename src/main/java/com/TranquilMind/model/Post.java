@@ -1,6 +1,7 @@
 package com.TranquilMind.model;
 
 import com.TranquilMind.dto.PostDto;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
@@ -30,6 +31,8 @@ public class Post {
     @JoinColumn(name = "posted_by_id")
     User postedBy;
 
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
     String image;
 
     Timestamp uploadedAt;

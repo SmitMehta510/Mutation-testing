@@ -2,12 +2,12 @@ package com.TranquilMind.service;
 
 import com.TranquilMind.dto.PatientDto;
 import com.TranquilMind.dto.PatientRegisterDto;
+import com.TranquilMind.dto.PostDto;
 import com.TranquilMind.model.Patient;
+import com.TranquilMind.model.Quiz;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
-import java.util.Optional;
-
 
 public interface PatientService {
 
@@ -23,4 +23,7 @@ public interface PatientService {
 
     ResponseEntity<?> createPatient(PatientRegisterDto patientRegisterDto);
 
+    List<Quiz> getQuizzes(Long id);
+
+    List<PostDto> getPosts(Long userId);
 }

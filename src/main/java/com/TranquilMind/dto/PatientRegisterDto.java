@@ -19,4 +19,5 @@ public class PatientRegisterDto implements Serializable {
     Integer age;
     Gender gender;
     String mobileNo;
+    String image;
 }

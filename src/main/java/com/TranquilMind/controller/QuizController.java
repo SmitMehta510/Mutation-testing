@@ -15,11 +15,6 @@ public class QuizController {
     @Autowired
     private QuizService quizService;
 
-    @GetMapping("/quiz-scores/{id}")
-    public ResponseEntity<?> getQuizScoresForPatient(@PathVariable Long id){
-        return new ResponseEntity<>(quizService.getQuizScoresForPatient(id), HttpStatus.OK);
-    }
-
     @PostMapping("/new")
     public ResponseEntity<?> addNewQuizScore(@RequestBody QuizDto quizDto){
         return new ResponseEntity<>(quizService.newQuiz(quizDto),HttpStatus.OK);

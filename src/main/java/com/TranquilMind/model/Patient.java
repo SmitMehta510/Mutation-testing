@@ -33,6 +33,10 @@ public class Patient{
     @Column(nullable = false)
     Gender gender;
 
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
+    String image;
+
     @OneToMany(mappedBy = "patient")
     @JsonManagedReference
     List<Appointment> appointmentList;
@@ -46,14 +50,7 @@ public class Patient{
     List<Quiz> quizScores;
 
 
-//    public PatientDto toDto(Patient patient){
-//        User user = patient.getUser();
-//        return new PatientDto(user.getEmail(),user.getUserId(), patient.getFirstName(),
-//               patient.getMiddleName(), patient.getLastName(), patient.getAge(), patient.getMobileNo(),
-//               patient.getGender());
-//    }
-
     public PatientDto toDto(){
-        return new PatientDto(user.getEmail(),user.getUserId(), firstName,middleName,lastName,age,mobileNo,gender);
+        return new PatientDto(user.getEmail(),user.getUserId(), firstName,middleName,lastName,age,mobileNo,gender,image);
     }
 }

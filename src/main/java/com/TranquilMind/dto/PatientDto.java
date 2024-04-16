@@ -18,4 +18,5 @@ public class PatientDto {
     Integer age;
     String mobileNo;
     Gender gender;
+    String image;
 }

@@ -2,7 +2,6 @@ package com.TranquilMind.controller;
 
 import com.TranquilMind.dto.PatientDto;
 import com.TranquilMind.dto.PatientRegisterDto;
-import com.TranquilMind.model.Patient;
 import com.TranquilMind.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,6 +15,7 @@ public class PatientController {
 
     @Autowired
     private PatientService patientService;
+
 
     @PostMapping("/register")
     public ResponseEntity<?> registerPatient(@RequestBody PatientRegisterDto patientRegisterDto){
@@ -38,4 +38,13 @@ public class PatientController {
         return new ResponseEntity<>(patientService.deletePatient(Long.parseLong(id)),HttpStatus.GONE);
     }
 
+    @GetMapping("/get-quiz-score")
+    public ResponseEntity<?> getQuizScore(Long userid){
+        return new ResponseEntity<>(patientService.getQuizzes(userid), HttpStatus.OK);
+    }
+
+    @GetMapping("/my-posts")
+    public ResponseEntity<?> getMyPosts(Long userid){
+        return new ResponseEntity<>(patientService.getPosts(userid), HttpStatus.OK);
+    }
 }

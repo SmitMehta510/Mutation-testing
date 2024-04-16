@@ -28,6 +28,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -51,6 +52,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public Role saveRole(Role role) {
         return roleRepository.save(role);
+    }
+
+    @Override
+    public boolean updatePassword(Long userId, String newPassword) {
+        Optional<User> user = userRepository.findById(userId);
+        if(user.isPresent()) {
+            User user1 = user.get();
+            user1.setPassword(passwordEncoder.encode(newPassword));
+            userRepository.save(user1);
+            return true;
+        }else {
+            return false;
+        }
     }
 
 

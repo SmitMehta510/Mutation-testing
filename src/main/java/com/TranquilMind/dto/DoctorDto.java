@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
 
-import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -20,6 +19,7 @@ public class DoctorDto {
     String lastName;
     Integer age;
     Gender gender;
+    String image;
     String mobileNo;
     String licenceNo;
     String description;

@@ -26,8 +26,7 @@ public class QuizServiceImpl implements QuizService {
     private QuizTypeRepository quizTypeRepository;
 
     @Override
-    public List<Quiz> getQuizScoresForPatient(Long id) {
-        Patient patient = patientService.getPatientByUserId(id);
+    public List<Quiz> getQuizScoresForPatient(Patient patient) {
         return quizRepository.findByPatient(patient);
     }
 

@@ -24,6 +24,7 @@ public class DoctorRegisterDto {
     Integer age;
     @Column(nullable = false)
     Gender gender;
+    String image;
 
     String mobileNo;
     @Column(nullable = false)

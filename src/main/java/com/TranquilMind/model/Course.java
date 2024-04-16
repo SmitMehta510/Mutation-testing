@@ -26,6 +26,8 @@ public class Course {
 
     Double price;
 
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
     String courseImage;
 
     CourseCategory category;

@@ -79,7 +79,7 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public Doctor getDoctorByUserId(Long id) throws ResourceNotFoundException{
+    public Doctor getDoctorByUserId(Long id) throws ResourceNotFoundException {
         return doctorRepository.findByUserId(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Doctor not exist with id :" + id));
     }
@@ -96,7 +96,8 @@ public class DoctorServiceImpl implements DoctorService {
                     doctorRegisterDto.getMiddleName(), doctorRegisterDto.getLastName(), doctorRegisterDto.getAge(),
                     doctorRegisterDto.getGender(), doctorRegisterDto.getMobileNo(), doctorRegisterDto.getLicenceNo(),
                     doctorRegisterDto.getDescription(), doctorRegisterDto.getConsultationFee(),
-                    doctorRegisterDto.getExperience(), doctorRegisterDto.getIsSenior(), true);
+                    doctorRegisterDto.getExperience(), doctorRegisterDto.getIsSenior(),
+                    true, doctorRegisterDto.getImage());
             doctorRepository.save(doctor);
         }
 //        } else {
@@ -106,14 +107,14 @@ public class DoctorServiceImpl implements DoctorService {
         return registerDto.getResponse();
     }
 
-    public List<Appointment> getAppointments(Long id){
+    public List<Appointment> getAppointments(Long id) {
         Optional<Doctor> doc = doctorRepository.findByUserId(id);
 
-        if(doc.isPresent()){
+        if (doc.isPresent()) {
             Doctor doctor = doc.get();
             return doctor.getAppointmentList();
-        }else{
-            return  null;
+        } else {
+            return null;
         }
 
     }
@@ -122,11 +123,11 @@ public class DoctorServiceImpl implements DoctorService {
     public Boolean approveDoctor(Long id, Boolean approve) {
         Doctor doctor = getDoctorById(id);
 
-        if (doctor!= null){
+        if (doctor != null) {
             doctor.setIsDisabled(!approve);
             doctorRepository.save(doctor);
             return true;
-        }else {
+        } else {
             return false;
         }
 

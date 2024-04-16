@@ -35,6 +35,10 @@ public class Doctor implements Serializable {
     @Column(nullable = false)
     Gender gender;
 
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
+    String image;
+
     String mobileNo;
     @Column(nullable = false)
     String licenceNo;
@@ -52,7 +56,7 @@ public class Doctor implements Serializable {
 
     public Doctor(User user, String firstName, String middleName, String lastName, Integer age, Gender gender,
                   String mobileNo, String licenceNo, String description, Double consultationFee,
-                  Integer experience, Boolean isSenior, Boolean isDisabled) {
+                  Integer experience, Boolean isSenior, Boolean isDisabled, String image) {
         this.user = user;
         this.firstName = firstName;
         this.middleName = middleName;
@@ -66,11 +70,12 @@ public class Doctor implements Serializable {
         this.experience = experience;
         this.isSenior = isSenior;
         this.isDisabled = isDisabled;
+        this.image = image;
     }
 
     public DoctorDto toDto(){
         return new DoctorDto(user.getUserId(), user.getEmail(), firstName,middleName,lastName,age,gender,
-                mobileNo,licenceNo,description,consultationFee,experience,isSenior,isDisabled);
+                mobileNo,licenceNo,description,image,consultationFee,experience,isSenior,isDisabled);
     }
 
 

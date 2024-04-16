@@ -25,4 +25,5 @@ public interface PostService {
 
     List<Integer> postData();
 
+    List<PostDto> getPostsByUserId(Long userId);
 }

@@ -14,6 +14,7 @@ public interface UserService {
     UserAuthDto authenticate(AuthDto authDto);
     RegisterDto register (AuthDto authDto, RoleName roleName);
     Role saveRole(Role role);
+    boolean updatePassword(Long userId,String newPassword);
 
 
 

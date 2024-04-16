@@ -143,6 +143,14 @@ public class PostServiceImpl implements PostService {
         return list;
     }
 
+    @Override
+    public List<PostDto> getPostsByUserId(Long userId) {
+        return postRepository.getPostsByUserId(userId)
+                .stream()
+                .map(this::toDto)
+                .collect(Collectors.toList());
+    }
+
     public PostDto toDto(Post post) {
         User user = post.getPostedBy();
         String name = getUserFullName(user);

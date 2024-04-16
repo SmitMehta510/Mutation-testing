@@ -97,7 +97,7 @@ public class QuestionServiceImpl implements QuestionService {
 
         Question question = new Question();
 
-        User user = userService.getUserById(questionDto.getAnsweredBy());
+        User user = userService.getUserById(questionDto.getQuestionBy());
 
         question.setQuestion(questionDto.getQuestion());
         question.setQuestionBy(user);

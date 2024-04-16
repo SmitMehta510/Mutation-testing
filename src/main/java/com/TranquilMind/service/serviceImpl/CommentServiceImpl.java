@@ -81,7 +81,7 @@ public class CommentServiceImpl implements CommentService {
 
 
     public CommentDto toDto(Comment comment){
-        return new CommentDto(comment.getDescription(),comment.getUploadedAt(), comment.getPost().getPostId(),
+        return new CommentDto(comment.getCommentId(),comment.getDescription(),comment.getUploadedAt(), comment.getPost().getPostId(),
                 comment.getCommentBy().getUserId(),getUserFullName(comment.getCommentBy()));
     }
 

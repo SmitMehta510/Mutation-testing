@@ -11,6 +11,8 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CommentDto {
+    Long commentId;
+
     String description;
 
     Timestamp uploadedAt;
