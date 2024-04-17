@@ -1,5 +1,6 @@
 package com.TranquilMind.model;
 
+import com.TranquilMind.dto.TaskDto;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
@@ -29,4 +30,10 @@ public class Task {
     @JoinColumn(name = "course_id",nullable = false)
     @JsonBackReference
     Course course;
+
+    public TaskDto toDto(){
+        return new TaskDto(taskId, weekNo, taskNo, description, link);
+    }
+
+
 }

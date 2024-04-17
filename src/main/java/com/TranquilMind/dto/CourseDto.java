@@ -29,5 +29,5 @@ public class CourseDto {
 
     Integer totalTask;
 
-    Map<Integer, List<Task>> tasksByWeek;
+    Map<Integer, List<TaskDto>> tasksByWeek;
 }

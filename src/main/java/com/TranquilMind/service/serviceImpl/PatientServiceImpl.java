@@ -6,7 +6,6 @@ import com.TranquilMind.exception.ResourceNotFoundException;
 import com.TranquilMind.model.Patient;
 import com.TranquilMind.model.Quiz;
 import com.TranquilMind.model.RoleName;
-import com.TranquilMind.model.User;
 import com.TranquilMind.repository.PatientRepository;
 import com.TranquilMind.service.PatientService;
 import com.TranquilMind.service.PostService;

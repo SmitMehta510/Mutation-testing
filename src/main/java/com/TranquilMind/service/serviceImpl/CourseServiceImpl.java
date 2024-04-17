@@ -1,6 +1,7 @@
 package com.TranquilMind.service.serviceImpl;
 
 import com.TranquilMind.dto.CourseDto;
+import com.TranquilMind.dto.TaskDto;
 import com.TranquilMind.exception.ResourceNotFoundException;
 import com.TranquilMind.model.Course;
 import com.TranquilMind.model.Task;
@@ -41,21 +42,30 @@ public class CourseServiceImpl implements CourseService {
         course.setDescription(courseDto.getDescription());
         course.setTotalTask(courseDto.getTotalTask());
 
-        List<Task> taskList = new ArrayList<>();
-//        courseDto.getTasks().forEach(taskDto -> {
-//            Task task1 = new Task();
-//            task1.setDescription(taskDto.getDescription());
-//            task1.setCourse(course);
-//            task1.setTaskNo(taskDto.getTaskNo());
-//            task1.setWeekNo(taskDto.getWeekNo());
-//            task1.setLink(taskDto.getLink());
-//            taskList.add(task1);
-//        });
-        courseDto.getTasksByWeek().forEach((week,tasks) ->{
-            taskList.addAll(tasks);
-        });
 
-        course.setTasks(taskList);
+        List<TaskDto> allTasks = new ArrayList<>();
+
+        for (List<TaskDto> taskList : courseDto.getTasksByWeek().values()) {
+            allTasks.addAll(taskList);
+        }
+
+        List<Task> allTaskList = allTasks.stream().map(taskDto ->TaskDto.toTask(taskDto,course)).toList();
+        course.setTasks(allTaskList);
+//        List<Task> taskList = new ArrayList<>();
+////        courseDto.getTasks().forEach(taskDto -> {
+////            Task task1 = new Task();
+////            task1.setDescription(taskDto.getDescription());
+////            task1.setCourse(course);
+////            task1.setTaskNo(taskDto.getTaskNo());
+////            task1.setWeekNo(taskDto.getWeekNo());
+////            task1.setLink(taskDto.getLink());
+////            taskList.add(task1);
+////        });
+//        courseDto.getTasksByWeek().forEach((week,tasks) ->{
+//            taskList.addAll(tasks);
+//        });
+
+//        course.setTasks(taskList);
         return courseRepository.save(course);
     }
 
@@ -66,8 +76,11 @@ public class CourseServiceImpl implements CourseService {
                 () ->new ResourceNotFoundException("Course not found with id "+id));
 
         if(course != null) {
-            Map<Integer, List<Task>> tasksByWeek = course.getTasks().stream()
-                    .collect(Collectors.groupingBy(Task::getWeekNo));
+            Map<Integer, List<TaskDto>> tasksByWeek = course.
+                    getTasks()
+                    .stream()
+                    .map(Task::toDto)
+                    .collect(Collectors.groupingBy(TaskDto::getWeekNo));
 
             return new CourseDto(course.getCourseName(), course.getDescription(), course.getPrice(),
                     course.getCourseImage(), course.getCategory(), course.getTotalTask(), tasksByWeek);
