@@ -22,6 +22,8 @@ public class Course {
 
     String courseName;
 
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
     String description;
 
     Double price;

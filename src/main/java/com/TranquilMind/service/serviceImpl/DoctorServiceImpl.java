@@ -1,25 +1,18 @@
 package com.TranquilMind.service.serviceImpl;
 
-import com.TranquilMind.dto.AuthDto;
-import com.TranquilMind.dto.DoctorDto;
-import com.TranquilMind.dto.DoctorRegisterDto;
-import com.TranquilMind.dto.RegisterDto;
+import com.TranquilMind.dto.*;
 import com.TranquilMind.exception.ResourceNotFoundException;
 import com.TranquilMind.model.Appointment;
 import com.TranquilMind.model.Doctor;
 import com.TranquilMind.model.RoleName;
-import com.TranquilMind.model.User;
 import com.TranquilMind.repository.DoctorRepository;
+import com.TranquilMind.service.AppointmentService;
 import com.TranquilMind.service.DoctorService;
 import com.TranquilMind.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -32,6 +25,9 @@ public class DoctorServiceImpl implements DoctorService {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private AppointmentService appointmentService;
 
     @Override
     public List<DoctorDto> getAllActiveDoctors() {
@@ -131,6 +127,16 @@ public class DoctorServiceImpl implements DoctorService {
             return false;
         }
 
+    }
+
+    @Override
+    public List<Integer> getStatsForDoctor(Long doctorId) {
+        return appointmentService.appointmentDataByDoctor(doctorId);
+    }
+
+    @Override
+    public boolean updatePassword(PasswordDto passwordDto) {
+        return userService.updatePassword(passwordDto);
     }
 
     @Override

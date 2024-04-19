@@ -18,6 +18,8 @@ public class TaskDto {
 
     Integer taskNo;
 
+    String title;
+
     String description;
 
     String link;
@@ -26,6 +28,7 @@ public class TaskDto {
         Task newTask = new Task();
         newTask.setWeekNo(taskDto.getWeekNo());
         newTask.setTaskNo(taskDto.getTaskNo());
+        newTask.setTitle(taskDto.getTitle());
         newTask.setDescription(taskDto.getDescription());
         newTask.setLink(taskDto.getLink());
         newTask.setCourse(course);

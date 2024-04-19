@@ -1,5 +1,6 @@
 package com.TranquilMind.controller;
 
+import com.TranquilMind.dto.PasswordDto;
 import com.TranquilMind.service.ModeratorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -41,5 +42,10 @@ public class ModeratorController {
     @GetMapping("/getbyid/{userId}")
     public ResponseEntity<?> getByUserId(@PathVariable Long userId) {
         return new ResponseEntity<>(moderatorService.getModeratorByUserId(userId),HttpStatus.OK);
+    }
+
+    @PutMapping("/update-password")
+    public ResponseEntity<?> updatePassword(@RequestBody PasswordDto passwordDto){
+        return new ResponseEntity<>(moderatorService.updatePassword(passwordDto),HttpStatus.OK);
     }
 }

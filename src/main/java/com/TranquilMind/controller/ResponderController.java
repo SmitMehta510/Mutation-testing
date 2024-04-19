@@ -1,5 +1,6 @@
 package com.TranquilMind.controller;
 
+import com.TranquilMind.dto.PasswordDto;
 import com.TranquilMind.dto.QuestionDto;
 import com.TranquilMind.service.ResponderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +40,10 @@ public class ResponderController {
     @GetMapping("/getbyid/{userId}")
     public ResponseEntity<?> getByUserId(@PathVariable Long userId) {
         return new ResponseEntity<>(responderService.getResponderByUserId(userId),HttpStatus.OK);
+    }
+
+    @PutMapping("/update-password")
+    public ResponseEntity<?> updatePassword(@RequestBody PasswordDto passwordDto){
+        return new ResponseEntity<>(responderService.updatePassword(passwordDto),HttpStatus.OK);
     }
 }

@@ -22,6 +22,10 @@ public class Task {
 
     Integer taskNo;
 
+    String title;
+
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
     String description;
 
     String link;
@@ -32,7 +36,7 @@ public class Task {
     Course course;
 
     public TaskDto toDto(){
-        return new TaskDto(taskId, weekNo, taskNo, description, link);
+        return new TaskDto(taskId, weekNo, taskNo,title, description, link);
     }
 
 

@@ -130,7 +130,7 @@ public class PostServiceImpl implements PostService {
     public List<PostDto> getFlaggedPosts() {
         return postRepository.findAll()
                 .stream()
-                .filter(p -> p.getFlagged() > 0)
+                .filter(p -> p.getFlagged() > 0 && !p.getIsDisabled())
                 .map(this::toDto)
                 .collect(Collectors.toList());
     }

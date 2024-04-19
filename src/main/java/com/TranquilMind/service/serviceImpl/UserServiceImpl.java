@@ -3,6 +3,7 @@ package com.TranquilMind.service.serviceImpl;
 import com.TranquilMind.config.JwtUtilities;
 import com.TranquilMind.config.SpringSecurityConfig;
 import com.TranquilMind.dto.AuthDto;
+import com.TranquilMind.dto.PasswordDto;
 import com.TranquilMind.dto.RegisterDto;
 import com.TranquilMind.dto.UserAuthDto;
 import com.TranquilMind.exception.ResourceNotFoundException;
@@ -55,18 +56,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean updatePassword(Long userId, String newPassword) {
-        Optional<User> user = userRepository.findById(userId);
-        if(user.isPresent()) {
+    public boolean updatePassword(PasswordDto passwordDto) {
+        Optional<User> user = userRepository.findById(passwordDto.getUserId());
+        if (user.isPresent()) {
             User user1 = user.get();
-            user1.setPassword(passwordEncoder.encode(newPassword));
-            userRepository.save(user1);
-            return true;
-        }else {
+            if (passwordEncoder.matches(passwordDto.getOldPassword(), user1.getPassword())) {
+                user1.setPassword(passwordEncoder.encode(passwordDto.getNewPassword()));
+                userRepository.save(user1);
+                return true;
+            } else {
+                return false;
+            }
+        } else {
             return false;
         }
     }
-
 
 //    @Override
 //    public ResponseEntity<?> register(RegisterDto registerDto) {

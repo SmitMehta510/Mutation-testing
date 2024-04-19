@@ -19,6 +19,8 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long commentId;
 
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
     String description;
 
     Timestamp uploadedAt;

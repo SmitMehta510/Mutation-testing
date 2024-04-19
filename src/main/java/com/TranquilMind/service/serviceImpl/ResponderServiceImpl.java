@@ -1,6 +1,7 @@
 package com.TranquilMind.service.serviceImpl;
 
 
+import com.TranquilMind.dto.PasswordDto;
 import com.TranquilMind.dto.QuestionDto;
 import com.TranquilMind.dto.ResponderDto;
 import com.TranquilMind.exception.ResourceNotFoundException;
@@ -55,6 +56,11 @@ public class ResponderServiceImpl implements ResponderService {
     public ResponderDto getResponderByUserId(Long id) {
         return responderRepository.findByUserId(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Responder not exist with id :" + id)).toDto();
+    }
+
+    @Override
+    public boolean updatePassword(PasswordDto passwordDto) {
+        return userService.updatePassword(passwordDto);
     }
 
 }

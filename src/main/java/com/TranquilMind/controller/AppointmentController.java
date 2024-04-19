@@ -67,5 +67,4 @@ public class AppointmentController {
         return new ResponseEntity<>(HttpStatus.GONE);
     }
 
-
 }

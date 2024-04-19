@@ -2,9 +2,9 @@ package com.TranquilMind.service;
 
 import com.TranquilMind.dto.DoctorDto;
 import com.TranquilMind.dto.DoctorRegisterDto;
+import com.TranquilMind.dto.PasswordDto;
 import com.TranquilMind.model.Appointment;
 import com.TranquilMind.model.Doctor;
-import com.TranquilMind.model.User;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
@@ -32,4 +32,7 @@ public interface DoctorService {
 
     Boolean approveDoctor(Long id, Boolean approve);
 
+    List<Integer> getStatsForDoctor(Long doctorId);
+
+    boolean updatePassword(PasswordDto passwordDto);
 }

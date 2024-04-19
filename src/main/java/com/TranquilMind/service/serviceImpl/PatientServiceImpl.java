@@ -65,7 +65,7 @@ public class PatientServiceImpl implements PatientService {
         patient.setLastName(patientDetails.getLastName());
         patient.setAge(patientDetails.getAge());
 
-        boolean success = userService.updatePassword(id, patientDetails.getPassword());
+//        boolean success = userService.updatePassword(id, patientDetails.getPassword());
 
         return patientRepository.save(patient);
     }
@@ -122,5 +122,10 @@ public class PatientServiceImpl implements PatientService {
     @Override
     public List<PostDto> getPosts(Long userId) {
         return postService.getPostsByUserId(userId);
+    }
+
+    @Override
+    public boolean updatePassword(PasswordDto passwordDto) {
+        return userService.updatePassword(passwordDto);
     }
 }

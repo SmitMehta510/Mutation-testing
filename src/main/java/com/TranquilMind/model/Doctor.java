@@ -42,7 +42,11 @@ public class Doctor implements Serializable {
     String mobileNo;
     @Column(nullable = false)
     String licenceNo;
+
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
     String description;
+
     Double consultationFee;
     @Column(nullable = false)
     Integer experience;

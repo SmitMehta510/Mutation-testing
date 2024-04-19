@@ -3,7 +3,6 @@ package com.TranquilMind.service;
 import com.TranquilMind.dto.AppointmentDto;
 import com.TranquilMind.dto.AppointmentListDto;
 import com.TranquilMind.model.Appointment;
-import org.springframework.http.ResponseEntity;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -22,4 +21,5 @@ public interface AppointmentService {
 
     Appointment updateAppointment(Appointment appointment);
 
+    List<Integer> appointmentDataByDoctor(Long doctorId);
 }

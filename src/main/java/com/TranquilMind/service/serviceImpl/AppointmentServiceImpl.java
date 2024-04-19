@@ -15,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -90,6 +92,15 @@ public class AppointmentServiceImpl implements AppointmentService {
     @Override
     public Appointment updateAppointment(Appointment appointment) {
         return null;
+    }
+
+    @Override
+    public List<Integer> appointmentDataByDoctor(Long doctorId) {
+        List<Integer> appointmentData = new ArrayList<>();
+        appointmentData.add(appointmentRepository.getPatientDataByDoctorId(doctorId));
+        appointmentData.add(appointmentRepository.totalAppointmentsByDoctorId(doctorId));
+        appointmentData.add(appointmentRepository.totalPendingAppointmentsByDoctorId(doctorId,LocalDate.now(), LocalTime.now()));
+        return appointmentData;
     }
 
     public Appointment getAppointmentById(Long id) {

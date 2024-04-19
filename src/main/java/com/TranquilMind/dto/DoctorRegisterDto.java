@@ -4,7 +4,6 @@ import com.TranquilMind.model.Gender;
 import jakarta.persistence.Column;
 import lombok.AccessLevel;
 import lombok.Data;
-import lombok.Value;
 import lombok.experimental.FieldDefaults;
 
 @Data

@@ -1,6 +1,7 @@
 package com.TranquilMind.service.serviceImpl;
 
 import com.TranquilMind.dto.ModeratorDto;
+import com.TranquilMind.dto.PasswordDto;
 import com.TranquilMind.dto.PostDto;
 import com.TranquilMind.exception.ResourceNotFoundException;
 import com.TranquilMind.model.Moderator;
@@ -9,6 +10,7 @@ import com.TranquilMind.repository.ModeratorRepository;
 import com.TranquilMind.service.ModeratorService;
 import com.TranquilMind.service.PostService;
 import com.TranquilMind.service.QuestionService;
+import com.TranquilMind.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,9 @@ public class ModeratorServiceImpl implements ModeratorService {
 
     @Autowired
     private QuestionService questionService;
+
+    @Autowired
+    private UserService userService;
 
     @Override
     public List<ModeratorDto> getAllModerators() {
@@ -65,4 +70,10 @@ public class ModeratorServiceImpl implements ModeratorService {
         return moderatorRepository.findByUserId(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Moderator not exist with id :" + id)).toDto();
     }
+
+    @Override
+    public boolean updatePassword(PasswordDto passwordDto) {
+        return userService.updatePassword(passwordDto);
+    }
+
 }

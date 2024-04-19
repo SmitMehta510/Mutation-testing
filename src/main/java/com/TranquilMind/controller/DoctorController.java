@@ -1,6 +1,7 @@
 package com.TranquilMind.controller;
 
 import com.TranquilMind.dto.DoctorRegisterDto;
+import com.TranquilMind.dto.PasswordDto;
 import com.TranquilMind.exception.ResourceNotFoundException;
 import com.TranquilMind.model.Doctor;
 import com.TranquilMind.service.DoctorService;
@@ -29,7 +30,7 @@ public class DoctorController {
 
     @GetMapping("/doctorbyid/{id}")
     public ResponseEntity<?> doctorByUserId(@PathVariable Long id) {
-        Doctor doctor = null;
+        Doctor doctor;
         try {
             doctor = doctorService.getDoctorByUserId(id);
         } catch (ResourceNotFoundException e) {
@@ -39,8 +40,18 @@ public class DoctorController {
         return ResponseEntity.status(HttpStatus.OK).body(doctor);
     }
 
+    @PutMapping("/update-doctor/{id}")
+    public ResponseEntity<?> updateDoctor(@PathVariable Long id, Doctor doctor){
+        return new ResponseEntity<>(doctorService.updateDoctor(id, doctor), HttpStatus.OK);
+    }
 
+    @GetMapping("/get-stats/{doctorId}")
+    public ResponseEntity<?> getStatsForDoctor(@PathVariable Long doctorId){
+        return new ResponseEntity<>(doctorService.getStatsForDoctor(doctorId),HttpStatus.OK);
+    }
 
-
-
+    @PutMapping("/update-password")
+    public ResponseEntity<?> updatePassword(@RequestBody PasswordDto passwordDto){
+        return new ResponseEntity<>(doctorService.updatePassword(passwordDto),HttpStatus.OK);
+    }
 }

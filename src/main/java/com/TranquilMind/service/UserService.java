@@ -2,6 +2,7 @@ package com.TranquilMind.service;
 
 import com.TranquilMind.dto.AuthDto;
 
+import com.TranquilMind.dto.PasswordDto;
 import com.TranquilMind.dto.RegisterDto;
 import com.TranquilMind.dto.UserAuthDto;
 import com.TranquilMind.model.Role;
@@ -14,7 +15,7 @@ public interface UserService {
     UserAuthDto authenticate(AuthDto authDto);
     RegisterDto register (AuthDto authDto, RoleName roleName);
     Role saveRole(Role role);
-    boolean updatePassword(Long userId,String newPassword);
+    boolean updatePassword(PasswordDto passwordDto);
 
 
 

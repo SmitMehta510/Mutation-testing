@@ -25,6 +25,8 @@ public class Post {
 
     String title;
 
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
     String description;
 
     @ManyToOne

@@ -37,8 +37,12 @@ public class Appointment {
 
     LocalTime endTime;
 
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
     String description;
 
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
     String remarks;
 
     public static AppointmentListDto toListDto(Appointment appointment){

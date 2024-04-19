@@ -1,5 +1,6 @@
 package com.TranquilMind.controller;
 
+import com.TranquilMind.dto.PasswordDto;
 import com.TranquilMind.dto.PatientDto;
 import com.TranquilMind.dto.PatientRegisterDto;
 import com.TranquilMind.service.PatientService;
@@ -46,5 +47,10 @@ public class PatientController {
     @GetMapping("/my-posts")
     public ResponseEntity<?> getMyPosts(Long userid){
         return new ResponseEntity<>(patientService.getPosts(userid), HttpStatus.OK);
+    }
+
+    @PutMapping("/update-password")
+    public ResponseEntity<?> updatePassword(@RequestBody PasswordDto passwordDto){
+        return new ResponseEntity<>(patientService.updatePassword(passwordDto), HttpStatus.OK);
     }
 }

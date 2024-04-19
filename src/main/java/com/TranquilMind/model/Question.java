@@ -18,8 +18,12 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long questionId;
 
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
     String question;
 
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
     String answer;
 
     Timestamp uploadedAt;
