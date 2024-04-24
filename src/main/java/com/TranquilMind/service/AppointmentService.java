@@ -22,4 +22,6 @@ public interface AppointmentService {
     Appointment updateAppointment(Appointment appointment);
 
     List<Integer> appointmentDataByDoctor(Long doctorId);
+
+    List<Long> distinctPatientByDoctor(Long doctorId);
 }

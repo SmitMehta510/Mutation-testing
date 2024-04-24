@@ -20,7 +20,7 @@ public interface DoctorService {
 
     Doctor updateDoctor(Long id, Doctor doctor);
 
-    Doctor getDoctorById(Long id);
+//    Doctor getDoctorById(Long id);
 
     Doctor getDoctorByUserId(Long id);
 
@@ -35,4 +35,6 @@ public interface DoctorService {
     List<Integer> getStatsForDoctor(Long doctorId);
 
     boolean updatePassword(PasswordDto passwordDto);
+
+    boolean getIsSenior(Long doctorId);
 }

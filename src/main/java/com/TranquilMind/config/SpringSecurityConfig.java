@@ -26,6 +26,21 @@ public class SpringSecurityConfig implements WebMvcConfigurer {
     @Autowired
     private CustomerUserDetailsService customerUserDetailsService;
 
+    //swagger link : http://localhost:8082/api/swagger-ui/index.html#/
+    private static final String[] AUTH_WHITELIST = {
+            "/swagger-resources",
+            "/swagger-resources/**",
+            "/configuration/ui",
+            "/configuration/security",
+            "/swagger-ui.html",
+            "/webjars/**",
+            "/v3/api-docs/**",
+            "/api/public/**",
+            "/api/public/authenticate",
+            "/actuator/*",
+            "/swagger-ui/**"
+    };
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
@@ -34,6 +49,7 @@ public class SpringSecurityConfig implements WebMvcConfigurer {
                 .sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(Authorize -> Authorize
 //                        .requestMatchers(HttpMethod.OPTIONS,"/**").permitAll()
+                        .requestMatchers(AUTH_WHITELIST).permitAll()
                         .requestMatchers("/user/**").permitAll()
                         .requestMatchers("/patient/register").permitAll()
                         .requestMatchers("/doctor/register").permitAll()
@@ -47,7 +63,7 @@ public class SpringSecurityConfig implements WebMvcConfigurer {
                         .requestMatchers("/course/patient/**").hasAuthority("PATIENT")
                         .requestMatchers("/course/**").hasAnyAuthority("ADMIN","PATIENT")
                         .requestMatchers("/quiz-question/**").hasAnyAuthority("ADMIN","PATIENT","DOCTOR")
-                        .requestMatchers("/quiz/**").hasAnyAuthority("ADMIN","PATIENT","DOCTOR")
+                        .requestMatchers("/quiz/**").permitAll()
                         .requestMatchers("/post/**").permitAll()
                         .requestMatchers("/question/**").permitAll()
                 );

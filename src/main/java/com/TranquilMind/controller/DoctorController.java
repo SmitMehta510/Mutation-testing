@@ -54,4 +54,9 @@ public class DoctorController {
     public ResponseEntity<?> updatePassword(@RequestBody PasswordDto passwordDto){
         return new ResponseEntity<>(doctorService.updatePassword(passwordDto),HttpStatus.OK);
     }
+
+    @GetMapping("/is-senior/{doctorId}")
+    public ResponseEntity<?> isSenior(@PathVariable Long doctorId){
+        return new ResponseEntity<>(doctorService.getIsSenior(doctorId),HttpStatus.OK);
+    }
 }

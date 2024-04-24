@@ -48,7 +48,7 @@ public class DoctorServiceImpl implements DoctorService {
     @Override
     public boolean deleteDoctor(Long id) {
         boolean isDeleted = true;
-        Doctor doctor = getDoctorById(id);
+        Doctor doctor = getDoctorByUserId(id);
 
         doctorRepository.delete(doctor);
 
@@ -58,21 +58,22 @@ public class DoctorServiceImpl implements DoctorService {
     //TODO change update method for patient and doctor
     @Override
     public Doctor updateDoctor(Long id, Doctor doctorDetails) {
-        Doctor doctor = getDoctorById(id);
+        Doctor doctor = getDoctorByUserId(id);
 
         doctor.setFirstName(doctorDetails.getFirstName());
         doctor.setLastName(doctorDetails.getLastName());
         doctor.setAge(doctorDetails.getAge());
+        doctor.setDescription(doctorDetails.getDescription());
 
         return null;
     }
 
-    @Override
-    public Doctor getDoctorById(Long id) throws ResourceNotFoundException {
-        return doctorRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Doctor not exist with id :" + id));
-//                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with id " + id));
-    }
+//    @Override
+//    public Doctor getDoctorById(Long id) throws ResourceNotFoundException {
+//        return doctorRepository.findById(id)
+//                .orElseThrow(() -> new ResourceNotFoundException("Doctor not exist with id :" + id));
+////                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with id " + id));
+//    }
 
     @Override
     public Doctor getDoctorByUserId(Long id) throws ResourceNotFoundException {
@@ -117,7 +118,7 @@ public class DoctorServiceImpl implements DoctorService {
 
     @Override
     public Boolean approveDoctor(Long id, Boolean approve) {
-        Doctor doctor = getDoctorById(id);
+        Doctor doctor = getDoctorByUserId(id);
 
         if (doctor != null) {
             doctor.setIsDisabled(!approve);
@@ -137,6 +138,15 @@ public class DoctorServiceImpl implements DoctorService {
     @Override
     public boolean updatePassword(PasswordDto passwordDto) {
         return userService.updatePassword(passwordDto);
+    }
+
+    @Override
+    public boolean getIsSenior(Long doctorId) {
+        Doctor doctor = getDoctorByUserId(doctorId);
+        if(doctor != null){
+            return doctor.getIsSenior();
+        }
+        return false;
     }
 
     @Override

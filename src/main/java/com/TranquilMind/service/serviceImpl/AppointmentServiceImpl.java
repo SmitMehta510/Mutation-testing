@@ -103,6 +103,11 @@ public class AppointmentServiceImpl implements AppointmentService {
         return appointmentData;
     }
 
+    @Override
+    public List<Long> distinctPatientByDoctor(Long doctorId) {
+        return appointmentRepository.findDistinctPatientByDoctorId(doctorId);
+    }
+
     public Appointment getAppointmentById(Long id) {
         return appointmentRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Appointment not exist with id :" + id));

@@ -25,6 +25,8 @@ public interface AppointmentRepository extends JpaRepository<Appointment,Long> {
     @Query("SELECT COUNT(*) FROM Appointment a WHERE a.doctor.doctorId = :doctorId AND (a.date > :date OR (a.date = :date AND a.startTime > :time))")
     Integer totalPendingAppointmentsByDoctorId(@Param("doctorId") Long doctorId, @Param("date") LocalDate date, @Param("time") LocalTime time);
 
+    @Query("select distinct(a.patient.patientId) from Appointment a where a.doctor.doctorId = :doctorId")
+    List<Long> findDistinctPatientByDoctorId(@Param("doctorId") Long doctorId);
 
 //    Integer countAllByDoctorAndDateGreaterThanEqualAndStartTimeGreaterThan(Doctor doctor, LocalDate date, LocalTime startTime);
 }

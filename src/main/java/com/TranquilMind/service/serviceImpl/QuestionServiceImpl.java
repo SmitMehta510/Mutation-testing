@@ -104,8 +104,7 @@ public class QuestionServiceImpl implements QuestionService {
         question.setUploadedAt(questionDto.getUploadedAt());
         question.setAnswered(false);
         question.setIsApprovedByModerator(false);
-        questionRepository.save(question);
+        return questionRepository.save(question).toDto();
 
-        return null;
     }
 }

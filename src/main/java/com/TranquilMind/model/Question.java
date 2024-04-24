@@ -1,5 +1,6 @@
 package com.TranquilMind.model;
 
+import com.TranquilMind.dto.QuestionDto;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -42,4 +43,8 @@ public class Question {
     @JoinColumn(name = "answered_by_id")
     User answeredBy;
 
+    public QuestionDto toDto(){
+        return new QuestionDto(question,answer,questionBy.getUserId(),uploadedAt,answeredAt,answered,
+                isApprovedByModerator,answeredBy.getUserId());
+    }
 }
