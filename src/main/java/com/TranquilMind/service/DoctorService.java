@@ -37,4 +37,6 @@ public interface DoctorService {
     boolean updatePassword(PasswordDto passwordDto);
 
     boolean getIsSenior(Long doctorId);
+
+    List<Long> distinctPatientByDoctorId(Long doctorId);
 }

@@ -150,6 +150,11 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
+    public List<Long> distinctPatientByDoctorId(Long doctorId) {
+        return appointmentService.distinctPatientByDoctor(doctorId);
+    }
+
+    @Override
     public List<DoctorDto> getAllDisabledDoctors() {
         return doctorRepository.getDoctors(true)
                 .stream()

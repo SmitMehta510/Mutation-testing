@@ -59,4 +59,9 @@ public class DoctorController {
     public ResponseEntity<?> isSenior(@PathVariable Long doctorId){
         return new ResponseEntity<>(doctorService.getIsSenior(doctorId),HttpStatus.OK);
     }
+
+    @GetMapping("/distinct-patient/{doctorId}")
+    public ResponseEntity<?> distinctPatient(@PathVariable Long doctorId){
+        return new ResponseEntity<>(doctorService.distinctPatientByDoctorId(doctorId),HttpStatus.OK);
+    }
 }
