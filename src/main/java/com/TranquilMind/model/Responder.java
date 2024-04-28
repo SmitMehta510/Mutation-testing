@@ -27,7 +27,9 @@ public class Responder {
     String middleName;
     String lastName;
 
+    boolean isFirstLogin;
+
     public ResponderDto toDto(){
-        return new ResponderDto(user.getEmail(), firstName, middleName, lastName);
+        return new ResponderDto(user.getEmail(), firstName, middleName, lastName, isFirstLogin);
     }
 }

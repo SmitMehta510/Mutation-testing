@@ -1,11 +1,14 @@
 package com.TranquilMind.service.serviceImpl;
 
+import com.TranquilMind.dto.AuthDto;
 import com.TranquilMind.dto.ModeratorDto;
 import com.TranquilMind.dto.PasswordDto;
 import com.TranquilMind.dto.PostDto;
 import com.TranquilMind.exception.ResourceNotFoundException;
 import com.TranquilMind.model.Moderator;
 import com.TranquilMind.model.Question;
+import com.TranquilMind.model.RoleName;
+import com.TranquilMind.model.User;
 import com.TranquilMind.repository.ModeratorRepository;
 import com.TranquilMind.service.ModeratorService;
 import com.TranquilMind.service.PostService;
@@ -41,6 +44,19 @@ public class ModeratorServiceImpl implements ModeratorService {
     }
 
     @Override
+    public ModeratorDto addModerator(Moderator moderator) {
+        AuthDto authDto = new AuthDto(moderator.getUser().getEmail(), moderator.getUser().getPassword());
+        User user = userService.register(authDto, RoleName.MODERATOR).getUser();
+        if(user!=null){
+            moderator.setUser(user);
+            moderator.setFirstLogin(true);
+            return moderatorRepository.save(moderator).toDto();
+        }else{
+            throw new ResourceNotFoundException("User not found");
+        }
+    }
+
+    @Override
     public Boolean unflagPost(Long id,Boolean unflag) {
         return postService.flagPost(id,unflag);
     }
@@ -73,6 +89,10 @@ public class ModeratorServiceImpl implements ModeratorService {
 
     @Override
     public boolean updatePassword(PasswordDto passwordDto) {
+        Moderator moderator = moderatorRepository.findByUserId(passwordDto.getUserId())
+                .orElseThrow(() -> new ResourceNotFoundException("Moderator not exist with id :" + passwordDto.getUserId()));
+        moderator.setFirstLogin(false);
+        moderatorRepository.save(moderator);
         return userService.updatePassword(passwordDto);
     }
 

@@ -14,5 +14,6 @@ public class ResponderDto {
     String firstName;
     String middleName;
     String lastName;
+    boolean isFirstLogin;
 
 }

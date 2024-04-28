@@ -4,6 +4,7 @@ package com.TranquilMind.service;
 import com.TranquilMind.dto.ModeratorDto;
 import com.TranquilMind.dto.PasswordDto;
 import com.TranquilMind.dto.PostDto;
+import com.TranquilMind.model.Moderator;
 import com.TranquilMind.model.Question;
 
 import java.util.List;
@@ -11,6 +12,8 @@ import java.util.List;
 public interface ModeratorService {
 
     List<ModeratorDto> getAllModerators();
+
+    ModeratorDto addModerator(Moderator moderator);
 
     Boolean unflagPost(Long id,Boolean unflag);
 

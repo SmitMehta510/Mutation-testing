@@ -1,5 +1,7 @@
 package com.TranquilMind.controller;
 
+import com.TranquilMind.model.Moderator;
+import com.TranquilMind.model.Responder;
 import com.TranquilMind.service.DoctorService;
 import com.TranquilMind.service.ModeratorService;
 import com.TranquilMind.service.PatientService;
@@ -56,4 +58,13 @@ public class AdminController {
         return new ResponseEntity<>(doctorService.approveDoctor(doctorId, approve), HttpStatus.OK);
     }
 
+    @PostMapping("/add-responder")
+    public ResponseEntity<?> addResponder(@RequestBody Responder responder){
+        return new ResponseEntity<>(responderService.addResponder(responder),HttpStatus.OK);
+    }
+
+    @PostMapping("/add-moderator")
+    public ResponseEntity<?> addModerator(@RequestBody Moderator moderator){
+        return new ResponseEntity<>(moderatorService.addModerator(moderator),HttpStatus.OK);
+    }
 }

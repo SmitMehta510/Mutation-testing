@@ -4,6 +4,7 @@ import com.TranquilMind.dto.PasswordDto;
 import com.TranquilMind.dto.QuestionDto;
 import com.TranquilMind.dto.ResponderDto;
 import com.TranquilMind.model.Question;
+import com.TranquilMind.model.Responder;
 
 
 import java.util.List;
@@ -11,6 +12,8 @@ import java.util.List;
 public interface ResponderService {
 
     List<ResponderDto> getAllResponders();
+
+    ResponderDto addResponder(Responder responder);
 
     List<Question> getUnansweredQuestions();
 

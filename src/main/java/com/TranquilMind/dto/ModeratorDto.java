@@ -14,5 +14,6 @@ public class ModeratorDto {
     String firstName;
     String middleName;
     String lastName;
+    boolean isFirstLogin;
 
 }

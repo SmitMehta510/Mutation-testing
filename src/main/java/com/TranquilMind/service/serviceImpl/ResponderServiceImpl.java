@@ -1,6 +1,7 @@
 package com.TranquilMind.service.serviceImpl;
 
 
+import com.TranquilMind.dto.AuthDto;
 import com.TranquilMind.dto.PasswordDto;
 import com.TranquilMind.dto.QuestionDto;
 import com.TranquilMind.dto.ResponderDto;
@@ -37,6 +38,19 @@ public class ResponderServiceImpl implements ResponderService {
     }
 
     @Override
+    public ResponderDto addResponder(Responder responder) {
+        AuthDto authDto = new AuthDto(responder.getUser().getEmail(), responder.getUser().getPassword());
+        User user = userService.register(authDto, RoleName.MODERATOR).getUser();
+        if(user!=null){
+            responder.setUser(user);
+            responder.setFirstLogin(true);
+            return responderRepository.save(responder).toDto();
+        }else{
+            throw new ResourceNotFoundException("User not found");
+        }
+    }
+
+    @Override
     public List<Question> getUnansweredQuestions() {
         return questionService.getUnansweredQuestions();
     }
@@ -60,6 +74,10 @@ public class ResponderServiceImpl implements ResponderService {
 
     @Override
     public boolean updatePassword(PasswordDto passwordDto) {
+        Responder responder = responderRepository.findByUserId(passwordDto.getUserId())
+                .orElseThrow(() -> new ResourceNotFoundException("Responder not exist with id :" + passwordDto.getUserId()));
+        responder.setFirstLogin(false);
+        responderRepository.save(responder);
         return userService.updatePassword(passwordDto);
     }
 

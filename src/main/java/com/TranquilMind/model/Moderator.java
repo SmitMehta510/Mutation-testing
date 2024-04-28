@@ -25,7 +25,9 @@ public class Moderator {
     String middleName;
     String lastName;
 
-    public ModeratorDto toDto(){
-        return new ModeratorDto(user.getEmail(), firstName, middleName, lastName);
+    boolean isFirstLogin;
+
+    public ModeratorDto toDto() {
+        return new ModeratorDto(user.getEmail(), firstName, middleName, lastName, isFirstLogin);
     }
 }
