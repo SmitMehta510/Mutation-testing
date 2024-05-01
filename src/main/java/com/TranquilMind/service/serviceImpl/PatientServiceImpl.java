@@ -3,14 +3,11 @@ package com.TranquilMind.service.serviceImpl;
 import com.TranquilMind.config.SpringSecurityConfig;
 import com.TranquilMind.dto.*;
 import com.TranquilMind.exception.ResourceNotFoundException;
-import com.TranquilMind.model.Patient;
-import com.TranquilMind.model.Quiz;
-import com.TranquilMind.model.RoleName;
+import com.TranquilMind.model.*;
+import com.TranquilMind.repository.CourseRepository;
+import com.TranquilMind.repository.EnrollCourseRepository;
 import com.TranquilMind.repository.PatientRepository;
-import com.TranquilMind.service.PatientService;
-import com.TranquilMind.service.PostService;
-import com.TranquilMind.service.QuizService;
-import com.TranquilMind.service.UserService;
+import com.TranquilMind.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -33,6 +30,12 @@ public class PatientServiceImpl implements PatientService {
 
     @Autowired
     private PostService postService;
+
+    @Autowired
+    CourseRepository courseRepository;
+
+    @Autowired
+    private EnrollCourseRepository enrollCourseRepository;
 
     private final PasswordEncoder passwordEncoder = new SpringSecurityConfig().passwordEncoder();
 
@@ -128,4 +131,35 @@ public class PatientServiceImpl implements PatientService {
     public boolean updatePassword(PasswordDto passwordDto) {
         return userService.updatePassword(passwordDto);
     }
+
+    @Override
+    public EnrolledCourse enrollCourse(Long patientId, Long courseId) {
+        Patient patient = getPatientByUserId(patientId);
+        Course course = courseRepository.findById(courseId)
+                .orElseThrow(() -> new ResourceNotFoundException("Course not found"));
+
+        EnrolledCourse enrolledCourse = new EnrolledCourse();
+        enrolledCourse.setCourse(course);
+        enrolledCourse.setPatient(patient);
+        enrolledCourse.setCompleted(0);
+        return enrollCourseRepository.save(enrolledCourse);
+    }
+
+    @Override
+    public boolean markComplete(Long patientId, Long courseId) {
+        Patient patient = getPatientByUserId(patientId);
+        Course course = courseRepository.findById(courseId)
+                .orElseThrow(() -> new ResourceNotFoundException("Course not found"));
+        EnrolledCourse enrolledCourse = enrollCourseRepository.findByCourseAndPatient(course,patient);
+        enrolledCourse.setCompleted(enrolledCourse.getCompleted() +1);
+        enrollCourseRepository.save(enrolledCourse);
+        return true;
+    }
+
+    @Override
+    public List<EnrolledCourse> enrollCourses(Long patientId) {
+        Patient patient = getPatientByUserId(patientId);
+        return enrollCourseRepository.findByPatient(patient);
+    }
+
 }

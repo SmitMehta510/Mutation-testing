@@ -53,4 +53,14 @@ public class PatientController {
     public ResponseEntity<?> updatePassword(@RequestBody PasswordDto passwordDto){
         return new ResponseEntity<>(patientService.updatePassword(passwordDto), HttpStatus.OK);
     }
+
+    @PostMapping("/{patientId}/enroll-course/{courseId}")
+    public ResponseEntity<?> enrollCourse(@PathVariable Long patientId, @PathVariable Long courseId){
+        return new ResponseEntity<>(patientService.enrollCourse(patientId, courseId), HttpStatus.OK);
+    }
+
+    @PutMapping("/{patientId}/mark-complete/{courseId}")
+    public ResponseEntity<?> markComplete(@PathVariable Long patientId, @PathVariable Long courseId){
+        return new ResponseEntity<>(patientService.markComplete(patientId, courseId), HttpStatus.OK);
+    }
 }

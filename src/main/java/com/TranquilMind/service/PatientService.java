@@ -4,6 +4,7 @@ import com.TranquilMind.dto.PasswordDto;
 import com.TranquilMind.dto.PatientDto;
 import com.TranquilMind.dto.PatientRegisterDto;
 import com.TranquilMind.dto.PostDto;
+import com.TranquilMind.model.EnrolledCourse;
 import com.TranquilMind.model.Patient;
 import com.TranquilMind.model.Quiz;
 import org.springframework.http.ResponseEntity;
@@ -29,4 +30,10 @@ public interface PatientService {
     List<PostDto> getPosts(Long userId);
 
     boolean updatePassword(PasswordDto passwordDto);
+
+    EnrolledCourse enrollCourse(Long patientId, Long courseId);
+
+    boolean markComplete(Long patientId, Long courseId);
+
+    List<EnrolledCourse> enrollCourses(Long patientId);
 }
