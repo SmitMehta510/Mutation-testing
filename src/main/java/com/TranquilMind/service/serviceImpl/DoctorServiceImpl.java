@@ -62,6 +62,8 @@ public class DoctorServiceImpl implements DoctorService {
 
         doctor.setFirstName(doctorDetails.getFirstName());
         doctor.setLastName(doctorDetails.getLastName());
+        doctor.setConsultationFee(doctorDetails.getConsultationFee());
+        doctor.setMobileNo(doctorDetails.getMobileNo());
         doctor.setAge(doctorDetails.getAge());
         doctor.setDescription(doctorDetails.getDescription());
 

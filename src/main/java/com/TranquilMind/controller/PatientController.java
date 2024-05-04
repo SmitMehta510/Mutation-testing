@@ -44,9 +44,9 @@ public class PatientController {
         return new ResponseEntity<>(patientService.getQuizzes(userid), HttpStatus.OK);
     }
 
-    @GetMapping("/my-posts")
-    public ResponseEntity<?> getMyPosts(Long userid){
-        return new ResponseEntity<>(patientService.getPosts(userid), HttpStatus.OK);
+    @GetMapping("/my-posts/{userId}")
+    public ResponseEntity<?> getMyPosts(@PathVariable Long userId){
+        return new ResponseEntity<>(patientService.getPosts(userId), HttpStatus.OK);
     }
 
     @PutMapping("/update-password")
@@ -63,4 +63,4 @@ public class PatientController {
     public ResponseEntity<?> markComplete(@PathVariable Long patientId, @PathVariable Long courseId){
         return new ResponseEntity<>(patientService.markComplete(patientId, courseId), HttpStatus.OK);
     }
-}
+}   
