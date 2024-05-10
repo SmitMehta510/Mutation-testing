@@ -134,23 +134,26 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public EnrolledCourse enrollCourse(Long patientId, Long courseId) {
-        Patient patient = getPatientByUserId(patientId);
+        User user = userService.getUserById(patientId);
+//        Patient patient = getPatientByUserId(patientId);
         Course course = courseRepository.findById(courseId)
                 .orElseThrow(() -> new ResourceNotFoundException("Course not found"));
 
         EnrolledCourse enrolledCourse = new EnrolledCourse();
         enrolledCourse.setCourse(course);
-        enrolledCourse.setPatient(patient);
+//        enrolledCourse.setPatient(patient);
+        enrolledCourse.setUser(user);
         enrolledCourse.setCompleted(0);
         return enrollCourseRepository.save(enrolledCourse);
     }
 
     @Override
     public boolean markComplete(Long patientId, Long courseId) {
-        Patient patient = getPatientByUserId(patientId);
+//        Patient patient = getPatientByUserId(patientId);
+        User user = userService.getUserById(patientId);
         Course course = courseRepository.findById(courseId)
                 .orElseThrow(() -> new ResourceNotFoundException("Course not found"));
-        EnrolledCourse enrolledCourse = enrollCourseRepository.findByCourseAndPatient(course,patient);
+        EnrolledCourse enrolledCourse = enrollCourseRepository.findByCourseAndUser(course,user);
         enrolledCourse.setCompleted(enrolledCourse.getCompleted() +1);
         enrollCourseRepository.save(enrolledCourse);
         return true;
@@ -158,8 +161,9 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public List<EnrolledCourse> enrollCourses(Long patientId) {
-        Patient patient = getPatientByUserId(patientId);
-        return enrollCourseRepository.findByPatient(patient);
+//        Patient patient = getPatientByUserId(patientId);
+        User user = userService.getUserById(patientId);
+        return enrollCourseRepository.findByUser(user);
     }
 
 }

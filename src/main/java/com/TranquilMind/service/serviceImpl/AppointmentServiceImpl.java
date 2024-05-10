@@ -73,13 +73,11 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
-    public List<AppointmentListDto> getAppointmentsForDoctorByDate(Long id, LocalDate date) {
+    public List<AppointmentListDto> getAppointmentsForDoctorByDate(Long id, LocalDate startDate) {
 
-        List<Appointment> appointmentList = appointmentRepository.fetchByDate(date);
-
-        return appointmentList.stream()
-                .filter(appointment -> Objects.equals(appointment.getDoctor().getUser().getUserId(), id)).toList()
-                .stream().map(Appointment::toListDto).toList();
+        LocalDate endDate = startDate.minusDays(3);
+        List<Appointment> appointmentList = appointmentRepository.fetchAppointmentsByDoctorAndDate(id, startDate,endDate);
+        return appointmentList.stream().map(Appointment::toListDto).toList();
     }
 
     @Override

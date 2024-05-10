@@ -41,9 +41,9 @@ public class Patient{
     @JsonManagedReference
     List<Appointment> appointmentList;
 
-    @OneToMany(mappedBy = "patient")
-    @JsonManagedReference
-    List<EnrolledCourse> enrolledCourses;
+//    @OneToMany(mappedBy = "patient")
+//    @JsonManagedReference
+//    List<EnrolledCourse> enrolledCourses;
 
     @OneToMany(mappedBy = "patient")
     @JsonManagedReference

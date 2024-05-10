@@ -20,9 +20,9 @@ public class EnrolledCourse {
     Long enrollmentId;
 
     @ManyToOne
-    @JoinColumn(name = "patient_id")
+    @JoinColumn(name = "user_id")
     @JsonBackReference
-    Patient patient;
+    User user;
 
     @ManyToOne
     @JoinColumn(name = "course_id")
