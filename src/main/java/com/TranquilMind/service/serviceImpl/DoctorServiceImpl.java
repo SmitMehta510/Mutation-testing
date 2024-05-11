@@ -33,6 +33,7 @@ public class DoctorServiceImpl implements DoctorService {
     public List<DoctorDto> getAllActiveDoctors() {
         return doctorRepository.getDoctors(false)
                 .stream()
+                .filter((doctor -> doctor.getIsSenior().equals(false)))
                 .map(Doctor::toDto)
                 .collect(Collectors.toList());
     }
