@@ -1,5 +1,6 @@
 package com.TranquilMind.model;
 
+import com.TranquilMind.dto.EnrollCourseDto;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
@@ -31,4 +32,7 @@ public class EnrolledCourse {
 
     Integer completed;
 
+    public EnrollCourseDto toDto(){
+        return new EnrollCourseDto(user.getUserId(),course.getCourseId(),completed);
+    }
 }

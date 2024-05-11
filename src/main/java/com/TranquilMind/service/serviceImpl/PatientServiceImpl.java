@@ -168,10 +168,9 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public List<EnrolledCourse> enrollCourses(Long patientId) {
-//        Patient patient = getPatientByUserId(patientId);
+    public List<EnrollCourseDto> enrollCourses(Long patientId) {
         User user = userService.getUserById(patientId);
-        return enrollCourseRepository.findByUser(user);
+        return enrollCourseRepository.findByUser(user).stream().map(EnrolledCourse::toDto).toList();
     }
 
 }
