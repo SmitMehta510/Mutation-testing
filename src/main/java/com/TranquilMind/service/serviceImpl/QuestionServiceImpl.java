@@ -2,9 +2,11 @@ package com.TranquilMind.service.serviceImpl;
 
 import com.TranquilMind.dto.QuestionDto;
 import com.TranquilMind.exception.ResourceNotFoundException;
+import com.TranquilMind.model.Patient;
 import com.TranquilMind.model.Question;
 import com.TranquilMind.model.User;
 import com.TranquilMind.repository.QuestionRepository;
+import com.TranquilMind.service.PatientService;
 import com.TranquilMind.service.QuestionService;
 import com.TranquilMind.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,9 @@ public class QuestionServiceImpl implements QuestionService {
     private QuestionRepository questionRepository;
 
     @Autowired
+    private PatientService patientService;
+
+    @Autowired
     private UserService userService;
 
     public List<Question> findAll() {
@@ -32,8 +37,9 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public List<Question> getApprovedQuestions() {
-        return questionRepository.approvedQuestions();
+    public List<QuestionDto> getApprovedQuestions() {
+        return questionRepository.approvedQuestions()
+                .stream().map(question -> question.toDto(getUserFullName(question.getQuestionBy()))).toList();
     }
 
     @Override
@@ -104,7 +110,27 @@ public class QuestionServiceImpl implements QuestionService {
         question.setUploadedAt(questionDto.getUploadedAt());
         question.setAnswered(false);
         question.setIsApprovedByModerator(false);
-        return questionRepository.save(question).toDto();
+        return questionRepository.save(question).toDto(null);
 
+    }
+
+    @Override
+    public List<QuestionDto> getQuestionByUserId(Long userId) {
+        Patient patient = patientService.getPatientByUserId(userId);
+        return questionRepository.getQuestionByUserId(userId)
+                .stream().map(question -> question.toDto(getUserFullName(question.getQuestionBy()))).toList();
+    }
+
+    private String getUserFullName(User user) {
+        String fullName = "";
+        String roleName = user.getRoles().get(0).getRoleName();
+
+        Patient patient = patientService.getPatientByUserId(user.getUserId());
+        fullName = concatFullName(patient.getFirstName(), patient.getMiddleName(), patient.getLastName());
+        return fullName;
+    }
+
+    private String concatFullName(String firstName, String middleName, String lastName) {
+        return firstName + " " + middleName + " " + lastName;
     }
 }

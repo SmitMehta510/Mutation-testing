@@ -1,9 +1,6 @@
 package com.TranquilMind.service;
 
-import com.TranquilMind.dto.PasswordDto;
-import com.TranquilMind.dto.PatientDto;
-import com.TranquilMind.dto.PatientRegisterDto;
-import com.TranquilMind.dto.PostDto;
+import com.TranquilMind.dto.*;
 import com.TranquilMind.model.EnrolledCourse;
 import com.TranquilMind.model.Patient;
 import com.TranquilMind.model.Quiz;
@@ -28,6 +25,8 @@ public interface PatientService {
     List<Quiz> getQuizzes(Long id);
 
     List<PostDto> getPosts(Long userId);
+
+    List<QuestionDto> getQuestions(Long userId);
 
     boolean updatePassword(PasswordDto passwordDto);
 

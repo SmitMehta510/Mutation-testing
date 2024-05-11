@@ -10,7 +10,7 @@ public interface QuestionService {
 
     List<Question> getUnansweredQuestions();
 
-    List<Question> getApprovedQuestions();
+    List<QuestionDto> getApprovedQuestions();
 
     List<Question> getUnapprovedAnswers();
 
@@ -23,4 +23,6 @@ public interface QuestionService {
     List<Integer> questionData();
 
     QuestionDto addQuestion(QuestionDto questionDto);
+
+    List<QuestionDto> getQuestionByUserId(Long userId);
 }

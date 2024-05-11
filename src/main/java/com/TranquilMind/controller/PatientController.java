@@ -39,14 +39,19 @@ public class PatientController {
         return new ResponseEntity<>(patientService.deletePatient(Long.parseLong(id)),HttpStatus.GONE);
     }
 
-    @GetMapping("/get-quiz-score")
-    public ResponseEntity<?> getQuizScore(Long userid){
-        return new ResponseEntity<>(patientService.getQuizzes(userid), HttpStatus.OK);
+    @GetMapping("/get-quiz-score/{userId}")
+    public ResponseEntity<?> getQuizScore(@PathVariable Long userId){
+        return new ResponseEntity<>(patientService.getQuizzes(userId), HttpStatus.OK);
     }
 
     @GetMapping("/my-posts/{userId}")
     public ResponseEntity<?> getMyPosts(@PathVariable Long userId){
         return new ResponseEntity<>(patientService.getPosts(userId), HttpStatus.OK);
+    }
+
+    @GetMapping("/my-questions/{userId}")
+    public ResponseEntity<?> getMyQuestions(@PathVariable Long userId){
+        return new ResponseEntity<>(patientService.getQuestions(userId), HttpStatus.OK);
     }
 
     @PutMapping("/update-password")

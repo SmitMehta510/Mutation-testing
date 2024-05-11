@@ -32,7 +32,10 @@ public class PatientServiceImpl implements PatientService {
     private PostService postService;
 
     @Autowired
-    CourseRepository courseRepository;
+    private CourseRepository courseRepository;
+
+    @Autowired
+    private QuestionService questionService;
 
     @Autowired
     private EnrollCourseRepository enrollCourseRepository;
@@ -125,6 +128,11 @@ public class PatientServiceImpl implements PatientService {
     @Override
     public List<PostDto> getPosts(Long userId) {
         return postService.getPostsByUserId(userId);
+    }
+
+    @Override
+    public List<QuestionDto> getQuestions(Long userId) {
+        return questionService.getQuestionByUserId(userId);
     }
 
     @Override

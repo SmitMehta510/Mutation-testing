@@ -18,6 +18,8 @@ public class QuestionDto {
 
     Long questionBy;
 
+    String questionByName;
+
     Timestamp uploadedAt;
 
     Timestamp answeredAt;
