@@ -13,6 +13,8 @@ import java.time.LocalTime;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class AppointmentListDto {
 
+    Long appointmentId;
+    
     PatientDto patient;
 
     DoctorDto doctor;
