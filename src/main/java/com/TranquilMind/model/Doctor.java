@@ -78,8 +78,8 @@ public class Doctor implements Serializable {
     }
 
     public DoctorDto toDto(){
-        return new DoctorDto(user.getUserId(), user.getEmail(), firstName,middleName,lastName,age,gender,
-                mobileNo,licenceNo,description,image,consultationFee,experience,isSenior,isDisabled);
+        return new DoctorDto(user.getUserId(), user.getEmail(), firstName,middleName,lastName,age,gender,image,
+                mobileNo,licenceNo,description,consultationFee,experience,isSenior,isDisabled);
     }
 
 
