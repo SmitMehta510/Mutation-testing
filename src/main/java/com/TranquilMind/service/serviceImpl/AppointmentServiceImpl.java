@@ -18,7 +18,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Service
 public class AppointmentServiceImpl implements AppointmentService {
@@ -36,19 +35,17 @@ public class AppointmentServiceImpl implements AppointmentService {
     UserService userService;
 
     @Override
-    public List<Appointment> getAppointmentsForPatient(Long id) {
-        return appointmentRepository.findAll().stream().filter(app -> Objects.equals(app.getPatient().getUser().getUserId(), id)).toList();
+    public List<AppointmentListDto> getAppointmentsForPatient(Long id) {
+        Patient patient = patientService.getPatientByUserId(id);
+        return appointmentRepository.appointmentsForPatient(patient.getPatientId())
+                .stream().map(Appointment::toListDto).toList();
     }
 
     @Override
     public List<AppointmentListDto> getAppointmentsForDoctor(Long id) {
-//        return appointmentRepository.findAll().stream().filter(app -> Objects.equals(app.getDoctor().getUser().getUserId(), id)).toList();
-        return appointmentRepository.findAll()
-                .stream()
-                .filter(app -> Objects.equals(app.getDoctor().getUser().getUserId(), id)).toList()
-                .stream()
-                .map(Appointment::toListDto).toList();
-//        return doctorService.getAppointments(id);
+        Doctor doctor = doctorService.getDoctorByUserId(id);
+        return appointmentRepository.appointmentsForDoctor(doctor.getDoctorId())
+                .stream().map(Appointment::toListDto).toList();
     }
 
     @Override

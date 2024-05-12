@@ -13,8 +13,6 @@ import java.util.List;
 @Repository
 public interface AppointmentRepository extends JpaRepository<Appointment,Long> {
 
-    @Query("SELECT a FROM Appointment a WHERE a.date= :date")
-    List<Appointment> fetchByDate(@Param("date") LocalDate date);
 
     @Query("select a from Appointment a where a.doctor.doctorId= :doctorId")
     List<Appointment> fetchAppointmentsByDoctorAndDate(@Param("doctorId") Long doctorId);
@@ -34,4 +32,10 @@ public interface AppointmentRepository extends JpaRepository<Appointment,Long> {
 
     @Query("SELECT COUNT(*) FROM Appointment a WHERE a.doctor.user.userId = :doctorId AND (a.date > :date OR (a.date = :date AND a.startTime > :time))")
     Integer totalActiveAppointmentsByDoctorId(@Param("doctorId") Long doctorId, @Param("date") LocalDate date, @Param("time") LocalTime time);
+
+    @Query("select a from Appointment a where a.patient.patientId= :patientId")
+    List<Appointment> appointmentsForPatient(@Param("patientId") Long patientId);
+
+    @Query("select a from Appointment a where a.doctor.doctorId= :doctorId")
+    List<Appointment> appointmentsForDoctor(@Param("doctorId") Long doctorId);
 }
