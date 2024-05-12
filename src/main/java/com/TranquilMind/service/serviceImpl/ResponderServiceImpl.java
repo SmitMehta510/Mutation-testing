@@ -40,7 +40,7 @@ public class ResponderServiceImpl implements ResponderService {
     @Override
     public ResponderDto addResponder(Responder responder) {
         AuthDto authDto = new AuthDto(responder.getUser().getEmail(), responder.getUser().getPassword());
-        User user = userService.register(authDto, RoleName.MODERATOR).getUser();
+        User user = userService.register(authDto, RoleName.RESPONDER).getUser();
         if(user!=null){
             responder.setUser(user);
             responder.setFirstLogin(true);

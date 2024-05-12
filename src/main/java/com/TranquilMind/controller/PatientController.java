@@ -73,4 +73,9 @@ public class PatientController {
     public ResponseEntity<?> getEnrolledCourses(@PathVariable Long userId){
         return new ResponseEntity<>(patientService.enrollCourses(userId), HttpStatus.OK);
     }
+
+    @GetMapping("/{patientId}/task-complete/{courseId}")
+    public ResponseEntity<?> taskCompleted(@PathVariable Long patientId, @PathVariable Long courseId){
+        return new ResponseEntity<>(patientService.taskComplete(patientId, courseId), HttpStatus.OK);
+    }
 }   

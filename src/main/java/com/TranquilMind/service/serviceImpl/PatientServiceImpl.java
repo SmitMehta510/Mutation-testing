@@ -71,8 +71,6 @@ public class PatientServiceImpl implements PatientService {
         patient.setLastName(patientDetails.getLastName());
         patient.setAge(patientDetails.getAge());
 
-//        boolean success = userService.updatePassword(id, patientDetails.getPassword());
-
         return patientRepository.save(patient);
     }
 
@@ -171,6 +169,14 @@ public class PatientServiceImpl implements PatientService {
     public List<EnrollCourseDto> enrollCourses(Long patientId) {
         User user = userService.getUserById(patientId);
         return enrollCourseRepository.findByUser(user).stream().map(EnrolledCourse::toDto).toList();
+    }
+
+    @Override
+    public EnrollCourseDto taskComplete(Long patientId, Long courseId) {
+        User user = userService.getUserById(patientId);
+        Course course = courseRepository.findById(courseId)
+                .orElseThrow(() -> new ResourceNotFoundException("Course not found"));
+        return enrollCourseRepository.findByCourseAndUser(course,user).toDto();
     }
 
 }

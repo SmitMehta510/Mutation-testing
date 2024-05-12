@@ -35,4 +35,6 @@ public interface PatientService {
     boolean markComplete(Long patientId, Long courseId);
 
     List<EnrollCourseDto> enrollCourses(Long patientId);
+
+    EnrollCourseDto taskComplete(Long patientId, Long courseId);
 }
