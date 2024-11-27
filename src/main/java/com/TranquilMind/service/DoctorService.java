@@ -24,7 +24,7 @@ public interface DoctorService {
 
     Doctor getDoctorByUserId(Long id);
 
-    ResponseEntity<?> createDoctor(DoctorRegisterDto doctorRegisterDto);
+    Doctor createDoctor(DoctorRegisterDto doctorRegisterDto);
 
     List<DoctorDto> getAllDisabledDoctors();
 

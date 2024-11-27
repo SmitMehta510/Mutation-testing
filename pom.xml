@@ -23,10 +23,6 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
@@ -47,20 +43,12 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>io.jsonwebtoken</groupId>
-			<artifactId>jjwt-api</artifactId>
-			<version>0.11.5</version>
+			<groupId>org.pitest</groupId>
+			<artifactId>pitest-parent</artifactId>
+			<version>1.1.10</version>
+			<type>pom</type>
 		</dependency>
-		<dependency>
-			<groupId>io.jsonwebtoken</groupId>
-			<artifactId>jjwt-impl</artifactId>
-			<version>0.11.5</version>
-		</dependency>
-		<dependency>
-			<groupId>io.jsonwebtoken</groupId>
-			<artifactId>jjwt-jackson</artifactId>
-			<version>0.11.5</version>
-		</dependency>
+
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
@@ -71,11 +59,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-test</artifactId>
-			<scope>test</scope>
-		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -91,6 +75,54 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.pitest</groupId>
+				<artifactId>pitest-maven</artifactId>
+				<version>1.15.2</version>
+				<configuration>
+					<targetClasses>
+						<targetClass>
+							com.TranquilMind.service.serviceImpl.*
+						</targetClass>
+						<targetClass>
+							com.TranquilMind.Algorithms.*
+						</targetClass>
+					</targetClasses>
+					<targetTests>
+						<targetTest>
+							com.TranquilMind.Service.ServiceImpl.*
+						</targetTest>
+						<targetTest>
+							com.TranquilMind.Algorithms.*
+						</targetTest>
+					</targetTests>
+					<timeoutConstant>10000</timeoutConstant>
+					<threads>4</threads>
+					<mutators>
+						<mutator>CONDITIONALS_BOUNDARY</mutator>
+						<mutator>EMPTY_RETURNS</mutator>
+						<mutator>FALSE_RETURNS</mutator>
+						<mutator>INCREMENTS</mutator>
+						<mutator>INVERT_NEGS</mutator>
+						<mutator>MATH</mutator>
+						<mutator>NEGATE_CONDITIONALS</mutator>
+						<mutator>NULL_RETURNS</mutator>
+						<mutator>PRIMITIVE_RETURNS</mutator>
+						<mutator>TRUE_RETURNS</mutator>
+						<mutator>VOID_METHOD_CALLS</mutator>
+						<mutator>NON_VOID_METHOD_CALLS</mutator>
+						<mutator>EXPERIMENTAL_ARGUMENT_PROPAGATION</mutator>
+						<mutator>EXPERIMENTAL_NAKED_RECEIVER</mutator>
+					</mutators>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.pitest</groupId>
+						<artifactId>pitest-junit5-plugin</artifactId>
+						<version>1.2.1</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>

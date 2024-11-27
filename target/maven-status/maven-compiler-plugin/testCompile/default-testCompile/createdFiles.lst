@@ -1,0 +1,13 @@
+com/TranquilMind/Service/ServiceImpl/DoctorServiceImplTest.class
+com/TranquilMind/Service/ServiceImpl/AppointmentServiceImplTest.class
+com/TranquilMind/Service/ServiceImpl/UserServiceImplTest.class
+com/TranquilMind/Algorithms/DFSTest.class
+com/TranquilMind/Algorithms/BFSTest.class
+com/TranquilMind/Service/ServiceImpl/ModeratorServiceImplTest.class
+com/TranquilMind/Service/ServiceImpl/QuestionServiceImplTest.class
+com/TranquilMind/Algorithms/BinarySearchTest.class
+com/TranquilMind/Service/ServiceImpl/ResponderServiceImplTest.class
+com/TranquilMind/Service/ServiceImpl/PatientServiceImplTest.class
+com/TranquilMind/Algorithms/MergeSortTest.class
+com/TranquilMind/Service/ServiceImpl/PostServiceImplTest.class
+com/TranquilMind/TranquilMindApplicationTests.class

@@ -39,7 +39,7 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public List<QuestionDto> getApprovedQuestions() {
         return questionRepository.approvedQuestions()
-                .stream().map(question -> question.toDto(getUserFullName(question.getQuestionBy()))).toList();
+                .stream().map(Question::toDto).toList();
     }
 
     @Override
@@ -110,7 +110,7 @@ public class QuestionServiceImpl implements QuestionService {
         question.setUploadedAt(questionDto.getUploadedAt());
         question.setAnswered(false);
         question.setIsApprovedByModerator(false);
-        return questionRepository.save(question).toDto(null);
+        return questionRepository.save(question).toDto();
 
     }
 
@@ -118,19 +118,19 @@ public class QuestionServiceImpl implements QuestionService {
     public List<QuestionDto> getQuestionByUserId(Long userId) {
         Patient patient = patientService.getPatientByUserId(userId);
         return questionRepository.getQuestionByUserId(userId)
-                .stream().map(question -> question.toDto(getUserFullName(question.getQuestionBy()))).toList();
+                .stream().map(Question::toDto).toList();
     }
 
-    private String getUserFullName(User user) {
-        String fullName = "";
-        String roleName = user.getRoles().get(0).getRoleName();
-
-        Patient patient = patientService.getPatientByUserId(user.getUserId());
-        fullName = concatFullName(patient.getFirstName(), patient.getMiddleName(), patient.getLastName());
-        return fullName;
-    }
-
-    private String concatFullName(String firstName, String middleName, String lastName) {
-        return firstName + " " + middleName + " " + lastName;
-    }
+//    private String getUserFullName(User user) {
+//        String fullName = "";
+//        String roleName = user.getRoles().get(0).getRoleName();
+//
+//        Patient patient = patientService.getPatientByUserId(user.getUserId());
+//        fullName = concatFullName(patient.getFirstName(), patient.getMiddleName(), patient.getLastName());
+//        return fullName;
+//    }
+//
+//    private String concatFullName(String firstName, String middleName, String lastName) {
+//        return firstName + " " + middleName + " " + lastName;
+//    }
 }

@@ -1,0 +1,19 @@
+2024-11-27T16:27:58.594+05:30  INFO 34004 --- [main] c.T.TranquilMindApplicationTests         : Starting TranquilMindApplicationTests using Java 17.0.13 with PID 34004 (started by smit in /home/smit/IdeaProjects/Tranquilmind)
+2024-11-27T16:27:58.600+05:30  INFO 34004 --- [main] c.T.TranquilMindApplicationTests         : No active profile set, falling back to 1 default profile: "default"
+2024-11-27T16:27:59.449+05:30  INFO 34004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-27T16:27:59.526+05:30  INFO 34004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 68 ms. Found 9 JPA repository interfaces.
+2024-11-27T16:27:59.925+05:30  INFO 34004 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-27T16:27:59.980+05:30  INFO 34004 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-11-27T16:28:00.021+05:30  INFO 34004 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-27T16:28:00.270+05:30  INFO 34004 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-27T16:28:00.302+05:30  INFO 34004 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-27T16:28:00.660+05:30  INFO 34004 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7ab1ad9
+2024-11-27T16:28:00.663+05:30  INFO 34004 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-27T16:28:01.750+05:30  INFO 34004 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-27T16:28:01.915+05:30  INFO 34004 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-27T16:28:02.228+05:30  INFO 34004 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-11-27T16:28:03.585+05:30  WARN 34004 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-27T16:28:04.098+05:30  INFO 34004 --- [main] c.T.TranquilMindApplicationTests         : Started TranquilMindApplicationTests in 5.832 seconds (process running for 6.906)
+2024-11-27T16:28:06.344+05:30  INFO 34004 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-27T16:28:06.349+05:30  INFO 34004 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-27T16:28:06.362+05:30  INFO 34004 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

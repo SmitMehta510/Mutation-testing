@@ -1,0 +1,1830 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>ModeratorServiceImpl.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.TranquilMind.service.serviceImpl;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.dto.AuthDto;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.dto.ModeratorDto;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.dto.PasswordDto;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.dto.PostDto;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.exception.ResourceNotFoundException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.model.Moderator;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.model.Question;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.model.RoleName;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.model.User;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.repository.ModeratorRepository;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.service.ModeratorService;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.service.PostService;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.service.QuestionService;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.service.UserService;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.springframework.beans.factory.annotation.Autowired;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.springframework.stereotype.Service;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.stream.Collectors;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>@Service</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>public class ModeratorServiceImpl implements ModeratorService {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Autowired</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private ModeratorRepository moderatorRepository;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Autowired</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private PostService postService;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Autowired</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private QuestionService questionService;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Autowired</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private UserService userService;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public List&#60;ModeratorDto&#62; getAllModerators() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_40'/>
+40
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_40'>2</a>
+<span>
+1. getAllModerators : replaced return value with Collections.emptyList for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::getAllModerators &rarr; KILLED<br/>
+2. getAllModerators : removed call to com/TranquilMind/repository/ModeratorRepository::findAll &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return moderatorRepository.findAll()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_41'/>
+41
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_41'>1</a>
+<span>
+1. getAllModerators : removed call to java/util/List::stream &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                .stream()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_42'/>
+42
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_42'>2</a>
+<span>
+1. getAllModerators : replaced call to java/util/stream/Stream::map with receiver &rarr; SURVIVED<br/>
+2. getAllModerators : removed call to java/util/stream/Stream::map &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                .map(Moderator::toDto)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_43'/>
+43
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_43'>2</a>
+<span>
+1. getAllModerators : removed call to java/util/stream/Collectors::toList &rarr; KILLED<br/>
+2. getAllModerators : removed call to java/util/stream/Stream::collect &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                .collect(Collectors.toList());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public ModeratorDto addModerator(Moderator moderator) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_48'/>
+48
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_48'>4</a>
+<span>
+1. addModerator : removed call to com/TranquilMind/model/Moderator::getUser &rarr; NO_COVERAGE<br/>
+2. addModerator : removed call to com/TranquilMind/model/User::getPassword &rarr; NO_COVERAGE<br/>
+3. addModerator : removed call to com/TranquilMind/model/Moderator::getUser &rarr; NO_COVERAGE<br/>
+4. addModerator : removed call to com/TranquilMind/model/User::getEmail &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        AuthDto authDto = new AuthDto(moderator.getUser().getEmail(), moderator.getUser().getPassword());</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_49'/>
+49
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_49'>2</a>
+<span>
+1. addModerator : removed call to com/TranquilMind/service/UserService::register &rarr; NO_COVERAGE<br/>
+2. addModerator : removed call to com/TranquilMind/dto/RegisterDto::getUser &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        User user = userService.register(authDto, RoleName.MODERATOR).getUser();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_50'/>
+50
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_50'>1</a>
+<span>
+1. addModerator : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        if(user!=null){</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_51'/>
+51
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_51'>1</a>
+<span>
+1. addModerator : removed call to com/TranquilMind/model/Moderator::setUser &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            moderator.setUser(user);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_52'/>
+52
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_52'>1</a>
+<span>
+1. addModerator : removed call to com/TranquilMind/model/Moderator::setFirstLogin &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            moderator.setFirstLogin(true);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_53'/>
+53
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_53'>4</a>
+<span>
+1. addModerator : removed call to com/TranquilMind/model/Moderator::toDto &rarr; NO_COVERAGE<br/>
+2. addModerator : removed call to com/TranquilMind/repository/ModeratorRepository::save &rarr; NO_COVERAGE<br/>
+3. addModerator : replaced return value with null for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::addModerator &rarr; NO_COVERAGE<br/>
+4. addModerator : replaced call to com/TranquilMind/repository/ModeratorRepository::save with argument &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return moderatorRepository.save(moderator).toDto();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }else{</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            throw new ResourceNotFoundException(&#34;User not found&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Boolean unflagPost(Long id,Boolean unflag) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_61'/>
+61
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_61'>4</a>
+<span>
+1. unflagPost : replaced Boolean return with True for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::unflagPost &rarr; SURVIVED<br/>
+2. unflagPost : replaced Boolean return with False for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::unflagPost &rarr; KILLED<br/>
+3. unflagPost : replaced call to com/TranquilMind/service/PostService::flagPost with argument &rarr; KILLED<br/>
+4. unflagPost : removed call to com/TranquilMind/service/PostService::flagPost &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return postService.flagPost(id,unflag);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Boolean disablePost(Long postId, Boolean disableFlag) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_66'/>
+66
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_66'>4</a>
+<span>
+1. disablePost : replaced Boolean return with True for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::disablePost &rarr; SURVIVED<br/>
+2. disablePost : removed call to java/lang/Boolean::valueOf &rarr; KILLED<br/>
+3. disablePost : removed call to com/TranquilMind/service/PostService::disablePost &rarr; KILLED<br/>
+4. disablePost : replaced Boolean return with False for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::disablePost &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return postService.disablePost(postId,disableFlag);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public List&#60;PostDto&#62; getFlaggedPosts() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_71'/>
+71
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_71'>2</a>
+<span>
+1. getFlaggedPosts : replaced return value with Collections.emptyList for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::getFlaggedPosts &rarr; KILLED<br/>
+2. getFlaggedPosts : removed call to com/TranquilMind/service/PostService::getFlaggedPosts &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return postService.getFlaggedPosts();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public List&#60;Question&#62; getAnsweredQuestions() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_76'/>
+76
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_76'>2</a>
+<span>
+1. getAnsweredQuestions : replaced return value with Collections.emptyList for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::getAnsweredQuestions &rarr; KILLED<br/>
+2. getAnsweredQuestions : removed call to com/TranquilMind/service/QuestionService::getUnapprovedAnswers &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return questionService.getUnapprovedAnswers();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Boolean approveAnswer(Long questionId) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_81'/>
+81
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_81'>3</a>
+<span>
+1. approveAnswer : replaced Boolean return with True for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::approveAnswer &rarr; SURVIVED<br/>
+2. approveAnswer : removed call to com/TranquilMind/service/QuestionService::approveAnswer &rarr; KILLED<br/>
+3. approveAnswer : replaced Boolean return with False for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::approveAnswer &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return questionService.approveAnswer(questionId);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public ModeratorDto getModeratorByUserId(Long id) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_86'/>
+86
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_86'>2</a>
+<span>
+1. getModeratorByUserId : replaced return value with null for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::getModeratorByUserId &rarr; KILLED<br/>
+2. getModeratorByUserId : removed call to com/TranquilMind/repository/ModeratorRepository::findByUserId &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return moderatorRepository.findByUserId(id)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_87'/>
+87
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_87'>3</a>
+<span>
+1. getModeratorByUserId : removed call to java/util/Optional::orElseThrow &rarr; KILLED<br/>
+2. lambda$getModeratorByUserId$0 : replaced return value with null for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::lambda$getModeratorByUserId$0 &rarr; KILLED<br/>
+3. getModeratorByUserId : removed call to com/TranquilMind/model/Moderator::toDto &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                .orElseThrow(() -&#62; new ResourceNotFoundException(&#34;Moderator not exist with id :&#34; + id)).toDto();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean updatePassword(PasswordDto passwordDto) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_92'/>
+92
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_92'>2</a>
+<span>
+1. updatePassword : removed call to com/TranquilMind/repository/ModeratorRepository::findByUserId &rarr; KILLED<br/>
+2. updatePassword : removed call to com/TranquilMind/dto/PasswordDto::getUserId &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        Moderator moderator = moderatorRepository.findByUserId(passwordDto.getUserId())</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_93'/>
+93
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_93'>3</a>
+<span>
+1. lambda$updatePassword$1 : removed call to com/TranquilMind/dto/PasswordDto::getUserId &rarr; SURVIVED<br/>
+2. lambda$updatePassword$1 : replaced return value with null for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::lambda$updatePassword$1 &rarr; KILLED<br/>
+3. updatePassword : removed call to java/util/Optional::orElseThrow &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                .orElseThrow(() -&#62; new ResourceNotFoundException(&#34;Moderator not exist with id :&#34; + passwordDto.getUserId()));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_94'/>
+94
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_94'>1</a>
+<span>
+1. updatePassword : removed call to com/TranquilMind/model/Moderator::setFirstLogin &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        moderator.setFirstLogin(false);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_95'/>
+95
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_95'>2</a>
+<span>
+1. updatePassword : replaced call to com/TranquilMind/repository/ModeratorRepository::save with argument &rarr; KILLED<br/>
+2. updatePassword : removed call to com/TranquilMind/repository/ModeratorRepository::save &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        moderatorRepository.save(moderator);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_96'/>
+96
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_96'>3</a>
+<span>
+1. updatePassword : replaced boolean return with true for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::updatePassword &rarr; SURVIVED<br/>
+2. updatePassword : removed call to com/TranquilMind/service/UserService::updatePassword &rarr; KILLED<br/>
+3. updatePassword : replaced boolean return with false for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::updatePassword &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return userService.updatePassword(passwordDto);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_97'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_99'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_40'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAllModerators<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:getAllModerators_shouldReturnAllModerators()]</span></span> replaced return value with Collections.emptyList for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::getAllModerators &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getAllModerators<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:getAllModerators_shouldReturnAllModerators()]</span></span> removed call to com/TranquilMind/repository/ModeratorRepository::findAll &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_41'>41</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_41'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAllModerators<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:getAllModerators_shouldReturnAllModerators()]</span></span> removed call to java/util/List::stream &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_42'>42</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_42'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAllModerators<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:getAllModerators_shouldReturnAllModerators()]</span></span> removed call to java/util/stream/Stream::map &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getAllModerators<br/><b>Killed by : </b>none</span></span> replaced call to java/util/stream/Stream::map with receiver &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_43'>43</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_43'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAllModerators<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:getAllModerators_shouldReturnAllModerators()]</span></span> removed call to java/util/stream/Collectors::toList &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getAllModerators<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:getAllModerators_shouldReturnAllModerators()]</span></span> removed call to java/util/stream/Stream::collect &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_48'>48</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_48'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addModerator<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Moderator::getUser &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addModerator<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/User::getPassword &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>addModerator<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Moderator::getUser &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>addModerator<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/User::getEmail &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_49'>49</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_49'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addModerator<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/service/UserService::register &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addModerator<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/dto/RegisterDto::getUser &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_50'>50</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_50'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addModerator<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_51'>51</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_51'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addModerator<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Moderator::setUser &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_52'>52</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_52'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addModerator<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Moderator::setFirstLogin &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_53'>53</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_53'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addModerator<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Moderator::toDto &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addModerator<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/repository/ModeratorRepository::save &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>addModerator<br/><b>Killed by : </b>none</span></span> replaced return value with null for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::addModerator &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>addModerator<br/><b>Killed by : </b>none</span></span> replaced call to com/TranquilMind/repository/ModeratorRepository::save with argument &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_61'>61</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_61'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>unflagPost<br/><b>Killed by : </b>none</span></span> replaced Boolean return with True for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::unflagPost &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>unflagPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:unflagPost_shouldCallPostServiceAndReturnResult()]</span></span> replaced Boolean return with False for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::unflagPost &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>unflagPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:unflagPost_shouldCallPostServiceAndReturnResult()]</span></span> replaced call to com/TranquilMind/service/PostService::flagPost with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>unflagPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:unflagPost_shouldCallPostServiceAndReturnResult()]</span></span> removed call to com/TranquilMind/service/PostService::flagPost &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_66'>66</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_66'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>disablePost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:disablePost_shouldCallPostServiceAndReturnResult()]</span></span> removed call to java/lang/Boolean::valueOf &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>disablePost<br/><b>Killed by : </b>none</span></span> replaced Boolean return with True for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::disablePost &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>disablePost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:disablePost_shouldCallPostServiceAndReturnResult()]</span></span> removed call to com/TranquilMind/service/PostService::disablePost &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>disablePost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:disablePost_shouldCallPostServiceAndReturnResult()]</span></span> replaced Boolean return with False for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::disablePost &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_71'>71</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_71'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getFlaggedPosts<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:getFlaggedPosts_shouldReturnListOfFlaggedPosts()]</span></span> replaced return value with Collections.emptyList for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::getFlaggedPosts &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getFlaggedPosts<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:getFlaggedPosts_shouldReturnListOfFlaggedPosts()]</span></span> removed call to com/TranquilMind/service/PostService::getFlaggedPosts &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_76'>76</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_76'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAnsweredQuestions<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:getAnsweredQuestions_shouldReturnUnapprovedAnswers()]</span></span> replaced return value with Collections.emptyList for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::getAnsweredQuestions &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getAnsweredQuestions<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:getAnsweredQuestions_shouldReturnUnapprovedAnswers()]</span></span> removed call to com/TranquilMind/service/QuestionService::getUnapprovedAnswers &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_81'>81</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_81'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>approveAnswer<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:approveAnswer_shouldCallQuestionServiceAndReturnResult()]</span></span> removed call to com/TranquilMind/service/QuestionService::approveAnswer &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>approveAnswer<br/><b>Killed by : </b>none</span></span> replaced Boolean return with True for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::approveAnswer &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>approveAnswer<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:approveAnswer_shouldCallQuestionServiceAndReturnResult()]</span></span> replaced Boolean return with False for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::approveAnswer &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_86'>86</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_86'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getModeratorByUserId<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:getModeratorByUserId_shouldReturnModeratorWhenFound()]</span></span> replaced return value with null for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::getModeratorByUserId &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getModeratorByUserId<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:getModeratorByUserId_shouldReturnModeratorWhenFound()]</span></span> removed call to com/TranquilMind/repository/ModeratorRepository::findByUserId &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_87'>87</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_87'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getModeratorByUserId<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:getModeratorByUserId_shouldReturnModeratorWhenFound()]</span></span> removed call to java/util/Optional::orElseThrow &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>lambda$getModeratorByUserId$0<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:getModeratorByUserId_shouldThrowExceptionWhenNotFound()]</span></span> replaced return value with null for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::lambda$getModeratorByUserId$0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getModeratorByUserId<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:getModeratorByUserId_shouldReturnModeratorWhenFound()]</span></span> removed call to com/TranquilMind/model/Moderator::toDto &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_92'>92</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_92'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updatePassword<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:updatePassword_shouldThrowExceptionWhenModeratorNotFound()]</span></span> removed call to com/TranquilMind/repository/ModeratorRepository::findByUserId &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>updatePassword<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:updatePassword_shouldUpdatePasswordAndSetFirstLoginToFalse()]</span></span> removed call to com/TranquilMind/dto/PasswordDto::getUserId &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_93'>93</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_93'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$updatePassword$1<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:updatePassword_shouldThrowExceptionWhenModeratorNotFound()]</span></span> replaced return value with null for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::lambda$updatePassword$1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>updatePassword<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:updatePassword_shouldThrowExceptionWhenModeratorNotFound()]</span></span> removed call to java/util/Optional::orElseThrow &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>lambda$updatePassword$1<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/dto/PasswordDto::getUserId &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_94'>94</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_94'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updatePassword<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:updatePassword_shouldUpdatePasswordAndSetFirstLoginToFalse()]</span></span> removed call to com/TranquilMind/model/Moderator::setFirstLogin &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_95'>95</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_95'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updatePassword<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:updatePassword_shouldUpdatePasswordAndSetFirstLoginToFalse()]</span></span> replaced call to com/TranquilMind/repository/ModeratorRepository::save with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>updatePassword<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:updatePassword_shouldUpdatePasswordAndSetFirstLoginToFalse()]</span></span> removed call to com/TranquilMind/repository/ModeratorRepository::save &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@11cc9e1e_96'>96</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@11cc9e1e_96'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>updatePassword<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:updatePassword_shouldUpdatePasswordAndSetFirstLoginToFalse()]</span></span> removed call to com/TranquilMind/service/UserService::updatePassword &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>updatePassword<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:updatePassword_shouldUpdatePasswordAndSetFirstLoginToFalse()]</span></span> replaced boolean return with false for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::updatePassword &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>updatePassword<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for com/TranquilMind/service/serviceImpl/ModeratorServiceImpl::updatePassword &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+<li class='mutator'>EMPTY_RETURNS</li>
+<li class='mutator'>EXPERIMENTAL_ARGUMENT_PROPAGATION</li>
+<li class='mutator'>EXPERIMENTAL_NAKED_RECEIVER</li>
+<li class='mutator'>FALSE_RETURNS</li>
+<li class='mutator'>INCREMENTS</li>
+<li class='mutator'>INVERT_NEGS</li>
+<li class='mutator'>MATH</li>
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+<li class='mutator'>NON_VOID_METHOD_CALLS</li>
+<li class='mutator'>NULL_RETURNS</li>
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+<li class='mutator'>TRUE_RETURNS</li>
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:updatePassword_shouldThrowExceptionWhenModeratorNotFound()] (3 ms)</li><li>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:updatePassword_shouldUpdatePasswordAndSetFirstLoginToFalse()] (4 ms)</li><li>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:getAllModerators_shouldReturnAllModerators()] (3 ms)</li><li>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:getModeratorByUserId_shouldReturnModeratorWhenFound()] (3 ms)</li><li>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:getModeratorByUserId_shouldThrowExceptionWhenNotFound()] (5 ms)</li><li>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:getAnsweredQuestions_shouldReturnUnapprovedAnswers()] (3 ms)</li><li>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:approveAnswer_shouldCallQuestionServiceAndReturnResult()] (122 ms)</li><li>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:disablePost_shouldCallPostServiceAndReturnResult()] (3 ms)</li><li>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:getFlaggedPosts_shouldReturnListOfFlaggedPosts()] (3 ms)</li><li>com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.ModeratorServiceImplTest]/[method:unflagPost_shouldCallPostServiceAndReturnResult()] (3 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.15.2
+
+</body>
+</html>

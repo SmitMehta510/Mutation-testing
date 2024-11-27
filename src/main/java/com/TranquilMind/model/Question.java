@@ -43,8 +43,8 @@ public class Question {
     @JoinColumn(name = "answered_by_id")
     User answeredBy;
 
-    public QuestionDto toDto(String name) {
-        return new QuestionDto(question, answer, questionBy.getUserId(),name, uploadedAt, answeredAt, answered,
+    public QuestionDto toDto() {
+        return new QuestionDto(question, answer, questionBy.getUserId(),"demo", uploadedAt, answeredAt, answered,
                 isApprovedByModerator, answeredBy != null ? answeredBy.getUserId() : null);
     }
 }

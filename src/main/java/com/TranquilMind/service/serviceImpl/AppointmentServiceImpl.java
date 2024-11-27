@@ -10,7 +10,6 @@ import com.TranquilMind.repository.AppointmentRepository;
 import com.TranquilMind.service.AppointmentService;
 import com.TranquilMind.service.DoctorService;
 import com.TranquilMind.service.PatientService;
-import com.TranquilMind.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,8 +30,6 @@ public class AppointmentServiceImpl implements AppointmentService {
     @Autowired
     private PatientService patientService;
 
-    @Autowired
-    UserService userService;
 
     @Override
     public List<AppointmentListDto> getAppointmentsForPatient(Long id) {

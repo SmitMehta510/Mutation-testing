@@ -1,0 +1,2156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>AppointmentServiceImpl.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.TranquilMind.service.serviceImpl;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.dto.AppointmentDto;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.dto.AppointmentListDto;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.exception.ResourceNotFoundException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.model.Appointment;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.model.Doctor;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.model.Patient;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.repository.AppointmentRepository;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.service.AppointmentService;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.service.DoctorService;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.service.PatientService;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.springframework.beans.factory.annotation.Autowired;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.springframework.stereotype.Service;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.time.LocalDate;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.time.LocalTime;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>@Service</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>public class AppointmentServiceImpl implements AppointmentService {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Autowired</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private AppointmentRepository appointmentRepository;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Autowired</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private DoctorService doctorService;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Autowired</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private PatientService patientService;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public List&#60;AppointmentListDto&#62; getAppointmentsForPatient(Long id) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_36'/>
+36
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_36'>1</a>
+<span>
+1. getAppointmentsForPatient : removed call to com/TranquilMind/service/PatientService::getPatientByUserId &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        Patient patient = patientService.getPatientByUserId(id);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_37'/>
+37
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_37'>3</a>
+<span>
+1. getAppointmentsForPatient : replaced return value with Collections.emptyList for com/TranquilMind/service/serviceImpl/AppointmentServiceImpl::getAppointmentsForPatient &rarr; KILLED<br/>
+2. getAppointmentsForPatient : removed call to com/TranquilMind/model/Patient::getPatientId &rarr; KILLED<br/>
+3. getAppointmentsForPatient : removed call to com/TranquilMind/repository/AppointmentRepository::appointmentsForPatient &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return appointmentRepository.appointmentsForPatient(patient.getPatientId())</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_38'/>
+38
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_38'>4</a>
+<span>
+1. getAppointmentsForPatient : replaced call to java/util/stream/Stream::map with receiver &rarr; SURVIVED<br/>
+2. getAppointmentsForPatient : removed call to java/util/List::stream &rarr; KILLED<br/>
+3. getAppointmentsForPatient : removed call to java/util/stream/Stream::toList &rarr; KILLED<br/>
+4. getAppointmentsForPatient : removed call to java/util/stream/Stream::map &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                .stream().map(Appointment::toListDto).toList();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public List&#60;AppointmentListDto&#62; getAppointmentsForDoctor(Long id) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_43'/>
+43
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_43'>1</a>
+<span>
+1. getAppointmentsForDoctor : removed call to com/TranquilMind/service/DoctorService::getDoctorByUserId &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        Doctor doctor = doctorService.getDoctorByUserId(id);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_44'/>
+44
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_44'>3</a>
+<span>
+1. getAppointmentsForDoctor : removed call to com/TranquilMind/repository/AppointmentRepository::appointmentsForDoctor &rarr; KILLED<br/>
+2. getAppointmentsForDoctor : removed call to com/TranquilMind/model/Doctor::getDoctorId &rarr; KILLED<br/>
+3. getAppointmentsForDoctor : replaced return value with Collections.emptyList for com/TranquilMind/service/serviceImpl/AppointmentServiceImpl::getAppointmentsForDoctor &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return appointmentRepository.appointmentsForDoctor(doctor.getDoctorId())</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_45'/>
+45
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_45'>4</a>
+<span>
+1. getAppointmentsForDoctor : replaced call to java/util/stream/Stream::map with receiver &rarr; SURVIVED<br/>
+2. getAppointmentsForDoctor : removed call to java/util/stream/Stream::map &rarr; KILLED<br/>
+3. getAppointmentsForDoctor : removed call to java/util/List::stream &rarr; KILLED<br/>
+4. getAppointmentsForDoctor : removed call to java/util/stream/Stream::toList &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                .stream().map(Appointment::toListDto).toList();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Appointment newAppointment(AppointmentDto appointmentDto) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_51'/>
+51
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_51'>2</a>
+<span>
+1. newAppointment : removed call to com/TranquilMind/service/DoctorService::getDoctorByUserId &rarr; SURVIVED<br/>
+2. newAppointment : removed call to com/TranquilMind/dto/AppointmentDto::getDoctorId &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        Doctor doctor = doctorService.getDoctorByUserId(appointmentDto.getDoctorId());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_53'/>
+53
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_53'>2</a>
+<span>
+1. newAppointment : removed call to com/TranquilMind/service/PatientService::getPatientByUserId &rarr; SURVIVED<br/>
+2. newAppointment : removed call to com/TranquilMind/dto/AppointmentDto::getPatientId &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        Patient patient = patientService.getPatientByUserId(appointmentDto.getPatientId());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Appointment appointment = new Appointment();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_56'/>
+56
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_56'>1</a>
+<span>
+1. newAppointment : removed call to com/TranquilMind/model/Appointment::setDoctor &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        appointment.setDoctor(doctor);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_57'/>
+57
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_57'>1</a>
+<span>
+1. newAppointment : removed call to com/TranquilMind/model/Appointment::setPatient &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        appointment.setPatient(patient);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_58'/>
+58
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_58'>2</a>
+<span>
+1. newAppointment : removed call to com/TranquilMind/dto/AppointmentDto::getDate &rarr; SURVIVED<br/>
+2. newAppointment : removed call to com/TranquilMind/model/Appointment::setDate &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        appointment.setDate(appointmentDto.getDate());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_59'/>
+59
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_59'>2</a>
+<span>
+1. newAppointment : removed call to com/TranquilMind/model/Appointment::setStartTime &rarr; SURVIVED<br/>
+2. newAppointment : removed call to com/TranquilMind/dto/AppointmentDto::getStartTime &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        appointment.setStartTime(appointmentDto.getStartTime());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_60'/>
+60
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_60'>2</a>
+<span>
+1. newAppointment : removed call to com/TranquilMind/dto/AppointmentDto::getEndTime &rarr; SURVIVED<br/>
+2. newAppointment : removed call to com/TranquilMind/model/Appointment::setEndTime &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        appointment.setEndTime(appointmentDto.getEndTime());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_61'/>
+61
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_61'>2</a>
+<span>
+1. newAppointment : removed call to com/TranquilMind/model/Appointment::setDescription &rarr; KILLED<br/>
+2. newAppointment : removed call to com/TranquilMind/dto/AppointmentDto::getDescription &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        appointment.setDescription(appointmentDto.getDescription());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_62'/>
+62
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_62'>2</a>
+<span>
+1. newAppointment : removed call to com/TranquilMind/dto/AppointmentDto::getRemarks &rarr; SURVIVED<br/>
+2. newAppointment : removed call to com/TranquilMind/model/Appointment::setRemarks &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        appointment.setRemarks(appointmentDto.getRemarks());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_64'/>
+64
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_64'>2</a>
+<span>
+1. newAppointment : replaced call to com/TranquilMind/repository/AppointmentRepository::save with argument &rarr; KILLED<br/>
+2. newAppointment : removed call to com/TranquilMind/repository/AppointmentRepository::save &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        appointmentRepository.save(appointment);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_66'/>
+66
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_66'>1</a>
+<span>
+1. newAppointment : replaced return value with null for com/TranquilMind/service/serviceImpl/AppointmentServiceImpl::newAppointment &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return appointment;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public List&#60;AppointmentListDto&#62; getAppointmentsForDoctorByDate(Long id, LocalDate startDate) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_72'/>
+72
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_72'>1</a>
+<span>
+1. getAppointmentsForDoctorByDate : removed call to com/TranquilMind/service/DoctorService::getDoctorByUserId &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        Doctor doctor = doctorService.getDoctorByUserId(id);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_73'/>
+73
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_73'>2</a>
+<span>
+1. getAppointmentsForDoctorByDate : replaced call to java/time/LocalDate::minusDays with receiver &rarr; KILLED<br/>
+2. getAppointmentsForDoctorByDate : removed call to java/time/LocalDate::minusDays &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        LocalDate endDate = startDate.minusDays(3);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_74'/>
+74
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_74'>2</a>
+<span>
+1. getAppointmentsForDoctorByDate : removed call to com/TranquilMind/repository/AppointmentRepository::fetchAppointmentsByDoctorAndDate &rarr; KILLED<br/>
+2. getAppointmentsForDoctorByDate : removed call to com/TranquilMind/model/Doctor::getDoctorId &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        List&#60;Appointment&#62; appointmentList = appointmentRepository.fetchAppointmentsByDoctorAndDate(doctor.getDoctorId());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_75'/>
+75
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_75'>4</a>
+<span>
+1. getAppointmentsForDoctorByDate : replaced return value with Collections.emptyList for com/TranquilMind/service/serviceImpl/AppointmentServiceImpl::getAppointmentsForDoctorByDate &rarr; KILLED<br/>
+2. getAppointmentsForDoctorByDate : replaced call to java/util/stream/Stream::filter with receiver &rarr; KILLED<br/>
+3. getAppointmentsForDoctorByDate : removed call to java/util/List::stream &rarr; KILLED<br/>
+4. getAppointmentsForDoctorByDate : removed call to java/util/stream/Stream::filter &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return appointmentList.stream().filter(</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_76'/>
+76
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_76'>11</a>
+<span>
+1. lambda$getAppointmentsForDoctorByDate$0 : replaced call to java/time/LocalDate::minusDays with receiver &rarr; SURVIVED<br/>
+2. lambda$getAppointmentsForDoctorByDate$0 : replaced call to java/time/LocalDate::plusDays with receiver &rarr; SURVIVED<br/>
+3. lambda$getAppointmentsForDoctorByDate$0 : negated conditional &rarr; KILLED<br/>
+4. lambda$getAppointmentsForDoctorByDate$0 : removed call to java/time/LocalDate::isBefore &rarr; KILLED<br/>
+5. lambda$getAppointmentsForDoctorByDate$0 : removed call to com/TranquilMind/model/Appointment::getDate &rarr; KILLED<br/>
+6. lambda$getAppointmentsForDoctorByDate$0 : replaced boolean return with true for com/TranquilMind/service/serviceImpl/AppointmentServiceImpl::lambda$getAppointmentsForDoctorByDate$0 &rarr; KILLED<br/>
+7. lambda$getAppointmentsForDoctorByDate$0 : removed call to java/time/LocalDate::plusDays &rarr; KILLED<br/>
+8. lambda$getAppointmentsForDoctorByDate$0 : removed call to java/time/LocalDate::isAfter &rarr; KILLED<br/>
+9. lambda$getAppointmentsForDoctorByDate$0 : removed call to com/TranquilMind/model/Appointment::getDate &rarr; KILLED<br/>
+10. lambda$getAppointmentsForDoctorByDate$0 : removed call to java/time/LocalDate::minusDays &rarr; KILLED<br/>
+11. lambda$getAppointmentsForDoctorByDate$0 : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                (app) -&#62; app.getDate().isBefore(startDate.plusDays(1)) &#38;&#38; app.getDate().isAfter(endDate.minusDays(1)))</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_77'/>
+77
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_77'>3</a>
+<span>
+1. getAppointmentsForDoctorByDate : replaced call to java/util/stream/Stream::map with receiver &rarr; SURVIVED<br/>
+2. getAppointmentsForDoctorByDate : removed call to java/util/stream/Stream::toList &rarr; KILLED<br/>
+3. getAppointmentsForDoctorByDate : removed call to java/util/stream/Stream::map &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                .map(Appointment::toListDto).toList();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean cancelAppointment(Long id) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_83'/>
+83
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_83'>1</a>
+<span>
+1. cancelAppointment : removed call to com/TranquilMind/service/serviceImpl/AppointmentServiceImpl::getAppointmentById &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        Appointment appointment = getAppointmentById(id);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_84'/>
+84
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_84'>1</a>
+<span>
+1. cancelAppointment : removed call to com/TranquilMind/repository/AppointmentRepository::delete &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        appointmentRepository.delete(appointment);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_85'/>
+85
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_85'>1</a>
+<span>
+1. cancelAppointment : replaced boolean return with false for com/TranquilMind/service/serviceImpl/AppointmentServiceImpl::cancelAppointment &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Appointment updateAppointment(Appointment appointment) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        return null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public List&#60;Integer&#62; appointmentDataByDoctor(Long doctorId) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        List&#60;Integer&#62; appointmentData = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_96'/>
+96
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_96'>2</a>
+<span>
+1. appointmentDataByDoctor : removed call to java/util/List::add &rarr; KILLED<br/>
+2. appointmentDataByDoctor : removed call to com/TranquilMind/repository/AppointmentRepository::getPatientDataByDoctorId &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        appointmentData.add(appointmentRepository.getPatientDataByDoctorId(doctorId));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_97'/>
+97
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_97'>2</a>
+<span>
+1. appointmentDataByDoctor : removed call to com/TranquilMind/repository/AppointmentRepository::totalAppointmentsByDoctorId &rarr; KILLED<br/>
+2. appointmentDataByDoctor : removed call to java/util/List::add &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        appointmentData.add(appointmentRepository.totalAppointmentsByDoctorId(doctorId));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_98'/>
+98
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_98'>4</a>
+<span>
+1. appointmentDataByDoctor : removed call to java/time/LocalDate::now &rarr; SURVIVED<br/>
+2. appointmentDataByDoctor : removed call to java/time/LocalTime::now &rarr; SURVIVED<br/>
+3. appointmentDataByDoctor : removed call to com/TranquilMind/repository/AppointmentRepository::totalPendingAppointmentsByDoctorId &rarr; SURVIVED<br/>
+4. appointmentDataByDoctor : removed call to java/util/List::add &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        appointmentData.add(appointmentRepository.totalPendingAppointmentsByDoctorId(doctorId,LocalDate.now(), LocalTime.now()));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_99'/>
+99
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_99'>1</a>
+<span>
+1. appointmentDataByDoctor : replaced return value with Collections.emptyList for com/TranquilMind/service/serviceImpl/AppointmentServiceImpl::appointmentDataByDoctor &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return appointmentData;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_101'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public List&#60;Long&#62; distinctPatientByDoctor(Long doctorId) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_104'/>
+104
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_104'>2</a>
+<span>
+1. distinctPatientByDoctor : removed call to com/TranquilMind/repository/AppointmentRepository::findDistinctPatientByDoctorId &rarr; KILLED<br/>
+2. distinctPatientByDoctor : replaced return value with Collections.emptyList for com/TranquilMind/service/serviceImpl/AppointmentServiceImpl::distinctPatientByDoctor &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return appointmentRepository.findDistinctPatientByDoctorId(doctorId);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_105'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_106'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Appointment getAppointmentById(Long id) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_108'/>
+108
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_108'>2</a>
+<span>
+1. getAppointmentById : replaced return value with null for com/TranquilMind/service/serviceImpl/AppointmentServiceImpl::getAppointmentById &rarr; KILLED<br/>
+2. getAppointmentById : removed call to com/TranquilMind/repository/AppointmentRepository::findById &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return appointmentRepository.findById(id)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_109'/>
+109
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_109'>2</a>
+<span>
+1. lambda$getAppointmentById$1 : replaced return value with null for com/TranquilMind/service/serviceImpl/AppointmentServiceImpl::lambda$getAppointmentById$1 &rarr; KILLED<br/>
+2. getAppointmentById : removed call to java/util/Optional::orElseThrow &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                .orElseThrow(() -&#62; new ResourceNotFoundException(&#34;Appointment not exist with id :&#34; + id));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_110'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15371de2_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_111'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_36'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAppointmentsForPatient<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForPatient_shouldReturnAppointmentList()]</span></span> removed call to com/TranquilMind/service/PatientService::getPatientByUserId &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_37'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAppointmentsForPatient<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForPatient_shouldReturnAppointmentList()]</span></span> replaced return value with Collections.emptyList for com/TranquilMind/service/serviceImpl/AppointmentServiceImpl::getAppointmentsForPatient &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getAppointmentsForPatient<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForPatient_shouldReturnAppointmentList()]</span></span> removed call to com/TranquilMind/model/Patient::getPatientId &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getAppointmentsForPatient<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForPatient_shouldReturnAppointmentList()]</span></span> removed call to com/TranquilMind/repository/AppointmentRepository::appointmentsForPatient &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_38'>38</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_38'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAppointmentsForPatient<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForPatient_shouldReturnAppointmentList()]</span></span> removed call to java/util/List::stream &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getAppointmentsForPatient<br/><b>Killed by : </b>none</span></span> replaced call to java/util/stream/Stream::map with receiver &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getAppointmentsForPatient<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForPatient_shouldReturnAppointmentList()]</span></span> removed call to java/util/stream/Stream::toList &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>getAppointmentsForPatient<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForPatient_shouldReturnAppointmentList()]</span></span> removed call to java/util/stream/Stream::map &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_43'>43</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_43'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAppointmentsForDoctor<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctor_shouldReturnAppointmentList()]</span></span> removed call to com/TranquilMind/service/DoctorService::getDoctorByUserId &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_44'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAppointmentsForDoctor<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctor_shouldReturnAppointmentList()]</span></span> removed call to com/TranquilMind/repository/AppointmentRepository::appointmentsForDoctor &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getAppointmentsForDoctor<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctor_shouldReturnAppointmentList()]</span></span> removed call to com/TranquilMind/model/Doctor::getDoctorId &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getAppointmentsForDoctor<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctor_shouldReturnAppointmentList()]</span></span> replaced return value with Collections.emptyList for com/TranquilMind/service/serviceImpl/AppointmentServiceImpl::getAppointmentsForDoctor &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_45'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAppointmentsForDoctor<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctor_shouldReturnAppointmentList()]</span></span> removed call to java/util/stream/Stream::map &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getAppointmentsForDoctor<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctor_shouldReturnAppointmentList()]</span></span> removed call to java/util/List::stream &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getAppointmentsForDoctor<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctor_shouldReturnAppointmentList()]</span></span> removed call to java/util/stream/Stream::toList &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>getAppointmentsForDoctor<br/><b>Killed by : </b>none</span></span> replaced call to java/util/stream/Stream::map with receiver &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_51'>51</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_51'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>newAppointment<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/service/DoctorService::getDoctorByUserId &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>newAppointment<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/dto/AppointmentDto::getDoctorId &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_53'>53</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_53'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>newAppointment<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/service/PatientService::getPatientByUserId &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>newAppointment<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/dto/AppointmentDto::getPatientId &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_56'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>newAppointment<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Appointment::setDoctor &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_57'>57</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_57'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>newAppointment<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Appointment::setPatient &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_58'>58</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_58'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>newAppointment<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/dto/AppointmentDto::getDate &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>newAppointment<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Appointment::setDate &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_59'>59</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_59'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>newAppointment<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Appointment::setStartTime &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>newAppointment<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/dto/AppointmentDto::getStartTime &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_60'>60</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_60'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>newAppointment<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/dto/AppointmentDto::getEndTime &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>newAppointment<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Appointment::setEndTime &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_61'>61</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_61'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>newAppointment<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:newAppointment_shouldCreateAndReturnAppointment()]</span></span> removed call to com/TranquilMind/model/Appointment::setDescription &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>newAppointment<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:newAppointment_shouldCreateAndReturnAppointment()]</span></span> removed call to com/TranquilMind/dto/AppointmentDto::getDescription &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_62'>62</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_62'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>newAppointment<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/dto/AppointmentDto::getRemarks &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>newAppointment<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Appointment::setRemarks &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_64'>64</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_64'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>newAppointment<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:newAppointment_shouldCreateAndReturnAppointment()]</span></span> replaced call to com/TranquilMind/repository/AppointmentRepository::save with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>newAppointment<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:newAppointment_shouldCreateAndReturnAppointment()]</span></span> removed call to com/TranquilMind/repository/AppointmentRepository::save &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_66'>66</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_66'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>newAppointment<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:newAppointment_shouldCreateAndReturnAppointment()]</span></span> replaced return value with null for com/TranquilMind/service/serviceImpl/AppointmentServiceImpl::newAppointment &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_72'>72</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_72'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAppointmentsForDoctorByDate<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctorByDate_shouldFilterAppointmentsByDate()]</span></span> removed call to com/TranquilMind/service/DoctorService::getDoctorByUserId &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_73'>73</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_73'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAppointmentsForDoctorByDate<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctorByDate_shouldFilterAppointmentsByDate()]</span></span> replaced call to java/time/LocalDate::minusDays with receiver &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getAppointmentsForDoctorByDate<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctorByDate_shouldFilterAppointmentsByDate()]</span></span> removed call to java/time/LocalDate::minusDays &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_74'>74</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_74'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAppointmentsForDoctorByDate<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctorByDate_shouldFilterAppointmentsByDate()]</span></span> removed call to com/TranquilMind/repository/AppointmentRepository::fetchAppointmentsByDoctorAndDate &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getAppointmentsForDoctorByDate<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctorByDate_shouldFilterAppointmentsByDate()]</span></span> removed call to com/TranquilMind/model/Doctor::getDoctorId &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_75'>75</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_75'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAppointmentsForDoctorByDate<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctorByDate_shouldFilterAppointmentsByDate()]</span></span> replaced return value with Collections.emptyList for com/TranquilMind/service/serviceImpl/AppointmentServiceImpl::getAppointmentsForDoctorByDate &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getAppointmentsForDoctorByDate<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctorByDate_shouldFilterAppointmentsByDate()]</span></span> replaced call to java/util/stream/Stream::filter with receiver &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getAppointmentsForDoctorByDate<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctorByDate_shouldFilterAppointmentsByDate()]</span></span> removed call to java/util/List::stream &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>getAppointmentsForDoctorByDate<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctorByDate_shouldFilterAppointmentsByDate()]</span></span> removed call to java/util/stream/Stream::filter &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_76'>76</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_76'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$getAppointmentsForDoctorByDate$0<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctorByDate_shouldFilterAppointmentsByDate()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>lambda$getAppointmentsForDoctorByDate$0<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctorByDate_shouldFilterAppointmentsByDate()]</span></span> removed call to java/time/LocalDate::isBefore &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>lambda$getAppointmentsForDoctorByDate$0<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctorByDate_shouldFilterAppointmentsByDate()]</span></span> removed call to com/TranquilMind/model/Appointment::getDate &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>lambda$getAppointmentsForDoctorByDate$0<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctorByDate_shouldFilterAppointmentsByDate()]</span></span> replaced boolean return with true for com/TranquilMind/service/serviceImpl/AppointmentServiceImpl::lambda$getAppointmentsForDoctorByDate$0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>lambda$getAppointmentsForDoctorByDate$0<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctorByDate_shouldFilterAppointmentsByDate()]</span></span> removed call to java/time/LocalDate::plusDays &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>lambda$getAppointmentsForDoctorByDate$0<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctorByDate_shouldFilterAppointmentsByDate()]</span></span> removed call to java/time/LocalDate::isAfter &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>lambda$getAppointmentsForDoctorByDate$0<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctorByDate_shouldFilterAppointmentsByDate()]</span></span> removed call to com/TranquilMind/model/Appointment::getDate &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>lambda$getAppointmentsForDoctorByDate$0<br/><b>Killed by : </b>none</span></span> replaced call to java/time/LocalDate::minusDays with receiver &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>lambda$getAppointmentsForDoctorByDate$0<br/><b>Killed by : </b>none</span></span> replaced call to java/time/LocalDate::plusDays with receiver &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>lambda$getAppointmentsForDoctorByDate$0<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctorByDate_shouldFilterAppointmentsByDate()]</span></span> removed call to java/time/LocalDate::minusDays &rarr; KILLED</p> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>lambda$getAppointmentsForDoctorByDate$0<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctorByDate_shouldFilterAppointmentsByDate()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_77'>77</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_77'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAppointmentsForDoctorByDate<br/><b>Killed by : </b>none</span></span> replaced call to java/util/stream/Stream::map with receiver &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getAppointmentsForDoctorByDate<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctorByDate_shouldFilterAppointmentsByDate()]</span></span> removed call to java/util/stream/Stream::toList &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getAppointmentsForDoctorByDate<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctorByDate_shouldFilterAppointmentsByDate()]</span></span> removed call to java/util/stream/Stream::map &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_83'>83</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_83'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>cancelAppointment<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:cancelAppointment_shouldDeleteAppointment()]</span></span> removed call to com/TranquilMind/service/serviceImpl/AppointmentServiceImpl::getAppointmentById &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_84'>84</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_84'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>cancelAppointment<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:cancelAppointment_shouldDeleteAppointment()]</span></span> removed call to com/TranquilMind/repository/AppointmentRepository::delete &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_85'>85</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_85'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>cancelAppointment<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:cancelAppointment_shouldDeleteAppointment()]</span></span> replaced boolean return with false for com/TranquilMind/service/serviceImpl/AppointmentServiceImpl::cancelAppointment &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_96'>96</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_96'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>appointmentDataByDoctor<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:appointmentDataByDoctor_shouldReturnAppointmentData()]</span></span> removed call to java/util/List::add &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>appointmentDataByDoctor<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:appointmentDataByDoctor_shouldReturnAppointmentData()]</span></span> removed call to com/TranquilMind/repository/AppointmentRepository::getPatientDataByDoctorId &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_97'>97</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_97'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>appointmentDataByDoctor<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:appointmentDataByDoctor_shouldReturnAppointmentData()]</span></span> removed call to com/TranquilMind/repository/AppointmentRepository::totalAppointmentsByDoctorId &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>appointmentDataByDoctor<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:appointmentDataByDoctor_shouldReturnAppointmentData()]</span></span> removed call to java/util/List::add &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_98'>98</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_98'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>appointmentDataByDoctor<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:appointmentDataByDoctor_shouldReturnAppointmentData()]</span></span> removed call to java/util/List::add &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>appointmentDataByDoctor<br/><b>Killed by : </b>none</span></span> removed call to java/time/LocalDate::now &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>appointmentDataByDoctor<br/><b>Killed by : </b>none</span></span> removed call to java/time/LocalTime::now &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>appointmentDataByDoctor<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/repository/AppointmentRepository::totalPendingAppointmentsByDoctorId &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_99'>99</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_99'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>appointmentDataByDoctor<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:appointmentDataByDoctor_shouldReturnAppointmentData()]</span></span> replaced return value with Collections.emptyList for com/TranquilMind/service/serviceImpl/AppointmentServiceImpl::appointmentDataByDoctor &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_104'>104</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_104'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>distinctPatientByDoctor<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:distinctPatientByDoctor_shouldReturnDistinctPatients()]</span></span> removed call to com/TranquilMind/repository/AppointmentRepository::findDistinctPatientByDoctorId &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>distinctPatientByDoctor<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:distinctPatientByDoctor_shouldReturnDistinctPatients()]</span></span> replaced return value with Collections.emptyList for com/TranquilMind/service/serviceImpl/AppointmentServiceImpl::distinctPatientByDoctor &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_108'>108</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_108'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAppointmentById<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:cancelAppointment_shouldDeleteAppointment()]</span></span> replaced return value with null for com/TranquilMind/service/serviceImpl/AppointmentServiceImpl::getAppointmentById &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getAppointmentById<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:cancelAppointment_shouldDeleteAppointment()]</span></span> removed call to com/TranquilMind/repository/AppointmentRepository::findById &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15371de2_109'>109</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15371de2_109'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$getAppointmentById$1<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:cancelAppointment_shouldThrowExceptionWhenAppointmentNotFound()]</span></span> replaced return value with null for com/TranquilMind/service/serviceImpl/AppointmentServiceImpl::lambda$getAppointmentById$1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getAppointmentById<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:cancelAppointment_shouldDeleteAppointment()]</span></span> removed call to java/util/Optional::orElseThrow &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+<li class='mutator'>EMPTY_RETURNS</li>
+<li class='mutator'>EXPERIMENTAL_ARGUMENT_PROPAGATION</li>
+<li class='mutator'>EXPERIMENTAL_NAKED_RECEIVER</li>
+<li class='mutator'>FALSE_RETURNS</li>
+<li class='mutator'>INCREMENTS</li>
+<li class='mutator'>INVERT_NEGS</li>
+<li class='mutator'>MATH</li>
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+<li class='mutator'>NON_VOID_METHOD_CALLS</li>
+<li class='mutator'>NULL_RETURNS</li>
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+<li class='mutator'>TRUE_RETURNS</li>
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:newAppointment_shouldCreateAndReturnAppointment()] (1200 ms)</li><li>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctorByDate_shouldFilterAppointmentsByDate()] (5 ms)</li><li>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:cancelAppointment_shouldDeleteAppointment()] (5 ms)</li><li>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForPatient_shouldReturnAppointmentList()] (5 ms)</li><li>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:appointmentDataByDoctor_shouldReturnAppointmentData()] (7 ms)</li><li>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:getAppointmentsForDoctor_shouldReturnAppointmentList()] (8 ms)</li><li>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:cancelAppointment_shouldThrowExceptionWhenAppointmentNotFound()] (8 ms)</li><li>com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.AppointmentServiceImplTest]/[method:distinctPatientByDoctor_shouldReturnDistinctPatients()] (5 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.15.2
+
+</body>
+</html>

@@ -1,0 +1,3517 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>PostServiceImpl.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.TranquilMind.service.serviceImpl;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.dto.PostDto;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.exception.ResourceNotFoundException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.model.Doctor;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.model.Patient;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.model.Post;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.model.User;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.repository.PostRepository;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.TranquilMind.service.*;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.springframework.beans.factory.annotation.Autowired;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.springframework.stereotype.Service;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.stream.Collectors;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>@Service</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>public class PostServiceImpl implements PostService {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Autowired</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private PostRepository postRepository;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Autowired</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private PatientService patientService;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Autowired</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private DoctorService doctorService;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Autowired</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private UserService userService;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public List&#60;PostDto&#62; getAllPostsByTime() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_36'/>
+36
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_36'>2</a>
+<span>
+1. getAllPostsByTime : replaced return value with Collections.emptyList for com/TranquilMind/service/serviceImpl/PostServiceImpl::getAllPostsByTime &rarr; KILLED<br/>
+2. getAllPostsByTime : removed call to com/TranquilMind/repository/PostRepository::getPosts &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return postRepository.getPosts()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_37'/>
+37
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_37'>1</a>
+<span>
+1. getAllPostsByTime : removed call to java/util/List::stream &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                .stream()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_38'/>
+38
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_38'>2</a>
+<span>
+1. getAllPostsByTime : replaced call to java/util/stream/Stream::map with receiver &rarr; SURVIVED<br/>
+2. getAllPostsByTime : removed call to java/util/stream/Stream::map &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                .map(this::toDto)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_39'/>
+39
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_39'>2</a>
+<span>
+1. getAllPostsByTime : removed call to java/util/stream/Stream::collect &rarr; KILLED<br/>
+2. getAllPostsByTime : removed call to java/util/stream/Collectors::toList &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                .collect(Collectors.toList());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Post getPostById(Long id) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_44'/>
+44
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_44'>3</a>
+<span>
+1. getPostById : removed call to java/util/Optional::orElseThrow &rarr; KILLED<br/>
+2. getPostById : replaced return value with null for com/TranquilMind/service/serviceImpl/PostServiceImpl::getPostById &rarr; KILLED<br/>
+3. getPostById : removed call to com/TranquilMind/repository/PostRepository::findById &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return postRepository.findById(id).orElseThrow(</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_45'/>
+45
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_45'>1</a>
+<span>
+1. lambda$getPostById$0 : replaced return value with null for com/TranquilMind/service/serviceImpl/PostServiceImpl::lambda$getPostById$0 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                () -&#62; new ResourceNotFoundException(&#34;Post not found with id :&#34; + id));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public PostDto addPost(PostDto postDto) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Post post = new Post();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_52'/>
+52
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_52'>2</a>
+<span>
+1. addPost : removed call to com/TranquilMind/dto/PostDto::getPostedBy &rarr; KILLED<br/>
+2. addPost : removed call to com/TranquilMind/service/UserService::getUserById &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        User user = userService.getUserById(postDto.getPostedBy());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_54'/>
+54
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_54'>1</a>
+<span>
+1. addPost : removed call to com/TranquilMind/model/Post::setPostedBy &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        post.setPostedBy(user);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_55'/>
+55
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_55'>2</a>
+<span>
+1. addPost : removed call to com/TranquilMind/model/Post::setImage &rarr; SURVIVED<br/>
+2. addPost : removed call to com/TranquilMind/dto/PostDto::getImage &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        post.setImage(postDto.getImage());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_56'/>
+56
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_56'>2</a>
+<span>
+1. addPost : removed call to com/TranquilMind/dto/PostDto::getDescription &rarr; SURVIVED<br/>
+2. addPost : removed call to com/TranquilMind/model/Post::setDescription &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        post.setDescription(postDto.getDescription());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_57'/>
+57
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_57'>2</a>
+<span>
+1. addPost : removed call to com/TranquilMind/model/Post::setUploadedAt &rarr; SURVIVED<br/>
+2. addPost : removed call to com/TranquilMind/dto/PostDto::getUploadedAt &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        post.setUploadedAt(postDto.getUploadedAt());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_58'/>
+58
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_58'>2</a>
+<span>
+1. addPost : removed call to com/TranquilMind/dto/PostDto::getTitle &rarr; KILLED<br/>
+2. addPost : removed call to com/TranquilMind/model/Post::setTitle &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        post.setTitle(postDto.getTitle());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_59'/>
+59
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_59'>2</a>
+<span>
+1. addPost : removed call to com/TranquilMind/model/Post::setFlagged &rarr; SURVIVED<br/>
+2. addPost : removed call to com/TranquilMind/dto/PostDto::getFlagged &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        post.setFlagged(postDto.getFlagged());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_60'/>
+60
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_60'>2</a>
+<span>
+1. addPost : removed call to java/lang/Boolean::valueOf &rarr; SURVIVED<br/>
+2. addPost : removed call to com/TranquilMind/model/Post::setIsApproved &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        post.setIsApproved(false);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_61'/>
+61
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_61'>2</a>
+<span>
+1. addPost : removed call to com/TranquilMind/model/Post::setIsDisabled &rarr; SURVIVED<br/>
+2. addPost : removed call to java/lang/Boolean::valueOf &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        post.setIsDisabled(false);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_62'/>
+62
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_62'>2</a>
+<span>
+1. addPost : removed call to com/TranquilMind/model/Post::setUploadedAt &rarr; SURVIVED<br/>
+2. addPost : removed call to com/TranquilMind/dto/PostDto::getUploadedAt &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        post.setUploadedAt(postDto.getUploadedAt());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_63'/>
+63
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_63'>4</a>
+<span>
+1. addPost : replaced return value with null for com/TranquilMind/service/serviceImpl/PostServiceImpl::addPost &rarr; KILLED<br/>
+2. addPost : replaced call to com/TranquilMind/repository/PostRepository::save with argument &rarr; KILLED<br/>
+3. addPost : removed call to com/TranquilMind/repository/PostRepository::save &rarr; KILLED<br/>
+4. addPost : removed call to com/TranquilMind/service/serviceImpl/PostServiceImpl::toDto &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return toDto(postRepository.save(post));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean deletePost(Long postId, Long userId) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_69'/>
+69
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_69'>1</a>
+<span>
+1. deletePost : removed call to com/TranquilMind/service/serviceImpl/PostServiceImpl::getPostById &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        Post post = getPostById(postId);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_70'/>
+70
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_70'>1</a>
+<span>
+1. deletePost : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (post != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_71'/>
+71
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_71'>4</a>
+<span>
+1. deletePost : removed call to com/TranquilMind/model/User::getUserId &rarr; KILLED<br/>
+2. deletePost : removed call to com/TranquilMind/model/Post::getPostedBy &rarr; KILLED<br/>
+3. deletePost : removed call to java/lang/Long::equals &rarr; KILLED<br/>
+4. deletePost : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (post.getPostedBy().getUserId().equals(userId)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_72'/>
+72
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_72'>1</a>
+<span>
+1. deletePost : removed call to com/TranquilMind/repository/PostRepository::delete &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                postRepository.delete(post);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_73'/>
+73
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_73'>1</a>
+<span>
+1. deletePost : replaced boolean return with false for com/TranquilMind/service/serviceImpl/PostServiceImpl::deletePost &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_75'/>
+75
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_75'>1</a>
+<span>
+1. deletePost : replaced boolean return with true for com/TranquilMind/service/serviceImpl/PostServiceImpl::deletePost &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_78'/>
+78
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_78'>1</a>
+<span>
+1. deletePost : replaced boolean return with true for com/TranquilMind/service/serviceImpl/PostServiceImpl::deletePost &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean disablePost(Long id,Boolean disable) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_84'/>
+84
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_84'>1</a>
+<span>
+1. disablePost : removed call to com/TranquilMind/service/serviceImpl/PostServiceImpl::getPostById &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        Post post = getPostById(id);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_86'/>
+86
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_86'>1</a>
+<span>
+1. disablePost : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (post != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_87'/>
+87
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_87'>1</a>
+<span>
+1. disablePost : removed call to com/TranquilMind/model/Post::setIsDisabled &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            post.setIsDisabled(disable);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_88'/>
+88
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_88'>2</a>
+<span>
+1. disablePost : replaced call to com/TranquilMind/repository/PostRepository::save with argument &rarr; KILLED<br/>
+2. disablePost : removed call to com/TranquilMind/repository/PostRepository::save &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            postRepository.save(post);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_89'/>
+89
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_89'>1</a>
+<span>
+1. disablePost : replaced boolean return with false for com/TranquilMind/service/serviceImpl/PostServiceImpl::disablePost &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_91'/>
+91
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_91'>1</a>
+<span>
+1. disablePost : replaced boolean return with true for com/TranquilMind/service/serviceImpl/PostServiceImpl::disablePost &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public PostDto editPost(PostDto postDto, Long userId, Long postId) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_97'/>
+97
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_97'>1</a>
+<span>
+1. editPost : removed call to com/TranquilMind/service/serviceImpl/PostServiceImpl::getPostById &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        Post savedPost = getPostById(postId);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_99'/>
+99
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_99'>4</a>
+<span>
+1. editPost : removed call to com/TranquilMind/model/Post::getPostedBy &rarr; KILLED<br/>
+2. editPost : negated conditional &rarr; KILLED<br/>
+3. editPost : removed call to com/TranquilMind/model/User::getUserId &rarr; KILLED<br/>
+4. editPost : removed call to java/lang/Long::equals &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (savedPost.getPostedBy().getUserId().equals(userId)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_100'/>
+100
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_100'>2</a>
+<span>
+1. editPost : removed call to com/TranquilMind/dto/PostDto::getDescription &rarr; SURVIVED<br/>
+2. editPost : removed call to com/TranquilMind/model/Post::setDescription &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            savedPost.setDescription(postDto.getDescription());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_101'/>
+101
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_101'>2</a>
+<span>
+1. editPost : removed call to com/TranquilMind/model/Post::setTitle &rarr; KILLED<br/>
+2. editPost : removed call to com/TranquilMind/dto/PostDto::getTitle &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            savedPost.setTitle(postDto.getTitle());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_102'/>
+102
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_102'>4</a>
+<span>
+1. editPost : replaced return value with null for com/TranquilMind/service/serviceImpl/PostServiceImpl::editPost &rarr; KILLED<br/>
+2. editPost : removed call to com/TranquilMind/repository/PostRepository::save &rarr; KILLED<br/>
+3. editPost : replaced call to com/TranquilMind/repository/PostRepository::save with argument &rarr; KILLED<br/>
+4. editPost : removed call to com/TranquilMind/service/serviceImpl/PostServiceImpl::toDto &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return toDto(postRepository.save(savedPost));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_104'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            return null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_105'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_106'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_109'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Boolean flagPost(Long id, Boolean flag) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_110'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_111'/>
+111
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_111'>1</a>
+<span>
+1. flagPost : removed call to com/TranquilMind/service/serviceImpl/PostServiceImpl::getPostById &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        Post post = getPostById(id);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_112'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_113'/>
+113
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_113'>1</a>
+<span>
+1. flagPost : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (post != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_114'/>
+114
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_114'>2</a>
+<span>
+1. flagPost : negated conditional &rarr; KILLED<br/>
+2. flagPost : removed call to java/lang/Boolean::booleanValue &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (flag) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_115'/>
+115
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_115'>5</a>
+<span>
+1. flagPost : removed call to java/lang/Integer::intValue &rarr; SURVIVED<br/>
+2. flagPost : removed call to com/TranquilMind/model/Post::getFlagged &rarr; KILLED<br/>
+3. flagPost : Replaced integer addition with subtraction &rarr; KILLED<br/>
+4. flagPost : removed call to com/TranquilMind/model/Post::setFlagged &rarr; KILLED<br/>
+5. flagPost : removed call to java/lang/Integer::valueOf &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                post.setFlagged(post.getFlagged()+1);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_116'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_117'/>
+117
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_117'>2</a>
+<span>
+1. flagPost : removed call to com/TranquilMind/model/Post::setFlagged &rarr; NO_COVERAGE<br/>
+2. flagPost : removed call to java/lang/Integer::valueOf &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                post.setFlagged(0);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_118'/>
+118
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_118'>2</a>
+<span>
+1. flagPost : removed call to com/TranquilMind/model/Post::setIsApproved &rarr; NO_COVERAGE<br/>
+2. flagPost : removed call to java/lang/Boolean::valueOf &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                post.setIsApproved(true);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_119'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_120'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_121'/>
+121
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_121'>2</a>
+<span>
+1. flagPost : replaced call to com/TranquilMind/repository/PostRepository::save with argument &rarr; KILLED<br/>
+2. flagPost : removed call to com/TranquilMind/repository/PostRepository::save &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            postRepository.save(post);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_122'/>
+122
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_122'>2</a>
+<span>
+1. flagPost : removed call to java/lang/Boolean::valueOf &rarr; KILLED<br/>
+2. flagPost : replaced Boolean return with False for com/TranquilMind/service/serviceImpl/PostServiceImpl::flagPost &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_123'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        } else</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_124'/>
+124
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_124'>2</a>
+<span>
+1. flagPost : replaced Boolean return with True for com/TranquilMind/service/serviceImpl/PostServiceImpl::flagPost &rarr; NO_COVERAGE<br/>
+2. flagPost : removed call to java/lang/Boolean::valueOf &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_125'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_126'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_127'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_128'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public List&#60;PostDto&#62; getFlaggedPosts() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_129'/>
+129
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_129'>2</a>
+<span>
+1. getFlaggedPosts : removed call to com/TranquilMind/repository/PostRepository::findAll &rarr; KILLED<br/>
+2. getFlaggedPosts : replaced return value with Collections.emptyList for com/TranquilMind/service/serviceImpl/PostServiceImpl::getFlaggedPosts &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return postRepository.findAll()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_130'/>
+130
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_130'>1</a>
+<span>
+1. getFlaggedPosts : removed call to java/util/List::stream &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                .stream()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_131'/>
+131
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_131'>10</a>
+<span>
+1. lambda$getFlaggedPosts$1 : removed call to java/lang/Boolean::booleanValue &rarr; SURVIVED<br/>
+2. getFlaggedPosts : replaced call to java/util/stream/Stream::filter with receiver &rarr; SURVIVED<br/>
+3. lambda$getFlaggedPosts$1 : replaced boolean return with true for com/TranquilMind/service/serviceImpl/PostServiceImpl::lambda$getFlaggedPosts$1 &rarr; SURVIVED<br/>
+4. lambda$getFlaggedPosts$1 : changed conditional boundary &rarr; SURVIVED<br/>
+5. lambda$getFlaggedPosts$1 : removed call to com/TranquilMind/model/Post::getIsDisabled &rarr; KILLED<br/>
+6. lambda$getFlaggedPosts$1 : negated conditional &rarr; KILLED<br/>
+7. getFlaggedPosts : removed call to java/util/stream/Stream::filter &rarr; KILLED<br/>
+8. lambda$getFlaggedPosts$1 : removed call to java/lang/Integer::intValue &rarr; KILLED<br/>
+9. lambda$getFlaggedPosts$1 : removed call to com/TranquilMind/model/Post::getFlagged &rarr; KILLED<br/>
+10. lambda$getFlaggedPosts$1 : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                .filter(p -&#62; p.getFlagged() &#62; 0 &#38;&#38; !p.getIsDisabled())</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_132'/>
+132
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_132'>2</a>
+<span>
+1. getFlaggedPosts : replaced call to java/util/stream/Stream::map with receiver &rarr; SURVIVED<br/>
+2. getFlaggedPosts : removed call to java/util/stream/Stream::map &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                .map(this::toDto)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_133'/>
+133
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_133'>2</a>
+<span>
+1. getFlaggedPosts : removed call to java/util/stream/Stream::collect &rarr; KILLED<br/>
+2. getFlaggedPosts : removed call to java/util/stream/Collectors::toList &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                .collect(Collectors.toList());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_134'/>
+134
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_134'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_135'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_136'/>
+136
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_136'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_137'/>
+137
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_137'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public List&#60;Integer&#62; postData() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_138'/>
+138
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_138'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        List&#60;Integer&#62; list = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_139'/>
+139
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_139'>2</a>
+<span>
+1. postData : removed call to java/util/List::add &rarr; KILLED<br/>
+2. postData : removed call to com/TranquilMind/repository/PostRepository::totalPostCount &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        list.add(postRepository.totalPostCount());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_140'/>
+140
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_140'>2</a>
+<span>
+1. postData : removed call to java/util/List::add &rarr; KILLED<br/>
+2. postData : removed call to com/TranquilMind/repository/PostRepository::flaggedPostCount &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        list.add(postRepository.flaggedPostCount());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_141'/>
+141
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_141'>1</a>
+<span>
+1. postData : replaced return value with Collections.emptyList for com/TranquilMind/service/serviceImpl/PostServiceImpl::postData &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return list;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_142'/>
+142
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_142'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_143'/>
+143
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_143'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_144'/>
+144
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_144'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_145'/>
+145
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_145'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public List&#60;PostDto&#62; getPostsByUserId(Long userId) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_146'/>
+146
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_146'>2</a>
+<span>
+1. getPostsByUserId : removed call to com/TranquilMind/repository/PostRepository::getPostsByUserId &rarr; KILLED<br/>
+2. getPostsByUserId : replaced return value with Collections.emptyList for com/TranquilMind/service/serviceImpl/PostServiceImpl::getPostsByUserId &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return postRepository.getPostsByUserId(userId)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_147'/>
+147
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_147'>1</a>
+<span>
+1. getPostsByUserId : removed call to java/util/List::stream &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                .stream()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_148'/>
+148
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_148'>2</a>
+<span>
+1. getPostsByUserId : replaced call to java/util/stream/Stream::map with receiver &rarr; SURVIVED<br/>
+2. getPostsByUserId : removed call to java/util/stream/Stream::map &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                .map(this::toDto)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_149'/>
+149
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_149'>2</a>
+<span>
+1. getPostsByUserId : removed call to java/util/stream/Collectors::toList &rarr; KILLED<br/>
+2. getPostsByUserId : removed call to java/util/stream/Stream::collect &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                .collect(Collectors.toList());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_150'/>
+150
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_150'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_151'/>
+151
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_151'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_152'/>
+152
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_152'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public PostDto toDto(Post post) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_153'/>
+153
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_153'>1</a>
+<span>
+1. toDto : removed call to com/TranquilMind/model/Post::getPostedBy &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        User user = post.getPostedBy();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_154'/>
+154
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_154'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>//        String name = getUserFullName(user);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_155'/>
+155
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_155'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_156'/>
+156
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_156'>5</a>
+<span>
+1. toDto : removed call to com/TranquilMind/model/Post::getDescription &rarr; SURVIVED<br/>
+2. toDto : removed call to com/TranquilMind/model/User::getUserId &rarr; SURVIVED<br/>
+3. toDto : removed call to com/TranquilMind/model/Post::getPostId &rarr; SURVIVED<br/>
+4. toDto : replaced return value with null for com/TranquilMind/service/serviceImpl/PostServiceImpl::toDto &rarr; KILLED<br/>
+5. toDto : removed call to com/TranquilMind/model/Post::getTitle &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return new PostDto(post.getPostId(), post.getTitle(), post.getDescription(), user.getUserId(), null,</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_157'/>
+157
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_157'>3</a>
+<span>
+1. toDto : removed call to com/TranquilMind/model/Post::getUploadedAt &rarr; SURVIVED<br/>
+2. toDto : removed call to com/TranquilMind/model/Post::getImage &rarr; SURVIVED<br/>
+3. toDto : removed call to com/TranquilMind/model/Post::getFlagged &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                post.getUploadedAt(), post.getImage(), post.getFlagged(),</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_158'/>
+158
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_158'>2</a>
+<span>
+1. toDto : removed call to com/TranquilMind/model/Post::getIsApproved &rarr; SURVIVED<br/>
+2. toDto : removed call to com/TranquilMind/model/Post::getIsDisabled &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                post.getIsDisabled(), post.getIsApproved());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_159'/>
+159
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_159'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_160'/>
+160
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_160'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_161'/>
+161
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_161'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>//    private String getUserFullName(User user) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_162'/>
+162
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_162'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>//        String fullName = &#34;&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_163'/>
+163
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_163'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>//        String roleName = user.getRoles().get(0).getRoleName();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_164'/>
+164
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_164'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>//</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_165'/>
+165
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_165'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>//        if (roleName.equals(&#34;PATIENT&#34;)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_166'/>
+166
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_166'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>//            Patient patient = patientService.getPatientByUserId(user.getUserId());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_167'/>
+167
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_167'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>//            fullName = concatFullName(patient.getFirstName(), patient.getMiddleName(), patient.getLastName());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_168'/>
+168
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_168'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>//        } else if (roleName.equals(&#34;DOCTOR&#34;)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_169'/>
+169
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_169'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>//            Doctor doctor = doctorService.getDoctorByUserId(user.getUserId());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_170'/>
+170
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_170'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>//            fullName = concatFullName(doctor.getFirstName(), doctor.getMiddleName(), doctor.getLastName());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_171'/>
+171
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_171'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>//        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_172'/>
+172
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_172'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>//        return fullName;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_173'/>
+173
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_173'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>//    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_174'/>
+174
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_174'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_175'/>
+175
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_175'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private String concatFullName(String firstName, String middleName, String lastName) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_176'/>
+176
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_176'>1</a>
+<span>
+1. concatFullName : replaced return value with &#34;&#34; for com/TranquilMind/service/serviceImpl/PostServiceImpl::concatFullName &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return firstName + &#34; &#34; + middleName + &#34; &#34; + lastName;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_177'/>
+177
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_177'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@75c33608_178'/>
+178
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_178'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_36'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAllPostsByTime<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getAllPostsByTime_shouldReturnAllPosts()]</span></span> replaced return value with Collections.emptyList for com/TranquilMind/service/serviceImpl/PostServiceImpl::getAllPostsByTime &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getAllPostsByTime<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getAllPostsByTime_shouldReturnAllPosts()]</span></span> removed call to com/TranquilMind/repository/PostRepository::getPosts &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_37'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAllPostsByTime<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getAllPostsByTime_shouldReturnAllPosts()]</span></span> removed call to java/util/List::stream &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_38'>38</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_38'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAllPostsByTime<br/><b>Killed by : </b>none</span></span> replaced call to java/util/stream/Stream::map with receiver &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getAllPostsByTime<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getAllPostsByTime_shouldReturnAllPosts()]</span></span> removed call to java/util/stream/Stream::map &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_39'>39</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_39'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAllPostsByTime<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getAllPostsByTime_shouldReturnAllPosts()]</span></span> removed call to java/util/stream/Stream::collect &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getAllPostsByTime<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getAllPostsByTime_shouldReturnAllPosts()]</span></span> removed call to java/util/stream/Collectors::toList &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_44'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPostById<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getPostById_shouldReturnPostWhenExists()]</span></span> removed call to java/util/Optional::orElseThrow &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getPostById<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getPostById_shouldReturnPostWhenExists()]</span></span> replaced return value with null for com/TranquilMind/service/serviceImpl/PostServiceImpl::getPostById &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getPostById<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getPostById_shouldReturnPostWhenExists()]</span></span> removed call to com/TranquilMind/repository/PostRepository::findById &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_45'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$getPostById$0<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:disablePost_shouldThrowExceptionWhenPostDoesNotExist()]</span></span> replaced return value with null for com/TranquilMind/service/serviceImpl/PostServiceImpl::lambda$getPostById$0 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_52'>52</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_52'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:addPost_shouldAddPostSuccessfully()]</span></span> removed call to com/TranquilMind/dto/PostDto::getPostedBy &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:addPost_shouldAddPostSuccessfully()]</span></span> removed call to com/TranquilMind/service/UserService::getUserById &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_54'>54</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_54'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:addPost_shouldAddPostSuccessfully()]</span></span> removed call to com/TranquilMind/model/Post::setPostedBy &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_55'>55</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_55'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addPost<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Post::setImage &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addPost<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/dto/PostDto::getImage &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_56'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addPost<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/dto/PostDto::getDescription &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addPost<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Post::setDescription &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_57'>57</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_57'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addPost<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Post::setUploadedAt &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addPost<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/dto/PostDto::getUploadedAt &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_58'>58</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_58'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:addPost_shouldAddPostSuccessfully()]</span></span> removed call to com/TranquilMind/dto/PostDto::getTitle &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:addPost_shouldAddPostSuccessfully()]</span></span> removed call to com/TranquilMind/model/Post::setTitle &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_59'>59</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_59'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addPost<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Post::setFlagged &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addPost<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/dto/PostDto::getFlagged &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_60'>60</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_60'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addPost<br/><b>Killed by : </b>none</span></span> removed call to java/lang/Boolean::valueOf &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addPost<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Post::setIsApproved &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_61'>61</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_61'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addPost<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Post::setIsDisabled &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addPost<br/><b>Killed by : </b>none</span></span> removed call to java/lang/Boolean::valueOf &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_62'>62</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_62'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addPost<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Post::setUploadedAt &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addPost<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/dto/PostDto::getUploadedAt &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_63'>63</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_63'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>addPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:addPost_shouldAddPostSuccessfully()]</span></span> replaced return value with null for com/TranquilMind/service/serviceImpl/PostServiceImpl::addPost &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>addPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:addPost_shouldAddPostSuccessfully()]</span></span> replaced call to com/TranquilMind/repository/PostRepository::save with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>addPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:addPost_shouldAddPostSuccessfully()]</span></span> removed call to com/TranquilMind/repository/PostRepository::save &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>addPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:addPost_shouldAddPostSuccessfully()]</span></span> removed call to com/TranquilMind/service/serviceImpl/PostServiceImpl::toDto &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_69'>69</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_69'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>deletePost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:deletePost_shouldDeletePostWhenExists()]</span></span> removed call to com/TranquilMind/service/serviceImpl/PostServiceImpl::getPostById &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_70'>70</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_70'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>deletePost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:deletePost_shouldDeletePostWhenExists()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_71'>71</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_71'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>deletePost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:deletePost_shouldReturnFalseIfUserIsNotAuthorized()]</span></span> removed call to com/TranquilMind/model/User::getUserId &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>deletePost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:deletePost_shouldReturnFalseIfUserIsNotAuthorized()]</span></span> removed call to com/TranquilMind/model/Post::getPostedBy &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>deletePost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:deletePost_shouldDeletePostWhenExists()]</span></span> removed call to java/lang/Long::equals &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>deletePost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:deletePost_shouldReturnFalseIfUserIsNotAuthorized()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_72'>72</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_72'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>deletePost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:deletePost_shouldDeletePostWhenExists()]</span></span> removed call to com/TranquilMind/repository/PostRepository::delete &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_73'>73</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_73'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>deletePost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:deletePost_shouldDeletePostWhenExists()]</span></span> replaced boolean return with false for com/TranquilMind/service/serviceImpl/PostServiceImpl::deletePost &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_75'>75</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_75'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>deletePost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:deletePost_shouldReturnFalseIfUserIsNotAuthorized()]</span></span> replaced boolean return with true for com/TranquilMind/service/serviceImpl/PostServiceImpl::deletePost &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_78'>78</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_78'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>deletePost<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for com/TranquilMind/service/serviceImpl/PostServiceImpl::deletePost &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_84'>84</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_84'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>disablePost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:disablePost_shouldThrowExceptionWhenPostDoesNotExist()]</span></span> removed call to com/TranquilMind/service/serviceImpl/PostServiceImpl::getPostById &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_86'>86</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_86'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>disablePost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:disablePost_shouldDisablePostWhenExists()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_87'>87</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_87'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>disablePost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:disablePost_shouldDisablePostWhenExists()]</span></span> removed call to com/TranquilMind/model/Post::setIsDisabled &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_88'>88</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_88'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>disablePost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:disablePost_shouldDisablePostWhenExists()]</span></span> replaced call to com/TranquilMind/repository/PostRepository::save with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>disablePost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:disablePost_shouldDisablePostWhenExists()]</span></span> removed call to com/TranquilMind/repository/PostRepository::save &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_89'>89</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_89'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>disablePost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:disablePost_shouldDisablePostWhenExists()]</span></span> replaced boolean return with false for com/TranquilMind/service/serviceImpl/PostServiceImpl::disablePost &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_91'>91</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_91'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>disablePost<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for com/TranquilMind/service/serviceImpl/PostServiceImpl::disablePost &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_97'>97</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_97'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>editPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:editPost_shouldReturnNullWhenUserUnauthorized()]</span></span> removed call to com/TranquilMind/service/serviceImpl/PostServiceImpl::getPostById &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_99'>99</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_99'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>editPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:editPost_shouldReturnNullWhenUserUnauthorized()]</span></span> removed call to com/TranquilMind/model/Post::getPostedBy &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>editPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:editPost_shouldReturnNullWhenUserUnauthorized()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>editPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:editPost_shouldReturnNullWhenUserUnauthorized()]</span></span> removed call to com/TranquilMind/model/User::getUserId &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>editPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:editPost_shouldEditPostWhenUserAuthorized()]</span></span> removed call to java/lang/Long::equals &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_100'>100</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_100'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>editPost<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/dto/PostDto::getDescription &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>editPost<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Post::setDescription &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_101'>101</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_101'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>editPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:editPost_shouldEditPostWhenUserAuthorized()]</span></span> removed call to com/TranquilMind/model/Post::setTitle &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>editPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:editPost_shouldEditPostWhenUserAuthorized()]</span></span> removed call to com/TranquilMind/dto/PostDto::getTitle &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_102'>102</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_102'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>editPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:editPost_shouldEditPostWhenUserAuthorized()]</span></span> replaced return value with null for com/TranquilMind/service/serviceImpl/PostServiceImpl::editPost &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>editPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:editPost_shouldEditPostWhenUserAuthorized()]</span></span> removed call to com/TranquilMind/repository/PostRepository::save &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>editPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:editPost_shouldEditPostWhenUserAuthorized()]</span></span> replaced call to com/TranquilMind/repository/PostRepository::save with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>editPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:editPost_shouldEditPostWhenUserAuthorized()]</span></span> removed call to com/TranquilMind/service/serviceImpl/PostServiceImpl::toDto &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_111'>111</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_111'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>flagPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:flagPost_shouldIncrementFlagCount()]</span></span> removed call to com/TranquilMind/service/serviceImpl/PostServiceImpl::getPostById &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_113'>113</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_113'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>flagPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:flagPost_shouldIncrementFlagCount()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_114'>114</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_114'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>flagPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:flagPost_shouldIncrementFlagCount()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>flagPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:flagPost_shouldIncrementFlagCount()]</span></span> removed call to java/lang/Boolean::booleanValue &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_115'>115</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_115'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>flagPost<br/><b>Killed by : </b>none</span></span> removed call to java/lang/Integer::intValue &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>flagPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:flagPost_shouldIncrementFlagCount()]</span></span> removed call to com/TranquilMind/model/Post::getFlagged &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>flagPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:flagPost_shouldIncrementFlagCount()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>flagPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:flagPost_shouldIncrementFlagCount()]</span></span> removed call to com/TranquilMind/model/Post::setFlagged &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>flagPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:flagPost_shouldIncrementFlagCount()]</span></span> removed call to java/lang/Integer::valueOf &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_117'>117</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_117'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>flagPost<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Post::setFlagged &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>flagPost<br/><b>Killed by : </b>none</span></span> removed call to java/lang/Integer::valueOf &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_118'>118</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_118'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>flagPost<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Post::setIsApproved &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>flagPost<br/><b>Killed by : </b>none</span></span> removed call to java/lang/Boolean::valueOf &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_121'>121</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_121'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>flagPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:flagPost_shouldIncrementFlagCount()]</span></span> replaced call to com/TranquilMind/repository/PostRepository::save with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>flagPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:flagPost_shouldIncrementFlagCount()]</span></span> removed call to com/TranquilMind/repository/PostRepository::save &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_122'>122</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_122'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>flagPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:flagPost_shouldIncrementFlagCount()]</span></span> removed call to java/lang/Boolean::valueOf &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>flagPost<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:flagPost_shouldIncrementFlagCount()]</span></span> replaced Boolean return with False for com/TranquilMind/service/serviceImpl/PostServiceImpl::flagPost &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_124'>124</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_124'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>flagPost<br/><b>Killed by : </b>none</span></span> replaced Boolean return with True for com/TranquilMind/service/serviceImpl/PostServiceImpl::flagPost &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>flagPost<br/><b>Killed by : </b>none</span></span> removed call to java/lang/Boolean::valueOf &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_129'>129</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_129'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getFlaggedPosts<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getFlaggedPosts_shouldReturnFlaggedPosts()]</span></span> removed call to com/TranquilMind/repository/PostRepository::findAll &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getFlaggedPosts<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getFlaggedPosts_shouldReturnFlaggedPosts()]</span></span> replaced return value with Collections.emptyList for com/TranquilMind/service/serviceImpl/PostServiceImpl::getFlaggedPosts &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_130'>130</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_130'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getFlaggedPosts<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getFlaggedPosts_shouldReturnFlaggedPosts()]</span></span> removed call to java/util/List::stream &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_131'>131</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_131'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>lambda$getFlaggedPosts$1<br/><b>Killed by : </b>none</span></span> removed call to java/lang/Boolean::booleanValue &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>lambda$getFlaggedPosts$1<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getFlaggedPosts_shouldReturnFlaggedPosts()]</span></span> removed call to com/TranquilMind/model/Post::getIsDisabled &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>lambda$getFlaggedPosts$1<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getFlaggedPosts_shouldReturnFlaggedPosts()]</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>getFlaggedPosts<br/><b>Killed by : </b>none</span></span> replaced call to java/util/stream/Stream::filter with receiver &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>getFlaggedPosts<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getFlaggedPosts_shouldReturnFlaggedPosts()]</span></span> removed call to java/util/stream/Stream::filter &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>lambda$getFlaggedPosts$1<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for com/TranquilMind/service/serviceImpl/PostServiceImpl::lambda$getFlaggedPosts$1 &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>lambda$getFlaggedPosts$1<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getFlaggedPosts_shouldReturnFlaggedPosts()]</span></span> removed call to java/lang/Integer::intValue &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>lambda$getFlaggedPosts$1<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getFlaggedPosts_shouldReturnFlaggedPosts()]</span></span> removed call to com/TranquilMind/model/Post::getFlagged &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>lambda$getFlaggedPosts$1<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>lambda$getFlaggedPosts$1<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getFlaggedPosts_shouldReturnFlaggedPosts()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_132'>132</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_132'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getFlaggedPosts<br/><b>Killed by : </b>none</span></span> replaced call to java/util/stream/Stream::map with receiver &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getFlaggedPosts<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getFlaggedPosts_shouldReturnFlaggedPosts()]</span></span> removed call to java/util/stream/Stream::map &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_133'>133</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_133'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getFlaggedPosts<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getFlaggedPosts_shouldReturnFlaggedPosts()]</span></span> removed call to java/util/stream/Stream::collect &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getFlaggedPosts<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getFlaggedPosts_shouldReturnFlaggedPosts()]</span></span> removed call to java/util/stream/Collectors::toList &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_139'>139</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_139'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>postData<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:postData_shouldReturnPostStatistics()]</span></span> removed call to java/util/List::add &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>postData<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:postData_shouldReturnPostStatistics()]</span></span> removed call to com/TranquilMind/repository/PostRepository::totalPostCount &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_140'>140</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_140'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>postData<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:postData_shouldReturnPostStatistics()]</span></span> removed call to java/util/List::add &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>postData<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:postData_shouldReturnPostStatistics()]</span></span> removed call to com/TranquilMind/repository/PostRepository::flaggedPostCount &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_141'>141</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_141'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>postData<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:postData_shouldReturnPostStatistics()]</span></span> replaced return value with Collections.emptyList for com/TranquilMind/service/serviceImpl/PostServiceImpl::postData &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_146'>146</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_146'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPostsByUserId<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getPostsByUserId_shouldReturnPostsForSpecificUser()]</span></span> removed call to com/TranquilMind/repository/PostRepository::getPostsByUserId &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getPostsByUserId<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getPostsByUserId_shouldReturnPostsForSpecificUser()]</span></span> replaced return value with Collections.emptyList for com/TranquilMind/service/serviceImpl/PostServiceImpl::getPostsByUserId &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_147'>147</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_147'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPostsByUserId<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getPostsByUserId_shouldReturnPostsForSpecificUser()]</span></span> removed call to java/util/List::stream &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_148'>148</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_148'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPostsByUserId<br/><b>Killed by : </b>none</span></span> replaced call to java/util/stream/Stream::map with receiver &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getPostsByUserId<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getPostsByUserId_shouldReturnPostsForSpecificUser()]</span></span> removed call to java/util/stream/Stream::map &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_149'>149</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_149'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPostsByUserId<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getPostsByUserId_shouldReturnPostsForSpecificUser()]</span></span> removed call to java/util/stream/Collectors::toList &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getPostsByUserId<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getPostsByUserId_shouldReturnPostsForSpecificUser()]</span></span> removed call to java/util/stream/Stream::collect &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_153'>153</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_153'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toDto<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getFlaggedPosts_shouldReturnFlaggedPosts()]</span></span> removed call to com/TranquilMind/model/Post::getPostedBy &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_156'>156</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_156'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toDto<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Post::getDescription &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toDto<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:editPost_shouldEditPostWhenUserAuthorized()]</span></span> replaced return value with null for com/TranquilMind/service/serviceImpl/PostServiceImpl::toDto &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>toDto<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/User::getUserId &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>toDto<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Post::getPostId &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>toDto<br/><b>Killed by : </b>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:editPost_shouldEditPostWhenUserAuthorized()]</span></span> removed call to com/TranquilMind/model/Post::getTitle &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_157'>157</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_157'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toDto<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Post::getUploadedAt &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toDto<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Post::getImage &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>toDto<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Post::getFlagged &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_158'>158</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_158'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>toDto<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Post::getIsApproved &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>toDto<br/><b>Killed by : </b>none</span></span> removed call to com/TranquilMind/model/Post::getIsDisabled &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@75c33608_176'>176</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@75c33608_176'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>concatFullName<br/><b>Killed by : </b>none</span></span> replaced return value with &#34;&#34; for com/TranquilMind/service/serviceImpl/PostServiceImpl::concatFullName &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+<li class='mutator'>EMPTY_RETURNS</li>
+<li class='mutator'>EXPERIMENTAL_ARGUMENT_PROPAGATION</li>
+<li class='mutator'>EXPERIMENTAL_NAKED_RECEIVER</li>
+<li class='mutator'>FALSE_RETURNS</li>
+<li class='mutator'>INCREMENTS</li>
+<li class='mutator'>INVERT_NEGS</li>
+<li class='mutator'>MATH</li>
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+<li class='mutator'>NON_VOID_METHOD_CALLS</li>
+<li class='mutator'>NULL_RETURNS</li>
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+<li class='mutator'>TRUE_RETURNS</li>
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:disablePost_shouldDisablePostWhenExists()] (3 ms)</li><li>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:disablePost_shouldThrowExceptionWhenPostDoesNotExist()] (2 ms)</li><li>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getPostById_shouldThrowExceptionWhenPostDoesNotExist()] (3 ms)</li><li>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:editPost_shouldEditPostWhenUserAuthorized()] (3 ms)</li><li>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getAllPostsByTime_shouldReturnAllPosts()] (3 ms)</li><li>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:addPost_shouldAddPostSuccessfully()] (60 ms)</li><li>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:deletePost_shouldReturnFalseIfUserIsNotAuthorized()] (2 ms)</li><li>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:deletePost_shouldDeletePostWhenExists()] (2 ms)</li><li>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:flagPost_shouldIncrementFlagCount()] (3 ms)</li><li>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getFlaggedPosts_shouldReturnFlaggedPosts()] (2 ms)</li><li>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getPostsByUserId_shouldReturnPostsForSpecificUser()] (2 ms)</li><li>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:postData_shouldReturnPostStatistics()] (2 ms)</li><li>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:getPostById_shouldReturnPostWhenExists()] (2 ms)</li><li>com.TranquilMind.Service.ServiceImpl.PostServiceImplTest.[engine:junit-jupiter]/[class:com.TranquilMind.Service.ServiceImpl.PostServiceImplTest]/[method:editPost_shouldReturnNullWhenUserUnauthorized()] (4 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.15.2
+
+</body>
+</html>

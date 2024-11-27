@@ -31,7 +31,7 @@ public class PatientController {
             @ApiResponse(responseCode = "405", description = "Invalid input")
     })
     @PostMapping("/register")
-    public ResponseEntity<?> registerPatient(@RequestBody PatientRegisterDto patientRegisterDto){
+    public Patient registerPatient(@RequestBody PatientRegisterDto patientRegisterDto){
         return patientService.createPatient(patientRegisterDto);
     }
 
@@ -85,21 +85,6 @@ public class PatientController {
         return new ResponseEntity<>(patientService.deletePatient(Long.parseLong(id)),HttpStatus.GONE);
     }
 
-    /**
-     * Get the quiz scores of a patient.
-     *
-     * @param userId The ID of the patient.
-     * @return The quiz scores of the patient.
-     */
-    @Operation(summary = "Get quiz scores of a patient", description = "Retrieve quiz scores of a patient by their ID")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successful operation", content = { @Content(mediaType = "application/json") }),
-            @ApiResponse(responseCode = "404", description = "Patient not found")
-    })
-    @GetMapping("/get-quiz-score/{userId}")
-    public ResponseEntity<?> getQuizScore(@PathVariable Long userId){
-        return new ResponseEntity<>(patientService.getQuizzes(userId), HttpStatus.OK);
-    }
 
     /**
      * Get posts associated with a patient.
@@ -147,72 +132,5 @@ public class PatientController {
     @PutMapping("/update-password")
     public ResponseEntity<?> updatePassword(@RequestBody PasswordDto passwordDto){
         return new ResponseEntity<>(patientService.updatePassword(passwordDto), HttpStatus.OK);
-    }
-
-    /**
-     * Enroll a patient into a course.
-     *
-     * @param patientId The ID of the patient.
-     * @param courseId The ID of the course.
-     * @return A message confirming enrollment.
-     */
-    @Operation(summary = "Enroll a patient into a course", description = "Enroll a patient into a course")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Enrollment successful"),
-            @ApiResponse(responseCode = "404", description = "Patient or course not found")
-    })
-    @PostMapping("/{patientId}/enroll-course/{courseId}")
-    public ResponseEntity<?> enrollCourse(@PathVariable Long patientId, @PathVariable Long courseId){
-        return new ResponseEntity<>(patientService.enrollCourse(patientId, courseId), HttpStatus.OK);
-    }
-
-    /**
-     * Mark a course as complete for a patient.
-     *
-     * @param patientId The ID of the patient.
-     * @param courseId The ID of the course.
-     * @return A message confirming completion.
-     */
-    @Operation(summary = "Mark a course as complete for a patient", description = "Mark a course as complete for a patient")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Course marked as complete"),
-            @ApiResponse(responseCode = "404", description = "Patient or course not found")
-    })
-    @PutMapping("/{patientId}/mark-complete/{courseId}")
-    public ResponseEntity<?> markComplete(@PathVariable Long patientId, @PathVariable Long courseId){
-        return new ResponseEntity<>(patientService.markComplete(patientId, courseId), HttpStatus.OK);
-    }
-
-    /**
-     * Get courses enrolled by a patient.
-     *
-     * @param userId The ID of the patient.
-     * @return The courses enrolled by the patient.
-     */
-    @Operation(summary = "Get courses enrolled by a patient", description = "Retrieve courses enrolled by a patient by their ID")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successful operation", content = { @Content(mediaType = "application/json") }),
-            @ApiResponse(responseCode = "404", description = "Patient not found")
-    })
-    @GetMapping("/enrolled-courses/{userId}")
-    public ResponseEntity<?> getEnrolledCourses(@PathVariable Long userId){
-        return new ResponseEntity<>(patientService.enrollCourses(userId), HttpStatus.OK);
-    }
-
-    /**
-     * Check if a task is completed by a patient for a specific course.
-     *
-     * @param patientId The ID of the patient.
-     * @param courseId The ID of the course.
-     * @return A message indicating task completion status.
-     */
-    @Operation(summary = "Check if a task is completed by a patient for a specific course", description = "Check if a task is completed by a patient for a specific course")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successful operation"),
-            @ApiResponse(responseCode = "404", description = "Patient or course not found")
-    })
-    @GetMapping("/{patientId}/task-complete/{courseId}")
-    public ResponseEntity<?> taskCompleted(@PathVariable Long patientId, @PathVariable Long courseId){
-        return new ResponseEntity<>(patientService.taskComplete(patientId, courseId), HttpStatus.OK);
     }
 }   

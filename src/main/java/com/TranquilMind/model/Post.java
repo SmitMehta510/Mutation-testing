@@ -1,15 +1,10 @@
 package com.TranquilMind.model;
 
-import com.TranquilMind.dto.PostDto;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.springframework.security.core.parameters.P;
 
 import java.sql.Timestamp;
-import java.util.List;
 
 @Entity
 @Getter
@@ -44,8 +39,4 @@ public class Post {
     Boolean isDisabled;
 
     Boolean isApproved;
-
-    @OneToMany(mappedBy = "post")
-    @JsonManagedReference
-    List<Comment> comments;
 }

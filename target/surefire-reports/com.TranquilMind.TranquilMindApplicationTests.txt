@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.TranquilMind.TranquilMindApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.801 s -- in com.TranquilMind.TranquilMindApplicationTests

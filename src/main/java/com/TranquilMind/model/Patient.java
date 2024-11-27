@@ -41,14 +41,6 @@ public class Patient{
     @JsonManagedReference
     List<Appointment> appointmentList;
 
-//    @OneToMany(mappedBy = "patient")
-//    @JsonManagedReference
-//    List<EnrolledCourse> enrolledCourses;
-
-    @OneToMany(mappedBy = "patient")
-    @JsonManagedReference
-    List<Quiz> quizScores;
-
 
     public PatientDto toDto(){
         return new PatientDto(user.getEmail(),user.getUserId(), firstName,middleName,lastName,age,mobileNo,gender,image);

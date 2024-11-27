@@ -1,10 +1,6 @@
 package com.TranquilMind.controller;
 
-import com.TranquilMind.dto.CommentDto;
 import com.TranquilMind.dto.PostDto;
-import com.TranquilMind.model.Comment;
-import com.TranquilMind.model.Post;
-import com.TranquilMind.service.CommentService;
 import com.TranquilMind.service.PostService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -27,8 +23,6 @@ public class PostController {
     @Autowired
     private PostService postService;
 
-    @Autowired
-    private CommentService commentService;
 
     /**
      * Retrieve all posts.
@@ -109,27 +103,6 @@ public class PostController {
         if(postService.deletePost(postId, userId)){
             return new ResponseEntity<>(HttpStatus.OK);
         }else{
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-    }
-
-    /**
-     * Add a new comment to a post.
-     *
-     * @param commentDto The details of the new comment.
-     * @return The newly added comment.
-     */
-    @Operation(summary = "Add a new comment", description = "Add a new comment to a post")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Comment added successfully", content = {@Content(mediaType = "application/json")}),
-            @ApiResponse(responseCode = "400", description = "Invalid input")
-    })
-    @PostMapping("/add-comment")
-    public ResponseEntity<?> addNewComment(@RequestBody CommentDto commentDto){
-        CommentDto comment = commentService.addComment(commentDto);
-        if(comment != null){
-            return new ResponseEntity<>(comment, HttpStatus.CREATED);
-        }else {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }

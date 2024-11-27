@@ -68,7 +68,7 @@ public class DoctorServiceImpl implements DoctorService {
         doctor.setAge(doctorDetails.getAge());
         doctor.setDescription(doctorDetails.getDescription());
 
-        return null;
+        return doctor;
     }
 
 //    @Override
@@ -85,7 +85,7 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public ResponseEntity<?> createDoctor(DoctorRegisterDto doctorRegisterDto) {
+    public Doctor createDoctor(DoctorRegisterDto doctorRegisterDto) {
 
         AuthDto authDto = new AuthDto(doctorRegisterDto.getEmail(), doctorRegisterDto.getPassword());
 
@@ -99,12 +99,11 @@ public class DoctorServiceImpl implements DoctorService {
                     doctorRegisterDto.getExperience(), doctorRegisterDto.getIsSenior(),
                     true, doctorRegisterDto.getImage());
             doctorRepository.save(doctor);
+            return doctor;
         }
-//        } else {
-//            throw new ResourceNotFoundException("Doctor creation unsuccessful");
-//        }
+//
 
-        return registerDto.getResponse();
+        return null;
     }
 
     public List<Appointment> getAppointments(Long id) {

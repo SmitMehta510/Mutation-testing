@@ -30,8 +30,6 @@ public class PostServiceImpl implements PostService {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private CommentService commentService;
 
     @Override
     public List<PostDto> getAllPostsByTime() {
@@ -153,26 +151,26 @@ public class PostServiceImpl implements PostService {
 
     public PostDto toDto(Post post) {
         User user = post.getPostedBy();
-        String name = getUserFullName(user);
+//        String name = getUserFullName(user);
 
-        return new PostDto(post.getPostId(), post.getTitle(), post.getDescription(), user.getUserId(), name,
-                post.getUploadedAt(), post.getImage(), post.getFlagged(), commentService.getCommentByPost(post),
+        return new PostDto(post.getPostId(), post.getTitle(), post.getDescription(), user.getUserId(), null,
+                post.getUploadedAt(), post.getImage(), post.getFlagged(),
                 post.getIsDisabled(), post.getIsApproved());
     }
 
-    private String getUserFullName(User user) {
-        String fullName = "";
-        String roleName = user.getRoles().get(0).getRoleName();
-
-        if (roleName.equals("PATIENT")) {
-            Patient patient = patientService.getPatientByUserId(user.getUserId());
-            fullName = concatFullName(patient.getFirstName(), patient.getMiddleName(), patient.getLastName());
-        } else if (roleName.equals("DOCTOR")) {
-            Doctor doctor = doctorService.getDoctorByUserId(user.getUserId());
-            fullName = concatFullName(doctor.getFirstName(), doctor.getMiddleName(), doctor.getLastName());
-        }
-        return fullName;
-    }
+//    private String getUserFullName(User user) {
+//        String fullName = "";
+//        String roleName = user.getRoles().get(0).getRoleName();
+//
+//        if (roleName.equals("PATIENT")) {
+//            Patient patient = patientService.getPatientByUserId(user.getUserId());
+//            fullName = concatFullName(patient.getFirstName(), patient.getMiddleName(), patient.getLastName());
+//        } else if (roleName.equals("DOCTOR")) {
+//            Doctor doctor = doctorService.getDoctorByUserId(user.getUserId());
+//            fullName = concatFullName(doctor.getFirstName(), doctor.getMiddleName(), doctor.getLastName());
+//        }
+//        return fullName;
+//    }
 
     private String concatFullName(String firstName, String middleName, String lastName) {
         return firstName + " " + middleName + " " + lastName;

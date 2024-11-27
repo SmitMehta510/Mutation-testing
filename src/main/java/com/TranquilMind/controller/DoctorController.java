@@ -5,7 +5,6 @@ import com.TranquilMind.dto.PasswordDto;
 import com.TranquilMind.exception.ResourceNotFoundException;
 import com.TranquilMind.model.Doctor;
 import com.TranquilMind.service.DoctorService;
-import com.TranquilMind.utilities.AppLogger;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -28,7 +27,6 @@ public class DoctorController {
     @Autowired
     private DoctorService doctorService;
 
-    Logger logger = AppLogger.getLogger();
 
     /**
      * Register a new doctor.
@@ -42,7 +40,7 @@ public class DoctorController {
             @ApiResponse(responseCode = "400", description = "Invalid input")
     })
     @PostMapping("/register")
-    public ResponseEntity<?> registerDoctor(@RequestBody DoctorRegisterDto doctorRegisterDto) {
+    public Doctor registerDoctor(@RequestBody DoctorRegisterDto doctorRegisterDto) {
         return doctorService.createDoctor(doctorRegisterDto);
     }
 
@@ -63,7 +61,6 @@ public class DoctorController {
         try {
             doctor = doctorService.getDoctorByUserId(id);
         } catch (ResourceNotFoundException e) {
-            logger.error(e.toString(),e.getMessage(),e);
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.status(HttpStatus.OK).body(doctor);
